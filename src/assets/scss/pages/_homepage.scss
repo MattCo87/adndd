@@ -1,0 +1,92 @@
+.overlay {
+    position: absolute;
+    visibility: hidden;
+    top: 100px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #1a0c04;
+    opacity: 0.9;
+    transition: opacity 12s ease-in;
+    z-index: 100;
+}
+
+#association {
+    display: grid;
+
+    color: #fffaeb;
+    text-shadow: rgb(0, 0, 0) 1px 2px 4px;
+    background-color: #873608;
+    font-family: "PT Sans", sans-serif;
+    font-size: 26px;
+    height: 180px;
+    background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(235, 83, 83, 0.25)),
+        url("../images/homepage/jdr_table.jpg") center bottom no-repeat;
+    background-size: auto, auto;
+    background-size: cover;
+
+    h2 {
+        max-width: 19rem;
+    }
+
+    .app-button {
+        width: fit-content;
+        height: fit-content;
+        &:hover {
+            background-color: #155166;
+            color: #fffaeb;
+        }
+    }
+}
+
+#jouer {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffeaae;
+    height: 240px;
+
+    p {
+        text-align: center;
+        padding-bottom: 10px;
+    }
+
+    a {
+        font-weight: 700;
+        display: block;
+        text-align: center;
+        margin: auto;
+        &:hover {
+            background-color: #155166;
+            color: #fffaeb;
+        }
+    }
+}
+
+#jeux {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    background-color: #d4560c;
+    height: 240px;
+
+    .app-button {
+        width: 100vw;
+        height: fit-content;
+        color: #fffaeb;
+        background-color: #6b2b06;
+        border: none;
+    }
+
+    a {
+        font-weight: 700;
+        font-size: 22px;
+        display: block;
+        text-align: center;
+        margin: auto;
+
+        &:hover {
+            background-color: #155166;
+        }
+    }
+}
