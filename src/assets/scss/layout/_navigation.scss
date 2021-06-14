@@ -49,9 +49,8 @@
         width: 80%;
         border-radius: 10px 0 0 10px;
         text-align: center;
-        box-shadow: -4px 4px 4px rgba(0, 0, 0, 0.05);
         z-index: 999;
-
+        
         .nav-item {
             margin: 2.5rem 0;
 
@@ -76,13 +75,13 @@
         }
 
         @include respond(tablet-horizontal) {
-            position: static;        
+            position: static;
             display: flex;
             flex-direction: row;
             justify-content: right;
             align-items: center;
             background-color: transparent;
-            box-shadow: none;
+            width: fit-content;
 
             .nav-item {
                 margin: 0 2rem;
