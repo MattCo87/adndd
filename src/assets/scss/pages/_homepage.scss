@@ -1,7 +1,7 @@
 .overlay {
-    position: absolute;
+    position: fixed;
     visibility: hidden;
-    top: 100px;
+    top: 66px;
     bottom: 0;
     left: 0;
     right: 0;
@@ -20,13 +20,22 @@
     font-family: "PT Sans", sans-serif;
     font-size: 26px;
     height: 180px;
-    background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(235, 83, 83, 0.25)),
-        url("../images/homepage/jdr_table.jpg") center bottom no-repeat;
-    background-size: auto, auto;
+    background: linear-gradient(rgba(59, 16, 2, 0.75), rgba(212, 99, 5, 0.25)), url("../images/homepage/jdr_table.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
     background-size: cover;
+    position: relative;
+
+    @include respond(tablet) {
+        height: 300px;
+    }
 
     h2 {
         max-width: 19rem;
+        @include respond(tablet) {
+            font-size: 40px;
+            max-width: 40rem;
+        }
     }
 
     .app-button {
@@ -61,6 +70,23 @@
             color: #fffaeb;
         }
     }
+
+    img {
+        height: 140px;
+    }
+
+    @include respond(tablet) {
+        height: 520px;
+
+        p {
+            font-size: 22px;
+            padding-bottom: 10px;
+        }
+
+        img {
+            height: 280px;
+        }
+    }
 }
 
 #jeux {
@@ -68,7 +94,7 @@
     justify-content: center;
     align-items: center;
     background-color: #d4560c;
-    height: 240px;
+    height: 260px;
 
     .app-button {
         width: 100vw;
@@ -88,5 +114,22 @@
         &:hover {
             background-color: #155166;
         }
+    }
+
+    img{
+        object-fit: cover;
+        height: 140px;
+    }
+
+    @include respond(tablet) {
+        height: 520px;
+
+        img {
+            height: 280px;
+        }
+
+        .app-button {
+            font-size: 28px;
+         }
     }
 }

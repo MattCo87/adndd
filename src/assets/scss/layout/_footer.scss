@@ -6,26 +6,31 @@
     color: #fffaeb;
 
     .footerlinks {
-        display: block;
+        display: flex;
         align-items: center;
         justify-content: center;
+        flex-direction: column;
+        .sitemap {
+            display: inherit;
+            flex-direction: column;
 
-        .links-group {
-            font-weight: 700;
-            padding: 8px 20px;
-            width: 300px;
-
-            ul {
-                display: inherit;
-                align-items: center;
-                justify-content: center;
-                list-style: none;
+            .links-group {
+                font-weight: 700;
                 padding: 8px 20px;
+                width: 300px;
 
-                li {
-                    padding-bottom: 10px;
-                    font-weight: 400;
-                    font-size: 14px;
+                ul {
+                    display: inherit;
+                    align-items: center;
+                    justify-content: center;
+                    list-style: none;
+                    padding: 8px 20px;
+
+                    li {
+                        padding-bottom: 10px;
+                        font-weight: 400;
+                        font-size: 14px;
+                    }
                 }
             }
         }
@@ -37,13 +42,36 @@
                 margin: 20px 0px;
             }
         }
+    }
 
-        @include respond(medium) {
-            display: flex;
+    hr {
+        width: 90%;
+        color: #fffaeb;
+        height: 1px;
+    }
+
+    @include respond(tablet) {
+        font-size: 18px;
+        .footerlinks {
+            flex-direction: column;
+            .sitemap {
+                flex-direction: row;
+
+                .links-group {
+                    ul {
+                        li {
+                            font-size: 16px;
+                        }
+                    }
+                }
+            }
         }
 
-        @include respond(small) {
-            display: block;
+        hr {
+            border: solid 1px #fffaeb;
+            width: 90%;
+            color: #fffaeb;
+            height: 0px;
         }
     }
 }
