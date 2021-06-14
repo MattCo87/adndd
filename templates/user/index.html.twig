@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block pagetitle %}Mon tablo{% endblock %}
+
+{% block body %}
+    <h1>Mon Tabl'o d'bord(el)</h1>
+    <section>
+        {% if app.user %}
+            <h2>
+                Bonjour {{ app.user.firstName }} !
+            </h2>
+             <p>
+                {{ app.user.idRegister }}
+            </p>
+            <p>
+                {{ app.user.lastName }}
+            </p>
+            <p>
+                {{ app.user.firstName }}
+            </p>
+            <p>
+                {{ app.user.pseudo }}
+            </p>
+            <p>
+                {{ app.user.email }}
+            </p>
+            <p>
+                <a href="#">Modifier mon mot de passe</a>
+            </p>
+        {% endif %}
+    </section>
+{% endblock %}

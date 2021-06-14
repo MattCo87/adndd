@@ -1,0 +1,27 @@
+html {
+    font-size: 16px;
+
+    body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1rem;
+        color: white;
+        background-color: #444444;
+
+        a {
+            color: white;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        @import "header";
+
+        .app-main {
+            padding: 1rem;
+        }
+
+        @import "footer";
+    }
+}

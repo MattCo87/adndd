@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block pagetitle %}Page d'accueil{% endblock %}
+
+{% block body %}
+    <h1>Page d'accueil</h1>
+    <p>
+        Coucou
+        {% if app.user %}
+            {{ app.user.firstName }}
+        {% endif %}
+        !
+    </p>
+{% endblock %}

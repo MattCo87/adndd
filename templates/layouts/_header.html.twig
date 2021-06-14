@@ -1,0 +1,29 @@
+<header class="app-header">
+    <a href="{{ path('home') }}" title="Retour à l'accueil" class="logo">
+        Retour
+    </a>
+
+
+    {% set currentPath = app.request.attributes.get('_route') %}
+
+    <nav class="app-navigation">
+        <ul>
+            <li>
+                <a href="{{ path('home') }}" {% if currentPath == 'home' %}class="active"{% endif %}>Accueil</a>
+            </li>
+
+            {% if not app.user %}
+                <li>
+                    <a href="{{ path('app_login') }}" {% if currentPath == 'app_login' %}class="active"{% endif %}>Login</a>
+                </li>
+            {% else %}
+                <li>
+                    <a href="{{ path('player') }}" {% if currentPath == 'player' %}class="active"{% endif %}>Montablo</a>
+                </li>
+                <li>
+                    <a href="{{ path('app_logout') }}">Logout</a>
+                </li>
+            {% endif %}
+        </ul>
+    </nav>
+</header>
