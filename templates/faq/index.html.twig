@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello FaqController!
+{% endblock %}
+
+{% block body %}
+	<h1>FOIRE AUX QUESTIONS</h1>
+	{% for faq in arFaq %}
+		<h2>{{faq.question}}</h2>
+		<p>{{ faq.answer }}</p>
+	{% endfor %}
+
+{% endblock %}
