@@ -50,7 +50,7 @@
         height: 1px;
     }
 
-    @include respond(tablet) {
+    @include respond(tablet-horizontal) {
         font-size: 18px;
         .footerlinks {
             flex-direction: column;
