@@ -2,30 +2,32 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     margin: 1rem 2rem;
-    column-gap: 2rem;
+    column-gap: 1rem;
 
     .grid-item {
         display: flex;
         justify-content: center;
         align-items: center;
+        position: relative;
+
         img {
             min-width: 100px;
-            height: auto;
             filter: drop-shadow(2px 2px 2px #271002);
         }
-    }
+     }
 
     &.two {
         grid-template-columns: repeat(2, 1fr);
         grid-template-areas: "leftbox rightbox";
+        column-gap: 0;
 
         .grid-itemLeft {
-            grid-area: "leftbox";
+            grid-area: leftbox;
             align-self: start;
         }
 
         .grid-itemRight {
-            grid-area: "rightbox";
+            grid-area: rightbox;
             align-self: end;
         }
     }

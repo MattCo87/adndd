@@ -1,9 +1,10 @@
 .app-main {
-    padding-top: 30px;
+    padding-top: 74px;
 
     section {
         padding: 1rem 0;
     }
 
     @import "../pages/homepage";
+    @import "../pages/homepageedit";
 }

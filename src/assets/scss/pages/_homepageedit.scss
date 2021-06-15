@@ -1,0 +1,39 @@
+.editAsso {
+    display: flex;
+    flex-direction: column;
+
+    & .imgUpAsso {
+        position: absolute;
+        top: -90px;
+        height: 60px;
+        min-width: 60px;
+    }
+}
+
+img.imgUpBook {
+    position: absolute;
+    top: 40px;
+    height: 60px !important;
+    min-width: 60px;
+    z-index: 12;
+}
+
+.app-grid.editGrid {
+    margin: 1rem 1rem;
+}
+
+.editText, a span {
+    padding: 2px;
+    border: 2px black dashed;
+    background: #ffffff;
+    color: black;
+    text-shadow: none;
+}
+
+.editButton {
+    &:hover {
+        background-color: #ed771d;
+        color: #271002;
+    }
+}
+
