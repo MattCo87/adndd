@@ -1,0 +1,135 @@
+.overlay {
+    position: fixed;
+    visibility: hidden;
+    top: 66px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #1a0c04;
+    opacity: 0.9;
+    transition: opacity 12s ease-in;
+    z-index: 100;
+}
+
+#association {
+    display: grid;
+
+    color: #fffaeb;
+    text-shadow: rgb(0, 0, 0) 1px 2px 4px;
+    background-color: #873608;
+    font-family: "PT Sans", sans-serif;
+    font-size: 26px;
+    height: 180px;
+    background: linear-gradient(rgba(59, 16, 2, 0.75), rgba(212, 99, 5, 0.25)), url("../images/homepage/jdr_table.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+
+    @include respond(tablet) {
+        height: 300px;
+    }
+
+    h2 {
+        max-width: 19rem;
+        @include respond(tablet) {
+            font-size: 40px;
+            max-width: 40rem;
+        }
+    }
+
+    .app-button {
+        width: fit-content;
+        height: fit-content;
+        &:hover {
+            background-color: #155166;
+            color: #fffaeb;
+        }
+    }
+}
+
+#jouer {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffeaae;
+    height: 240px;
+
+    p {
+        text-align: center;
+        padding-bottom: 10px;
+    }
+
+    a {
+        font-weight: 700;
+        display: block;
+        text-align: center;
+        margin: auto;
+        &:hover {
+            background-color: #155166;
+            color: #fffaeb;
+        }
+    }
+
+    img {
+        height: 140px;
+    }
+
+    @include respond(tablet) {
+        height: 520px;
+
+        p {
+            font-size: 22px;
+            padding-bottom: 10px;
+        }
+
+        img {
+            height: 280px;
+        }
+    }
+}
+
+#jeux {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    background-color: #d4560c;
+    height: 260px;
+
+    .app-button {
+        width: 100vw;
+        height: fit-content;
+        color: #fffaeb;
+        background-color: #6b2b06;
+        border: none;
+    }
+
+    a {
+        font-weight: 700;
+        font-size: 22px;
+        display: block;
+        text-align: center;
+        margin: auto;
+
+        &:hover {
+            background-color: #155166;
+        }
+    }
+
+    img{
+        object-fit: cover;
+        height: 140px;
+    }
+
+    @include respond(tablet) {
+        height: 520px;
+
+        img {
+            height: 280px;
+        }
+
+        .app-button {
+            font-size: 28px;
+         }
+    }
+}

@@ -1,18 +1,29 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-         <link rel="stylesheet" href="{{ asset('assets/css/styles.min.css') }}" />
-        {% block stylesheets %}
-        
-        {% endblock %}
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        {% block javascripts %}
-       
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
-</html>
+		<title>
+			{% block title %}Welcome!
+			{% endblock %}
+		</title>
+
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="{{ asset('assets/css/styles.min.css') }}"/>
+		{% block stylesheets %}{% endblock %}
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" defer></script>
+		<script type="text/javascript" src="./assets/js/menu.js" defer></script>
+		{% block javascripts %}{% endblock %}
+	</head>
+	<body>
+		{% include('layouts/_header.html.twig') %}
+		<main class="app-main">
+            {% block body %}{% endblock %}
+		</main>
+
+		{% include('layouts/_footer.html.twig') %}
+		</body>
+	</html>

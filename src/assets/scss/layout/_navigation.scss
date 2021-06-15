@@ -1,0 +1,100 @@
+.app-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+
+    .nav-logo {
+        width: 200px;
+        font-size: 1.5rem;
+        font-weight: 500;
+        color: #482ff7;
+    }
+
+    .hamburger {
+        display: block;
+        cursor: pointer;
+
+        &.active .bar:nth-child(2) {
+            opacity: 0;
+        }
+
+        &.active .bar:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        &.active .bar:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        @include respond(tablet-horizontal) {
+            display: none;
+        }
+    }
+
+    .bar {
+        display: block;
+        width: 25px;
+        height: 3px;
+        margin: 5px auto;
+        transition: all 0.3s ease-in-out;
+        background-color: #fffaeb;
+    }
+
+    .nav-menu {
+        position: fixed;
+        left: 200%;
+        top: 100px;
+        background-color: #fffaeb;
+        width: 80%;
+        border-radius: 10px 0 0 10px;
+        text-align: center;
+        z-index: 999;
+        
+        .nav-item {
+            margin: 2.5rem 0;
+
+            .nav-link {
+                color: #475569;
+
+                &:hover {
+                    color: #22bd37;
+                }
+            }
+        }
+
+        &.active {
+            left: 20%;
+        }
+
+        @include respond(tablet) {
+            width: 50%;
+            &.active {
+                left: 50%;
+            }
+        }
+
+        @include respond(tablet-horizontal) {
+            position: static;
+            display: flex;
+            flex-direction: row;
+            justify-content: right;
+            align-items: center;
+            background-color: transparent;
+            width: fit-content;
+
+            .nav-item {
+                margin: 0 2rem;
+                .nav-link {
+                    font-size: 20px;
+                    font-weight: 400;
+                    color: #fffaeb;
+
+                    &:hover {
+                        color: #2df147;
+                    }
+                }
+            }
+        }
+    }
+}
