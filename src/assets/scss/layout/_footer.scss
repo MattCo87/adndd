@@ -10,6 +10,17 @@
         align-items: center;
         justify-content: center;
         flex-direction: column;
+        a {
+            color: #fffaeb;
+            outline: none;
+            text-decoration: none;
+            &:hover {
+                color: #2df147;
+            }
+            &:visited {
+                color: #239633;
+            }
+        }
         .sitemap {
             display: inherit;
             flex-direction: column;
