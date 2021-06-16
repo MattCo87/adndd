@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ah! D & Dédé
+{% endblock %}
+
+{% block edit %}{% endblock %}
+
+{% block body %}
+	<div class="overlay"></div>
+	<div class="app-gameList">
+		<div class="app-gameCard">
+			<div class="gameDesc">
+				<img src="{{ asset('assets/images/games/cover_cth.png') }}" alt="couverture Cthulhu"/>
+				<div class="gameText">
+					<h2>L'APPEL DE CTHULHU</h2>
+					<p>Laissez-vous sombrer dans la folie de l'univers de ce chef d'œuvre de Lovecraft</p>
+				</div>
+			</div>
+			<div class="gameBanner">
+				<div class="gameCategory">Fantastique</div>
+				<div class="gameCTA">
+					<a class="app-button cta editButton" href="#" role="button">
+						<span>PDF RÈGLES</span>
+					</a>
+					<a class="app-button cta editButton" href="#" role="button">
+						<span>CRÉER UNE TABLE</span>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

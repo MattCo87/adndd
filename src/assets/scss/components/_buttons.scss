@@ -9,13 +9,14 @@
     cursor: pointer;
     font-size: 16px;
     min-width: 120px;
+    font-weight: 700;
 
     &.cta {
         display: inline-block;
         padding: .5rem 1rem;
         text-transform: uppercase;
         color: #271002;
-        border-color: #043440;
+        border-color: #6B2B06;
     }
 
     @include respond(tablet){

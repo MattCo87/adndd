@@ -59,6 +59,7 @@
         height: fit-content;
         &:hover {
             background-color: #155166;
+            border-color: #155166;
             color: #fffaeb;
         }
     }
@@ -75,6 +76,13 @@
         text-align: center;
         margin-bottom: 10px;
         z-index: 20;
+    }
+
+    .app-button {
+        border-color: #6B2B06;
+        &:hover {
+            border-color: #155166;
+        }
     }
 
     a {
