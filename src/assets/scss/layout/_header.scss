@@ -6,6 +6,10 @@
     position: fixed;
     z-index: 998;
 
+    &.edit {
+        background-color: black;
+    }
+
     a {
         text-decoration: none;
     }

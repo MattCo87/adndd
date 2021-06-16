@@ -50,7 +50,8 @@
         border-radius: 10px 0 0 10px;
         text-align: center;
         z-index: 999;
-        
+        box-shadow: 10px 10px 10px 4px rgba(0, 0, 0, 0.4);
+
         .nav-item {
             margin: 2.5rem 0;
 
@@ -67,9 +68,19 @@
             left: 20%;
         }
 
-        @include respond(tablet) {
+        @include respond(mobile-horizontal) {
             width: 50%;
             &.active {
+                box-shadow: 10px 10px 10px 4px rgba(0, 0, 0, 0.4);
+                left: 50%;
+            }
+        }
+
+        @include respond(tablet) {
+            width: 50%;
+            box-shadow: none;
+            &.active {
+                box-shadow: 10px 10px 10px 4px rgba(0, 0, 0, 0.4);
                 left: 50%;
             }
         }
@@ -82,6 +93,7 @@
             align-items: center;
             background-color: transparent;
             width: fit-content;
+            box-shadow: none;
 
             .nav-item {
                 margin: 0 2rem;
