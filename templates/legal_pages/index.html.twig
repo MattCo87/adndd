@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{{ content.title }}
+{% endblock %}
+
+{% block body %}
+	<div class="legal_mentions">
+		<h1>{{ content.title }}</h1>
+		<p>{{ content.content}}</p>
+	</div>
+{% endblock %}
