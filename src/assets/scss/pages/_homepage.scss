@@ -37,8 +37,12 @@
     background-size: cover;
     position: relative;
 
+    @include respond(mobile-horizontal){
+        height: 270px;
+    }
+
     @include respond(tablet) {
-        height: 300px;
+        height: 270px;
     }
 
     h2 {

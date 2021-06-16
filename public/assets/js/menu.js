@@ -6,12 +6,12 @@ hamburger.addEventListener("click", mobileMenu);
 
 async function mobileMenu() {
     var isInEditMode = overlay.classList.contains('editOverlay');
+    navMenu.style.transition = '0.3s';
 
     if (isInEditMode == false) {
         if (overlay.style.visibility == 'visible') {
             overlay.style.visibility = 'hidden';
         } else {
-            navMenu.style.transition = '0.3s';
             overlay.style.visibility = 'visible';
         }
     }

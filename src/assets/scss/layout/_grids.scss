@@ -24,11 +24,13 @@
         .grid-itemLeft {
             grid-area: leftbox;
             align-self: start;
+            justify-content: left;
         }
 
         .grid-itemRight {
             grid-area: rightbox;
             align-self: end;
+            justify-content: right;
         }
     }
 }
