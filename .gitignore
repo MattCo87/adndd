@@ -8,6 +8,7 @@
 /var/
 /vendor/*
 !/vendor/hush.txt
+.sass-cache
 ###< symfony/framework-bundle ###
 
 ###> symfony/phpunit-bridge ###

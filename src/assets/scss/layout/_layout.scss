@@ -1,0 +1,21 @@
+html {
+    font-size: 12px;
+    scroll-behavior: smooth;
+
+    body {
+        font-family: "Open Sans", sans-serif;
+        font-size: 16px;
+        color: #000;
+        background-color: #271002;
+
+        @import "header";
+
+        @import "navigation";
+
+        @import "grids";
+        
+        @import "main";
+
+        @import "footer";
+    }
+}

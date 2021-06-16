@@ -1,1 +1,11 @@
+<<<<<<< HEAD
 @import "layouts/layouts";
+=======
+@import "base/reset";
+
+@import "abstracts/mixins";
+
+@import "layout/layout";
+
+@import 'components/buttons';
+>>>>>>> 483f74d522f9b675598760ce57bf6f633aaaeb10
