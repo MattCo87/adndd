@@ -1,0 +1,57 @@
+.editAsso {
+    display: flex;
+    flex-direction: column;
+
+    & .imgUpAsso {
+        position: absolute;
+        top: -100px;
+        height: 80px;
+        min-width: 80px;
+
+        @include respond(mobile-horizontal) {
+            top: -160px;
+            height: 100px;
+            min-width: 100px;
+        }
+    }
+}
+
+img.imgUpBook {
+    position: absolute;
+    top: 40px;
+    height: 80px !important;
+    min-width: 80px;
+    z-index: 12;
+
+    @include respond(mobile-horizontal) {
+        top: 20px;
+        height: 80px !important;
+        min-width: 80px;
+    }
+
+    @include respond(tablet) {
+        top: 80px;
+        height: 100px !important;
+        min-width: 100px;
+    }
+}
+
+.app-grid.editGrid {
+    margin: 1rem 1rem;
+}
+
+.editText, a span {
+    padding: 2px;
+    border: 2px black dashed;
+    background: #ffffff;
+    color: black;
+    text-shadow: none;
+}
+
+.editButton {
+    &:hover {
+        background-color: #ed771d;
+        color: #271002;
+    }
+}
+
