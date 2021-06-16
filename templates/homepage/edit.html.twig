@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ah! D & Dédé
+{% endblock %}
+
+{% block edit %}edit
+{% endblock %}
+
+{% block body %}
+	<div class="overlay editOverlay"></div>
+
+		<section id="association">
+			<div class="app-grid two editGrid">
+				<div class="grid-item grid-itemLeft editAsso">
+					<h2 class="editText">ASSOCIATION DE JEU DE RÔLES DE GUÉRET</h2>
+				</div>
+				<div class="grid-item grid-itemRight editAsso">
+					<img src="{{ asset('assets/images/homepage/icon_upload.png') }}" alt="icône upload image" class="imgUpAsso"/>
+					<a class="app-button cta editButton" href="#" role="button">
+						<span>EN SAVOIR PLUS</span>
+					</a>
+				</div>
+			</div>
+
+		</section>
+		<section id="jouer">
+			<div class="app-grid editGrid">
+				<div class="grid-item">
+					<img src="{{ asset('assets/images/homepage/icon_upload.png') }}" alt="icône upload image" class="imgUpBook"/>
+					<img src="{{ asset('assets/images/homepage/cover_add.png') }}" alt="Advanced Donjons & Dragons"/>
+				</div>
+				<div class="grid-item">
+					<img src="{{ asset('assets/images/homepage/icon_upload.png') }}" alt="icône upload image" class="imgUpBook"/>
+					<img src="{{ asset('assets/images/homepage/cover_cob.png') }}" alt="Chroniques Oubliées"/>
+				</div>
+				<div class="grid-item">
+					<img src="{{ asset('assets/images/homepage/icon_upload.png') }}" alt="icône upload image" class="imgUpBook"/>
+					<img src="{{ asset('assets/images/homepage/cover_cth.png') }}" alt="L'Appel de Cthulhu"/>
+				</div>
+			</div>
+			<p class="editText">5 jeux disponibles actuellement!</p>
+			<a class="app-button cta editAsso" href="#">
+				<span>JOUER EN LIGNE</span>
+			</a>
+		</section>
+		<section id="jeux">
+			<div class="app-grid two editGrid">
+				<div class="grid-item">
+					<img src="{{ asset('assets/images/homepage/icon_upload.png') }}" alt="icône upload image" class="imgUpBook"/>
+					<img src="{{ asset('assets/images/homepage/dices.png') }}" alt="set de dés de jeu de rôle"/>
+				</div>
+				<div class="grid-item">
+					<img src="{{ asset('assets/images/homepage/icon_upload.png') }}" alt="icône upload image" class="imgUpBook"/>
+					<img src="{{ asset('assets/images/homepage/bookpile.png') }}" alt="livres de jeux de rôle"/>
+				</div>
+			</div>
+			<a class="app-button cta editAsso" href="#">
+				<h1 class="editText">DÉCOUVREZ TOUS NOS JEUX</h1>
+			</a>
+		</section>
+
+{% endblock %}

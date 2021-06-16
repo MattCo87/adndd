@@ -19,11 +19,11 @@
 		{% block javascripts %}{% endblock %}
 	</head>
 	<body>
-		{% include('layouts/_header.html.twig') %}
+		{% include 'layouts/_header.html.twig' with {edit: block('edit')} %}
 		<main class="app-main">
             {% block body %}{% endblock %}
 		</main>
 
-		{% include('layouts/_footer.html.twig') %}
+		{% include 'layouts/_footer.html.twig' %}
 		</body>
 	</html>
