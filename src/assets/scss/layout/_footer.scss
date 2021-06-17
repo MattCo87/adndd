@@ -2,8 +2,8 @@
     display: flex;
     justify-content: center;
     padding: 40px 60px;
-    background-color: #271002;
-    color: #fffaeb;
+    background-color: $colorultradark;
+    color: $colorultralight;
 
     .footerlinks {
         display: flex;
@@ -47,7 +47,7 @@
 
     hr {
         width: 90%;
-        color: #fffaeb;
+        color: $colorultralight;
         height: 1px;
     }
 
@@ -69,9 +69,9 @@
         }
 
         hr {
-            border: solid 1px #fffaeb;
+            border: solid 1px $colorultralight;
             width: 90%;
-            color: #fffaeb;
+            color: $colorultralight;
             height: 0px;
         }
     }

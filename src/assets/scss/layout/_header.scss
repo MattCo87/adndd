@@ -1,8 +1,7 @@
 .app-header {
     width: 100%;
-    border-bottom: 1px solid #271002;
-    background-color: #6b2b06;
-    box-shadow: 0px 1px 10px #271002;
+    background-color: $colormain;
+    box-shadow: 0px 1px 10px $colorultradark;
     position: fixed;
     z-index: 998;
 

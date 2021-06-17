@@ -40,7 +40,7 @@ img.imgUpBook {
     margin: 1rem 1rem;
 }
 
-.editText, a span {
+.editText, .editButton span {
     padding: 2px;
     border: 2px black dashed;
     background: #ffffff;
@@ -49,9 +49,10 @@ img.imgUpBook {
 }
 
 .editButton {
+    z-index: 120;
     &:hover {
-        background-color: #ed771d;
-        color: #271002;
+        background-color: $colorcta;
+        color: $colorultradark;
     }
 }
 
