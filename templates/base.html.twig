@@ -18,6 +18,7 @@
 		{% block javascripts %}{% endblock %}
 	</head>
 	<body>
+		{% block edit %}{% endblock %}
 		{% include 'layouts/_header.html.twig' with {edit: block('edit')} %}
 		<main class="app-main">
             {% block body %}{% endblock %}
