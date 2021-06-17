@@ -1,10 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block pagetitle %}Ouuuuups{% endblock %}
+{% block title %}Erreur interne{% endblock %}
+
+{% block body_class %}bodybgerror{% endblock %}
+
+{% block edit %}{% endblock %}
 
 {% block body %}
-    <h1>Samarchpô :(</h1>
-    <p>
-        <a href="{{ path('home') }}">Reviens Léon</a>
-    </p>
+    <div class="container ">
+        <a class="app-button cta" href="{{ path('homepage') }}" role="button">Un squelette vous barre la route, faites demi-tour</a>
+    </div>
 {% endblock %}

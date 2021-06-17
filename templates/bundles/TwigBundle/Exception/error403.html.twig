@@ -1,10 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block pagetitle %}Tapaldroiiiiiiii !{% endblock %}
+{% block title %}Accès refusé, connexion requise{% endblock %}
+
+{% block body_class %}bodybg403{% endblock %}
+
+{% block edit %}{% endblock %}
 
 {% block body %}
-    <h1>Dégage !</h1>
-    <p>
-        <a href="{{ path('app_login') }}">Ou alors dis qui tu es</a>
-    </p>
+    <div class="container ">
+        <a class="app-button cta" href="{{ path('app_login') }}" role="button">Qui êtes-vous, voyageur ?</a>
+    </div>
 {% endblock %}
