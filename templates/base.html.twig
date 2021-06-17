@@ -18,7 +18,7 @@
 		<script type="text/javascript" src="./assets/js/menu.js" defer></script>
 		{% block javascripts %}{% endblock %}
 	</head>
-	<body>
+	<body class="{% block body_class %}{% endblock %}">
 		{% include 'layouts/_header.html.twig' with {edit: block('edit')} %}
 		<main class="app-main">
             {% block body %}{% endblock %}
