@@ -7,6 +7,6 @@
 {% block body %}
 	<div class="legal_mentions">
 		<h1>{{ content.title }}</h1>
-		<p>{{ content.content}}</p>
+		{{content.content | raw}}
 	</div>
 {% endblock %}

@@ -3,4 +3,26 @@
     text-align: center;
     color: #873608;
     padding: 20px;
+    
+    h2 {
+        font-weight: 600;
+        padding-bottom: 15px;
+        font-size: 25px;
+    }
+    h3 {
+        font-weight: 550;
+        padding-bottom: 15px;
+        font-size: 23px;
+    }
+    p {
+        line-height: 140%;
+        font-size: 21px;
+        text-align: left;
+        @include respond(tablet) {
+            text-align: center;
+        }
+    }
+    @include respond(desktop) {
+        padding: 25px 0;
+    }
 }

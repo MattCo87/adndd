@@ -11,7 +11,7 @@ use App\Entity\FAQ;
 class FaqController extends AbstractController
 {
     /**
-     * @Route("faq", name="faq")
+     * @Route("/faq", name="faq")
      */
     public function index(): Response
     {

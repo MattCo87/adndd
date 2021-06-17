@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "58df43f136e3f3f7dd634c76f0ab4d96",
+    "content-hash": "48da53f0fdba2effa4dd7db7785ebf20",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -1619,7 +1619,7 @@
                 }
             ],
             "time": "2021-01-14T21:52:44+00:00"
-        },
+        }, 
         {
             "name": "gedmo/doctrine-extensions",
             "version": "v3.0.5",

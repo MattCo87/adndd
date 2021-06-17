@@ -39,7 +39,7 @@ class CmsController extends AbstractController
      */
     public function legalTou(): Response
     {
-        $legalTou = $this->getDoctrine()->getRepository(CMS::class)->findOneBy(['title' => 'conditions d utilisation']);
+        $legalTou = $this->getDoctrine()->getRepository(CMS::class)->findOneBy(['title' => 'conditions d\'utilisation']);
 
         return $this->render('legal_pages/index.html.twig', [
             'content' => $legalTou,
