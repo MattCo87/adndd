@@ -1,8 +1,12 @@
 &.bodybg404 {
-.app-main {
-    .container{
-        background: no-repeat center url(../images/errors/error404.jpg);
-        background-size: cover;
+    .app-main {
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 92vh;
+            background: url(../images/errors/error404.jpg) center center no-repeat;
+            background-size: cover;
+        }
     }
-}
 }
