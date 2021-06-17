@@ -4,5 +4,8 @@
 
 #login:
 #    path: /
-#    controller: App\Controller\SecurityController::login
+#    controller: App\Controller\UserController::login
 
+#account:
+#    path: /
+#    controller: App\Controller\UserController::account

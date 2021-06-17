@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Informations personnelles{% endblock %}
+{% block edit %}
+{% endblock %}
+
+{% block body %}
+    <h1>Informations personnelles</h1>
+    <section>
+        <div>
+            <p>
+                Bonjour {{ app.user.firstName }} !
+            </p>
+        </div>
+    </section>
+    <section>
+        <div>
+            N°: {{ app.user.idRegister }}
+        </div>
+        <div>
+            Nom: {{ app.user.lastName }}
+        </div>
+        <div>
+            Prénom: {{ app.user.firstName }}
+        </div>
+    </section>
+    <section>          
+        <p>
+            {% if app.user.pseudo %}    
+                Pseudo: {{ app.user.pseudo }}
+            {% else %} 
+                Pseudo: Vous n'avez pas de pseudonyme actuellement.
+            {% endif %}
+        </p>
+        <p>
+            <a href="#">Modifier votre pseudonyme </a>
+        </p>
+    </section>
+    <section>
+        <p>
+            E-mail: {{ app.user.email }}
+        </p>
+        <p>
+            <a href="#">Modifier votre e-mail </a>
+        </p>        
+    </section>
+    <section>
+        <div>
+            <a href="#">Modifier votre mot de passe </a>
+        </div>
+    </section>
+{% endblock %}

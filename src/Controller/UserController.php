@@ -42,4 +42,12 @@ class UserController extends AbstractController
     {
         return $this->render('user/index.html.twig');
     }
+
+    /**
+     * @Route("/account", name="app_account")
+     */
+    public function account()
+    {
+        return $this->render('user/accountinfos.html.twig');
+    }
 }
