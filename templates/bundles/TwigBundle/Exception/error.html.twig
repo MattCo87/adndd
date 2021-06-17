@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Erreur interne.{% endblock %}
+
+{% block body %}
+    <div class="container {% block body_class %}bodybgerror{% endblock %}">
+    <a class="app-button cta" href="#" role="button">Un squelette vous barre la route, faites demi-tour.</a>
+    </div>
+{% endblock %}
