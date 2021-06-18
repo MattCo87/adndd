@@ -24,10 +24,9 @@
 
 #association {
     display: grid;
-
-    color: #fffaeb;
+    color: $colorultralight;
     text-shadow: rgb(0, 0, 0) 1px 2px 4px;
-    background-color: #873608;
+    background-color: $colorsecondary;
     font-family: "PT Sans", sans-serif;
     font-size: 26px;
     height: 180px;
@@ -45,7 +44,7 @@
         height: 270px;
     }
 
-    h2 {
+    .assoTitle {
         max-width: 19rem;
         font-size: 26px;
         @include respond(tablet) {
@@ -58,8 +57,9 @@
         width: fit-content;
         height: fit-content;
         &:hover {
-            background-color: #155166;
-            color: #fffaeb;
+            background-color: $coloraccent;
+            border-color: $coloraccent;
+            color: $colorultralight;
         }
     }
 }
@@ -68,7 +68,7 @@
     display: grid;
     justify-content: center;
     align-items: center;
-    background-color: #ffeaae;
+    background-color: $colorbg;
     height: 240px;
 
     p {
@@ -77,14 +77,21 @@
         z-index: 20;
     }
 
+    .app-button {
+        border-color: $colormain;
+        &:hover {
+            border-color: $coloraccent;
+        }
+    }
+
     a {
         font-weight: 700;
         display: block;
         text-align: center;
         margin: auto;
         &:hover {
-            background-color: #155166;
-            color: #fffaeb;
+            background-color: $coloraccent;
+            color: $colorultralight;
         }
     }
 
@@ -110,14 +117,16 @@
     display: grid;
     justify-content: center;
     align-items: center;
-    background-color: #d4560c;
+    background-color: $colorintense;
     height: 260px;
 
     .app-button {
         width: 100vw;
+        box-sizing:border-box ;
+        border-radius: 0;
         height: fit-content;
-        color: #fffaeb;
-        background-color: #6b2b06;
+        color: $colorultralight;
+        background-color: $colormain;
         border: none;
     }
 
@@ -129,7 +138,7 @@
         margin: auto;
 
         &:hover {
-            background-color: #155166;
+            background-color: $coloraccent;
         }
     }
 
