@@ -1,0 +1,211 @@
+.overlay {
+    position: fixed;
+    visibility: hidden;
+    top: 40px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #1a0c04;
+    opacity: 0.9;
+    transition: opacity 12s ease-in;
+    z-index: 100;
+
+    &.editOverlay {
+        background: rgb(255, 255, 255);
+        visibility: visible;
+        z-index: 12;
+        opacity: 80%;
+    }
+}
+
+.app-gameList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 4vh 0 3vh 0;
+    background-color: $colorbg;
+
+    @include respond(mobile-horizontal) {
+        padding: 5vh 0 3vh 0;
+    }
+
+    @include respond(tablet) {
+        padding: 3vh 0 3vh 0;
+    }
+
+    @include respond(tablet-horizontal) {
+        padding: 3vh 0 3vh 0;
+    }
+    @include respond(desktop) {
+        padding: 3vh 0 3vh 0;
+    }
+
+    .app-gameCard {
+        flex: 1 1 auto;
+        min-width: 100vw;
+        background-color: $colorultralight;
+        box-shadow: 0px 4px 10px -2px $colorultradark;
+        margin-bottom: 4vh;
+
+        @include respond(mobile-horizontal) {
+            max-width: 46vw;
+            min-width: 1vw;
+            margin-bottom: 6vh;
+        }
+
+        @include respond(tablet) {
+            max-width: 46vw;
+            min-width: 1vw;
+            margin-bottom: 8vh;
+        }
+
+        @include respond(tablet-horizontal) {
+            max-width: 46vw;
+            min-width: 1vw;
+            margin-bottom: 8vh;
+        }
+
+        @include respond(desktop) {
+            max-width: 30vw;
+            min-width: 1vw;
+            margin-bottom: 8vh;
+        }
+
+        .gameDesc {
+            display: flex;
+            background-color: $colorultralight;
+
+            & img {
+                max-width: 150px;
+                height: 50vw;
+
+                @include respond(mobile-horizontal) {
+                    max-width: 26vw;
+                    height: 26vw;
+                }
+
+                @include respond(tablet-horizontal) {
+                    max-width: 26vw;
+                    height: 26vw;
+                }
+
+                @include respond(desktop) {
+                    max-width: 18vw;
+                    height: 18vw;
+                }
+
+                @include respond(desktop-wide) {
+                    max-width: 16vw;
+                    height: 16vw;
+                }
+            }
+
+            .gameText {
+                flex: 1 1 auto;
+                height: 44vw;
+                padding: 10px;
+                text-align: center;
+                color: $colormain;
+                overflow: hidden;
+
+                @include respond(mobile-horizontal) {
+                    height: 23vw;
+                }
+
+                @include respond(tablet) {
+                    height: 23vw;
+                }
+
+                @include respond(tablet-horizontal) {
+                    height: 24vw;
+                }
+
+                @include respond(desktop) {
+                    height: 16vw;
+                }
+
+                @include respond(desktop-wide) {
+                    height: 15vw;
+                }
+
+                .gameTitle {
+                    color: black;
+                    padding-bottom: 20px;
+                    @include respond(tablet) {
+                        padding-top: 1rem;
+                    }
+                    @include respond(desktop) {
+                        padding-top: 1rem;
+                    }
+                }
+
+                .gameStory {
+                    color: $colorsecondary;
+                    overflow-y: auto;
+                    font-size: 4.6vw;
+                    line-height: 1.3;
+                    height: 28vw;
+
+                    @include respond(mobile-horizontal) {
+                        height: 14vw;
+                        font-size: 2.2vw;
+                        line-height: 1.2;
+                    }
+
+                    @include respond(tablet) {
+                        height: 14vw;
+                        font-size: 2vw;
+                        line-height: 1.3;
+                    }
+
+                    @include respond(tablet-horizontal) {
+                        height: 18vw;
+                        font-size: 1.5vw;
+                        line-height: 1.3;
+                    }
+
+                    @include respond(desktop) {
+                        height: 10.5vw;
+                        font-size: 1.2vw;
+                        line-height: 1.5;
+                    }
+
+                    @include respond(desktop-wide) {
+                        height: 12vw;
+                        font-size: 1vw;
+                        line-height: 1.5;
+                    }
+                }
+            }
+        }
+
+        .gameBanner {
+            background-color: $colormain;
+            height: 110px;
+            .gameCategory {
+                padding: 10px;
+                text-align: center;
+                font-size: 24px;
+                font-weight: 700;
+                color: $colorultralight;
+            }
+            .gameCTA {
+                display: flex;
+                justify-content: space-around;
+                padding: 10px 0;
+                .app-button {
+                    color: $colorultralight;
+                    border: none;
+
+                    @include respond(desktop) {
+                        font-size: 1.2vw;
+                    }
+
+                    @include respond(desktop-wide) {
+                        font-size: 1vw;
+                    }
+                }
+            }
+        }
+    }
+}

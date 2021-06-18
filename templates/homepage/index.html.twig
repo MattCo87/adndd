@@ -12,7 +12,7 @@
 		<section id="association">
 			<div class="app-grid two">
 				<div class="grid-item grid-itemLeft">
-					<h2>ASSOCIATION DE JEU DE RÔLES DE GUÉRET</h2>
+					<h2 class="assoTitle">ASSOCIATION DE JEU DE RÔLES DE GUÉRET</h2>
 				</div>
 				<div class="grid-item grid-itemRight">
 					<a class="app-button cta" href="#" role="button">
@@ -20,8 +20,8 @@
 					</a>
 				</div>
 			</div>
-
 		</section>
+
 		<section id="jouer">
 			<div class="app-grid">
 				<div class="grid-item"><img src="{{ asset('assets/images/homepage/cover_add.png') }}" alt="Advanced Donjons & Dragons"/></div>
@@ -33,12 +33,13 @@
 				JOUER EN LIGNE
 			</a>
 		</section>
+		
 		<section id="jeux">
 			<div class="app-grid two">
 				<div class="grid-item"><img src="{{ asset('assets/images/homepage/dices.png') }}" alt="set de dés de jeu de rôle"/></div>
 				<div class="grid-item"><img src="{{ asset('assets/images/homepage/bookpile.png') }}" alt="livres de jeux de rôle"/></div>
 			</div>
-			<a class="app-button cta" href="#" role="button">
+			<a class="app-button cta" href="{{ path('games') }}" role="button">
 				<h1>DÉCOUVREZ TOUS NOS JEUX</h1>
 			</a>
 		</section>

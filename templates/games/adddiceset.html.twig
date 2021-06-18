@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ah! D & Dédé
+{% endblock %}
+
+{% block edit %}{% endblock %}
+
+{% block body %}
+	<div class="overlay"></div>
+	<div class="container">
+		<h1>NOUVEAU JEU DE DÉ</h1>
+		<div class="form">
+			<form action="adddiceset.php">
+				<div class="row">
+					<label class="diceName" for="d2count">D2</label>
+					<input class="diceCount" type="number" id="d2count" name="d2count" min="0" max="10" step="1" value="0">
+				</div>
+				<div class="row">
+					<label class="diceName" for="d3count">D3</label>
+					<input class="diceCount" type="number" id="d3count" name="d3count" min="0" max="10" step="1" value="0">
+				</div>
+				<div class="row">
+					<label class="diceName" for="d4count">D4</label>
+					<input class="diceCount" type="number" id="d4count" name="d4count" min="0" max="10" step="1" value="0">
+				</div>
+				<div class="row">
+					<label class="diceName" for="d6count">D6</label>
+					<input class="diceCount" type="number" id="d6count" name="d6count" min="0" max="10" step="1" value="0">
+				</div>
+				<div class="row">
+					<label class="diceName" for="d8count">D8</label>
+					<input class="diceCount" type="number" id="d8count" name="d8count" min="0" max="10" step="1" value="0">
+				</div>
+				<div class="row">
+					<label class="diceName" for="d10count">D10</label>
+					<input class="diceCount" type="number" id="d10count" name="d10count" min="0" max="10" step="1" value="0">
+				</div>
+				<div class="row">
+					<label class="diceName" for="d12count">D12</label>
+					<input class="diceCount" type="number" id="d12count" name="d12count" min="0" max="10" step="1" value="0">
+				</div>
+				<div class="row">
+					<label class="diceName" for="d4count">D20</label>
+					<input class="diceCount" type="number" id="d4count" name="d4count" min="0" max="10" step="1" value="0">
+				</div>
+				<div class="row">
+					<input class="app-button cta" type="submit" value="Envoyer">
+				</div>
+			</form>
+		</div>
+	</div>
+{% endblock %}
