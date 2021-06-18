@@ -1,12 +1,13 @@
 html {
     font-size: 16px;
+    line-height: 1.5;
     scroll-behavior: smooth;
 
     body {
         font-family: "Open Sans", sans-serif;
         font-size: 21px;
         color: #000;
-        background-color: #271002;
+        background-color: $colorultradark;
 
         @import "header";
 
@@ -19,7 +20,7 @@ html {
         @import "../pages/error403";
         @import "../pages/error404";
         @import "../pages/error";
-
+      
         @import "footer";
     }
 }
