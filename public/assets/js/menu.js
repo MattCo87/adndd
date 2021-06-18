@@ -4,7 +4,7 @@ const overlay = document.querySelector(".overlay");
 
 hamburger.addEventListener("click", mobileMenu);
 
-async function mobileMenu() {
+function mobileMenu() {
     var isInEditMode = overlay.classList.contains('editOverlay');
     navMenu.style.transition = '0.3s';
 
