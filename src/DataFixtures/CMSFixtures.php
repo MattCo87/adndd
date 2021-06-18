@@ -15,8 +15,10 @@ class CMSFixtures extends Fixture implements OrderedFixtureInterface
         $cms1 = new CMS();
         $cms1->setTitle('mentions legales');
         $cms1->setContent('<h2> Titre de la première partie </h2> 
-                        <p> une ligne de blablabla </p>
-                        <p> ça c\'est une autre ligne de blabla </p> ');
+                        <p> une ligne de blablabla  It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that</p>
+                        <p> ça c\'est une autre ligne de blablaIt is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that </p> 
+                        <p> It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that </p>');
+
         $cms1->setType("text");
         $cms1->setIsActive(true);
         $manager->persist($cms1);
@@ -26,7 +28,8 @@ class CMSFixtures extends Fixture implements OrderedFixtureInterface
         $cms2->setContent('<h2> Titre de la première partie </h2> 
                         <h3> voici un sous-titre </h3>
                         <p> une ligne de blablabla </p>
-                        <p> ça c\'est une autre ligne de blabla </p> ');
+                        <p> ça c\'est une autre ligne de blabla </p> It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that
+                        <p> It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that </p>');
         $cms2->setType("text");
         $cms2->setIsActive(true);
         $manager->persist($cms2);
