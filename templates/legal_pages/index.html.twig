@@ -4,7 +4,10 @@
 	{{ content.title }}
 {% endblock %}
 
+{% block edit %}{% endblock %}
+
 {% block body %}
+	<div class="overlay"></div>
 	<div class="legal_mentions">
 		<h1>{{ content.title }}</h1>
 		{{content.content | raw}}

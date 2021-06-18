@@ -1,28 +1,24 @@
 .legal_mentions {
     background-color: #ffeaae;
-    text-align: center;
     color: #873608;
-    padding: 20px;
     text-align: left;
+    width: 100vw;
+
     h1 {
         text-align: center;
     }
     h2 {
         font-weight: 600;
-        padding-bottom: 15px;
         font-size: 25px;
+        padding: 10px 4vw;
     }
     h3 {
+        padding: 10px 4vw;
         font-weight: 550;
-        padding-bottom: 15px;
         font-size: 23px;
     }
     p {
-        line-height: 140%;
+        padding: 10px 4vw;
         font-size: 21px;
-        text-align: left;
-    }
-    @include respond(desktop) {
-        padding: 25px 0;
     }
 }

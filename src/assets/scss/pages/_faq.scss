@@ -3,10 +3,9 @@
     text-align: center;
     color: #873608;
     padding: 20px;
-   
+
     .qr {
-        
-        padding: 15px 0;
+        padding: 3vw 0;
         h2 {
             font-weight: 600;
             padding-bottom: 15px;
@@ -20,7 +19,7 @@
                 text-align: center;
             }
         }
-        @include respond(desktop){
+        @include respond(desktop) {
             padding: 25px 0;
         }
     }

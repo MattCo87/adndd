@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block edit %}{% endblock %}
+
+{% block body %}
+	<div class="overlay"></div>
+	<div class="presentation">
+		{{presentation.content | raw}}
+	</div>
+{% endblock %}

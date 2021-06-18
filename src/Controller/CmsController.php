@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 use App\Entity\CMS;
+use Doctrine\ORM\Query\AST\LikeExpression;
 
 class CmsController extends AbstractController
 {
@@ -43,6 +44,18 @@ class CmsController extends AbstractController
 
         return $this->render('legal_pages/index.html.twig', [
             'content' => $legalTou,
+        ]);
+    }
+
+    /**
+     * @Route("/presentation", name="presentation")
+     */
+    public function presentation(): Response
+    {
+        $presentation = $this->getDoctrine()->getRepository(CMS::class)->findOneBy(['type' => 'about']);
+
+        return $this->render('presentation/index.html.twig', [
+            'presentation' => $presentation,
         ]);
     }
 }

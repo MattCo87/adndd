@@ -19,7 +19,7 @@ class CMSFixtures extends Fixture implements OrderedFixtureInterface
                         <p> ça c\'est une autre ligne de blablaIt is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that </p> 
                         <p> It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that </p>');
 
-        $cms1->setType("text");
+        $cms1->setType("legal");
         $cms1->setIsActive(true);
         $manager->persist($cms1);
 
@@ -28,9 +28,9 @@ class CMSFixtures extends Fixture implements OrderedFixtureInterface
         $cms2->setContent('<h2> Titre de la première partie </h2> 
                         <h3> voici un sous-titre </h3>
                         <p> une ligne de blablabla </p>
-                        <p> ça c\'est une autre ligne de blabla </p> It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that
+                        <p> ça c\'est une autre ligne de blabla It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that</p> 
                         <p> It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that </p>');
-        $cms2->setType("text");
+        $cms2->setType("legal");
         $cms2->setIsActive(true);
         $manager->persist($cms2);
 
@@ -40,44 +40,25 @@ class CMSFixtures extends Fixture implements OrderedFixtureInterface
                         <h3> voici un sous-titre </h3>
                         <p> une ligne de blablabla </p>
                         <p> ça c\'est une autre ligne de blabla </p> ');
-        $cms3->setType("text");
+        $cms3->setType("legal");
         $cms3->setIsActive(true);
         $manager->persist($cms3);
 
         $cms4 = new CMS();
-        $cms4->setTitle('présentation texte 1');
-        $cms4->setContent('It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that   ');
-        $cms4->setType("text");
+        $cms4->setTitle('présentation');
+        $cms4->setContent('<p> It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that
+                            It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that </p>
+                            <img src="/assets/images/presentation/presentation1.jpg" alt="image de presentation 1"/>
+                            <p> It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that
+                            It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that </p>
+                            <img src="/assets/images/presentation/presentation2.jpg" alt="image de presentation 2"/>
+                            <p> It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that
+                            It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that </p>');
+        $cms4->setType("about");
         $cms4->setIsActive(true);
         $manager->persist($cms4);
 
-        $cms5 = new CMS();
-        $cms5->setTitle('présentation texte 2');
-        $cms5->setContent('It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that   ');
-        $cms5->setType("text");
-        $cms5->setIsActive(true);
-        $manager->persist($cms5);
 
-        $cms6 = new CMS();
-        $cms6->setTitle('présentation texte 3');
-        $cms6->setContent('It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that   ');
-        $cms6->setType("text");
-        $cms6->setIsActive(true);
-        $manager->persist($cms6);
-
-        $cms7 = new CMS();
-        $cms7->setTitle('présentation img 1');
-        $cms7->setMedia('presentation2.png');
-        $cms7->setType("img");
-        $cms7->setIsActive(true);
-        $manager->persist($cms7);
-
-        $cms8 = new CMS();
-        $cms8->setTitle('présentation img 2');
-        $cms8->setMedia('presentation2.png');
-        $cms8->setType("img");
-        $cms8->setIsActive(true);
-        $manager->persist($cms8);
 
         $manager->flush();
     }
