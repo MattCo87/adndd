@@ -1,37 +1,44 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Ah! D & Dédé
+{% block title %}Ah! D & Dédé{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
 {% endblock %}
 
-{% block edit %}
+{% block javascripts %}
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin="" defer></script>
+    <script type="text/javascript" src="{{ asset('assets/js/app.js') }}" defer></script>
 {% endblock %}
+
+{% block edit %}{% endblock %}
 
 {% block body %}
     <div id="map"></div>
     <!-- Make sure you put this AFTER Leaflet's CSS -->
-   <script type="text/javascript" src="app.js"></script>
-<footer class="app-footer">
-	<div class="footerlinks">
-		<div class="sitemap">
-			<div class="links-group">
-				Venez nous rendre visite
-				<ul>
-					<li>22 rue de la Sénatorerie</li>
-					<li>23000 Guéret, FRANCE</li>
-				</ul>
-			</div>
+    <script type="text/javascript" src="app.js"></script>
+    <footer class="app-footer">
+        <div class="footerlinks">
+            <div class="sitemap">
+                <div class="links-group">
+                    Venez nous rendre visite
+                    <ul>
+                        <li>22 rue de la Sénatorerie</li>
+                        <li>23000 Guéret, FRANCE</li>
+                    </ul>
+                </div>
 
-			<div class="links-group">
-				Contactez-nous
-				<ul>
-					<li>ah-d-and-dede@facebook.com</li>
-					<li>ah-d-and-dede23000</li>
-				</ul>
-			</div>
-		</div>
-		<hr>
-	</div>
-</footer>
+                <div class="links-group">
+                    Contactez-nous
+                    <ul>
+                        <li>ah-d-and-dede@facebook.com</li>
+                        <li>ah-d-and-dede23000</li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+        </div>
+    </footer>
 
 
 {% endblock %}
