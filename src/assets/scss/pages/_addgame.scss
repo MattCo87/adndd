@@ -1,0 +1,194 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    background-color: $colorultralight;
+
+    h1 {
+        color: $colormain;
+        padding: 6vw 0;
+        margin: auto;
+
+        @include respond(mobile-horizontal) {
+            padding: 3vw 0;
+        }
+
+        @include respond(tablet) {
+        }
+
+        @include respond(tablet-horizontal) {
+        }
+
+        @include respond(desktop) {
+            padding: 2vw 0;
+        }
+
+        @include respond(desktop-wide) {
+            padding: 1.5vw 0;
+        }
+    }
+
+    .form {
+        width: 100vw;
+        box-sizing: border-box;
+        border-radius: 5px;
+        background-color: white;
+        padding: 4vw;
+        margin: 0 auto 8vw auto;
+        box-shadow: 0px 4px 10px -2px $colorultradark;
+
+        @include respond(mobile-horizontal) {
+        }
+
+        @include respond(tablet) {
+        }
+
+        @include respond(tablet-horizontal) {
+        }
+
+        @include respond(desktop) {
+            padding: 2vw;
+            max-width: 60vw;
+        }
+
+        @include respond(desktop-wide) {
+            padding: 1vw;
+            max-width: 40vw;
+        }
+
+        /* Style inputs, select elements and textareas */
+        input[type="text"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            resize: vertical;
+
+            @include respond(mobile-horizontal) {
+            }
+
+            @include respond(tablet) {
+            }
+
+            @include respond(tablet-horizontal) {
+            }
+
+            @include respond(desktop) {
+            }
+
+            @include respond(desktop-wide) {
+            }
+        }
+
+        /* Style the label to display next to the inputs */
+        label {
+            padding: 12px 12px 12px 0;
+            display: inline-block;
+
+            @include respond(mobile-horizontal) {
+            }
+
+            @include respond(tablet) {
+            }
+
+            @include respond(tablet-horizontal) {
+            }
+
+            @include respond(desktop) {
+            }
+
+            @include respond(desktop-wide) {
+            }
+        }
+
+        /* Style the submit button */
+        input[type="submit"] {
+            cursor: pointer;
+            float: right;
+            margin-top: 4vw;
+            font-size: 4vw;
+
+            @include respond(mobile-horizontal) {
+                font-size: 2.2vw;
+                margin-top: 2vw;
+            }
+
+            @include respond(tablet) {
+                font-size: 1.8vw;
+                margin-top: 2vw;
+            }
+
+            @include respond(tablet-horizontal) {
+                font-size: 1.4vw;
+                margin-top: 2vw;
+            }
+
+            @include respond(desktop) {
+                font-size: 1.2vw;
+                margin-top: 2vw;
+            }
+
+            @include respond(desktop-wide) {
+                font-size: 0.8vw;
+                margin-top: 1vw;
+            }
+        }
+
+        /* Floating column for labels: 25% width */
+        .col-25 {
+            float: left;
+            width: 100%;
+            margin-top: 6px;
+
+            @include respond(mobile-horizontal) {
+            }
+
+            @include respond(tablet) {
+                width: 25%;
+            }
+
+            @include respond(tablet-horizontal) {
+                width: 25%;
+            }
+
+            @include respond(desktop) {
+            }
+
+            @include respond(desktop-wide) {
+            }
+        }
+
+        /* Floating column for inputs: 75% width */
+        .col-75 {
+            float: left;
+            width: 100%;
+            margin-top: 6px;
+
+            @include respond(mobile-horizontal) {
+            }
+
+            @include respond(tablet) {
+                width: 75%;
+            }
+
+            @include respond(tablet-horizontal) {
+                width: 75%;
+            }
+
+            @include respond(desktop) {
+            }
+
+            @include respond(desktop-wide) {
+            }
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+    }
+}
