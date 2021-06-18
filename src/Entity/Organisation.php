@@ -82,6 +82,11 @@ class Organisation
      */
     private $youtube;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $zipcode;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -239,6 +244,18 @@ class Organisation
     public function setYoutube(?string $youtube): self
     {
         $this->youtube = $youtube;
+
+        return $this;
+    }
+
+    public function getZipcode(): ?string
+    {
+        return $this->zipcode;
+    }
+
+    public function setZipcode(string $zipcode): self
+    {
+        $this->zipcode = $zipcode;
 
         return $this;
     }
