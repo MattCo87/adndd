@@ -65,6 +65,6 @@ class CMSFixtures extends Fixture implements OrderedFixtureInterface
 
     public function getOrder()
     {
-        return 10;
+        return 3;
     }
 }
