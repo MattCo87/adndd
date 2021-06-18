@@ -1,0 +1,29 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    background-color: $colorultralight;
+
+    h1 {
+        color: $colormain;
+        padding: 6vw 0;
+        margin: auto;
+
+        @include respond(mobile-horizontal) {
+            padding: 3vw 0;
+        }
+
+        @include respond(tablet) {
+        }
+
+        @include respond(tablet-horizontal) {
+        }
+
+        @include respond(desktop) {
+            padding: 2vw 0;
+        }
+
+        @include respond(desktop-wide) {
+            padding: 1.5vw 0;
+        }
+    }
+}
