@@ -1,10 +1,10 @@
 html {
-    font-size: 12px;
+    font-size: 16px;
     scroll-behavior: smooth;
 
     body {
         font-family: "Open Sans", sans-serif;
-        font-size: 16px;
+        font-size: 21px;
         color: #000;
         background-color: #271002;
 
@@ -15,6 +15,10 @@ html {
         @import "grids";
         
         @import "main";
+
+        @import "../pages/error403";
+        @import "../pages/error404";
+        @import "../pages/error";
 
         @import "footer";
     }
