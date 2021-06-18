@@ -1,0 +1,45 @@
+.container {
+    form {
+        .row {
+            display: flex;
+            justify-content: center;
+
+            .diceName {
+                float: left;
+                width: 20%;
+                color: $colormain;
+            }
+
+            .diceCount {
+                float: left;
+                font-size: 6vw;
+                width: 15vw;
+
+                @include respond(mobile-horizontal) {
+                    font-size: 4vw;
+                    width: 10vw;
+                }
+
+                @include respond(tablet) {
+                    font-size: 3vw;
+                    width: 10vw;
+                }
+
+                @include respond(tablet-horizontal) {
+                    font-size: 2.5vw;
+                    width: 10vw;
+                }
+
+                @include respond(desktop) {
+                    font-size: 2vw;
+                    width: 6vw;
+                }
+
+                @include respond(desktop-wide) {
+                    font-size: 1.2vw;
+                    width: 4vw;
+                }
+            }
+        }
+    }
+}
