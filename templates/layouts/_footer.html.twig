@@ -4,8 +4,8 @@
 			<div class="links-group">
 				Aide
 				<ul>
-					<li><a href="#">Qui sommes-nous?</a></li>
-					<li><a href="/faq">F.A.Q.</a></li>
+					<li><a href="{{ path('presentation') }}">Qui sommes-nous?</a></li>
+					<li><a href="{{ path('faq') }}">F.A.Q.</a></li>
 					<li><a href="#">Nous contacter</a></li>
 				</ul>
 			</div>
@@ -28,12 +28,12 @@
 		<hr>
 		<div class="links-legal">
 			<p>
-				<a href="#">Mentions légales</a>
+				<a href="{{ path('legal.mentions') }}">Mentions légales</a>
 				-
-				<a href="#">Modalités de service</a>
+				<a href="{{ path('legal.tou') }}">Modalités d'utilisation</a>
 			</p>
 			<p>
-				<a href="#">Confidentialité et Cookies</a>
+				<a href="{{ path('legal.privacy') }}">Confidentialité et Cookies</a>
 			</p>
 			<br/>
 			<p>Avril 2021 © Tous droits réservés</p>
