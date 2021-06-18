@@ -1,4 +1,4 @@
-<header class="app-header">
+<header class="app-header {% if edit is empty %}{% else %}{{ edit }}{% endif %}">
 	<nav class="app-navigation">
 		<a href="{{ path('homepage') }}" class="nav-logo"><img src="{{ asset('assets/images/logo.png') }}" alt="Ah! D & Dédé"/></a>
 		<ul class="nav-menu">
