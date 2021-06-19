@@ -23,8 +23,28 @@
         .grid-itemLeft {
             grid-area: leftbox;
             align-self: start;
-            justify-content: left;
+            margin-right: auto;
             padding-left: 1rem;
+
+            @include respond(tablet-horizontal){
+                padding-left: 3rem;
+                padding-top: 1rem;
+            }
+
+            @include respond(tablet){
+                padding-left: 3rem;
+                padding-top: 1rem;
+            }
+
+            @include respond(desktop){
+                padding-left: 3rem;
+                padding-top: 1rem;
+            }
+
+            @include respond(desktop-wide){
+                padding-left: 4rem;
+                padding-top: 1rem;
+            }
 
             &.editAsso {
                 padding-left: 0;
@@ -34,8 +54,28 @@
         .grid-itemRight {
             grid-area: rightbox;
             align-self: end;
-            justify-content: right;
+            margin-left: auto;
             padding-right: 1rem;
+
+            @include respond(tablet-horizontal){
+                padding-right: 3rem;
+                padding-bottom: 1rem;
+            }
+
+           @include respond(tablet){
+                padding-right: 3rem;
+                padding-bottom: 1rem;
+            }
+
+            @include respond(desktop){
+                padding-right: 3rem;
+                padding-bottom: 1rem;
+            }
+
+            @include respond(desktop-wide){
+                padding-right: 4rem;
+                padding-bottom: 1rem;
+            }
 
             &.editAsso {
                 padding-right: 0;
