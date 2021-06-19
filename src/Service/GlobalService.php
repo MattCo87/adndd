@@ -9,42 +9,37 @@ class GlobalService
     extends AbstractExtension
 {
     /**
-     * @var $organizationRepository
+     * @var $organizationData
      */
-    private $organizationRepository;
+    private $organizationData;
 
     public function __construct(OrganisationRepository $organizationRepository)
     {
-        $this->organizationRepository = $organizationRepository;
+        $this->organizationData = $organizationRepository->find(1);
     }
 
     public function getAppName()
     {
-        $data = $this->organizationRepository->find(1);
-        return $data ? $data->getName() : null;
+        return $this->organizationData ? $this->organizationData->getName() : null;
     }
 
     public function getAppSlogan()
     {
-        $data = $this->organizationRepository->find(1);
-        return $data ? $data->getSlogan() : null;
+        return $this->organizationData ? $this->organizationData->getSlogan() : null;
     }
 
     public function getAppEmail()
     {
-        $data = $this->organizationRepository->find(1);
-        return $data ? $data->getContactEmail() : null;
+        return $this->organizationData ? $this->organizationData->getContactEmail() : null;
     }
 
     public function getAppFacebook()
     {
-        $data = $this->organizationRepository->find(1);
-        return $data ? $data->getFacebook() : null;
+        return $this->organizationData ? $this->organizationData->getFacebook() : null;
     }
 
     public function getAppInstagram()
     {
-        $data = $this->organizationRepository->find(1);
-        return $data ? $data->getInstagram() : null;
+        return $this->organizationData ? $this->organizationData->getInstagram() : null;
     }
 }
