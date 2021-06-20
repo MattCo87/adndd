@@ -84,6 +84,10 @@
         position: relative;
         overflow-y: hidden;
 
+        @include respond(tablet) {
+            overflow-x: hidden;
+        }
+ 
         @include respond(desktop) {
             overflow-x: hidden;
         }
@@ -132,12 +136,12 @@
             }
 
             @include respond(tablet) {
-                grid-template-columns: 10px repeat(3, calc(100% - 330px * 2)) 10px;
+                grid-template-columns: 10px repeat(3, calc(100% - 372px * 2)) 10px;
                 width: 60rem;
             }
 
             @include respond(tablet-horizontal) {
-                grid-template-columns: 10px repeat(3, calc(100% - 390px * 2)) 10px;
+                grid-template-columns: 10px repeat(3, calc(100% - 410px * 2)) 10px;
                 width: 70rem;
             }
 
@@ -172,11 +176,11 @@
                 height: 16rem;
 
                 @include respond(tablet) {
-                    height: 30rem;
+                    height: 24rem;
                 }
 
                 @include respond(tablet-horizontal) {
-                    height: 30rem;
+                    height: 20rem;
                 }
 
                 @include respond(desktop) {
@@ -206,12 +210,12 @@
 
                     @include respond(tablet) {
                         width: 90%;
-                        height: 80%;
+                        height: 70%;
                         box-shadow: 0px 4px 6px 0px rgb(70, 37, 1);
                     }
 
                     @include respond(tablet-horizontal) {
-                        width: 90%;
+                        width: 75%;
                         height: 90%;
                     }
 
