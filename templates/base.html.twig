@@ -26,6 +26,12 @@
     <body class="{% block body_class %}{% endblock %}">
         {% include 'layouts/_header.html.twig' with {edit: block('edit')} %}
 
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+
         <main class="app-main">
             {% block body %}{% endblock %}
         </main>

@@ -17,12 +17,17 @@ class AccountType extends AbstractType
     {
         $user = new User();
 
-        $builder
-            /*->add('firstname')       
-            ->add('lastname')  
-            ->add('idRegister') */              
+        $builder             
             ->add('pseudo')       
             ->add('email')
+            ->add('save', SubmitType::class,
+            [
+                'label' => 'Envoyez !',
+                'attr' =>
+                    [
+                        'class' => 'form-sumbit',
+                    ],
+            ])
         ;
     }
 
