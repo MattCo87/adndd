@@ -21,7 +21,7 @@ class MailerService
     {
         $email = (new Email())
             ->from($this->globals->getAppEmail())
-            ->to('nvauche@gmail.com')
+            ->to('julienicar@hotmail.com')
             //->cc('cc@example.com')
             //->bcc('bcc@example.com')
             //->replyTo('fabien@example.com')

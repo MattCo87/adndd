@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block edit %}{% endblock %}
+
+{% block body %}
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	<script src="https://meet.jit.si/libs/lib-jitsi-meet.min.js"></script>
+	JitsiMeetJS.init();
+	var connection = new JitsiMeetJS.JitsiConnection(null, null, options);
+	<p>
+		test
+	</p>
+{% endblock %}

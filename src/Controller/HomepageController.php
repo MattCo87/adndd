@@ -25,4 +25,15 @@ class HomepageController extends AbstractController
         $mailerService->send();
         return $this->render('homepage/index.html.twig');
     }
+
+    /**
+     * @Route("/jitsi")
+     */
+    public function jitsi(): Response
+    {
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	<script src="https://meet.jit.si/libs/lib-jitsi-meet.min.js"></script>
+	JitsiMeetJS.init();
+        return $this->render('test/index.html.twig');
+    }
 }
