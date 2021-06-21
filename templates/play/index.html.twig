@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Jouer
+{% endblock %}
+
+{% block edit %}{% endblock %}
+
+{% block body %}
+
+	<div class="overlay"></div>
+
+	<div class="myform-container">
+		<div class="flextitle">
+			<h2>AFFICHER LES TABLES JOUANT À</h2>
+		</div>
+		{{ form_start(playform) }}
+		{{ form_errors(playform) }}
+
+		<ul class="flex-outer">
+
+			<li>
+				{{ form_label(playform.game, 'Jeu', {'label_attr': {'class': 'myform-label hidelabel'}}) }}
+				{{ form_widget(playform.game, {'attr': {'class': 'myform-dropdown'}}) }}
+				{{ form_errors(playform.game) }}
+			</li>
+			<li>
+				{{ form_widget(playform.statuswait, {'attr': {'class': 'myform-checkbox'}}) }}
+				{{ form_label(playform.statuswait, 'En attente de joueurs', {'label_attr': {'class': 'myform-label'}}) }}
+				{{ form_errors(playform.statuswait) }}
+			</li>
+			<li>
+				{{ form_widget(playform.statusrunning, {'attr': {'class': 'myform-checkbox'}}) }}
+				{{ form_label(playform.statusrunning, 'En cours', {'label_attr': {'class': 'myform-label'}}) }}
+				{{ form_errors(playform.statusrunning) }}
+			</li>
+			<li>
+				{{ form_widget(playform.statusclosed, {'attr': {'class': 'myform-checkbox'}}) }}
+				{{ form_label(playform.statusclosed, 'Parties terminées', {'label_attr': {'class': 'myform-label'}}) }}
+				{{ form_errors(playform.statusclosed) }}
+			</li>
+			{{ form_end(playform) }}
+		</ul>
+	</div>
+
+	<div>
+		<button type="button" class="app-button cta">OU CRÉER UNE TABLE</button>
+	</div>
+
+	<div class="">
+
+	{% endblock %}

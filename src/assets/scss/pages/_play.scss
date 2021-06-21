@@ -1,0 +1,20 @@
+.myform-container {
+    padding-top: 2rem;
+    background-color: $colorsecondary;
+    color: white;
+
+    .flextitle {
+        padding-bottom: 2rem;
+    }
+
+    .flex-outer {
+        li {
+            & > label {
+                max-width: none;
+                &.hidelabel {
+                    display: none;
+                }
+            }
+        }
+    }
+}
