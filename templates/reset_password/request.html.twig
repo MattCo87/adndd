@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mot de passe perdu{% endblock %}
+
+{% block edit %}{% endblock %}
+
+{% block body %}
+    <div class="overlay"></div>
+
+    <section class="reset-password">
+        {% for flashError in app.flashes('reset_password_error') %}
+            <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+        {% endfor %}
+        <h1>Mot de passe perdu</h1>
+
+        {{ form_start(requestForm) }}
+        {{ form_row(requestForm.email) }}
+        <div>
+            <p>Entrez votre adresse e-mail, et nous vous enverrons un lien pour régénérer votre mot de passe.</p>
+        </div>
+
+        <button class="btn btn-primary">Régénérer mon mot de passe</button>
+        {{ form_end(requestForm) }}
+    </section>
+{% endblock %}
