@@ -23,6 +23,8 @@ class ContactController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $mailer->send($form->getData(), 'user');
             $mailer->send($form->getData(), 'admin');
+
+            $this->addFlash('success', 'Votre message a été envoyé ! Vous allez même recevoir une confirmation !');
         }
 
         return $this->render('contact/index.html.twig', [
