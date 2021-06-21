@@ -2,6 +2,14 @@
 	<nav class="app-navigation">
 		<a href="{{ path('homepage') }}" class="nav-logo"><img src="{{ asset('assets/images/logo.png') }}" alt="Ah! D & Dédé"/></a>
 		<ul class="nav-menu">
+			{% if app.user %}
+				<li class="nav-item">
+					<a href="#" class="nav-link">Logout</a>
+				</li>
+				<li class="nav-item">
+					<a href="#" class="nav-link">Mes Informations</a>
+				</li>
+			{% endif %}
 			<li class="nav-item">
 				<a href="#" class="nav-link">Mes Personnages</a>
 			</li>
