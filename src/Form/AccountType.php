@@ -15,71 +15,14 @@ class AccountType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
-            ->add('firstName',
-            TextType::class,
-            [
-                'label' => 'Votre nom',
-                'required' => true,
-                'attr' =>
-                    [
-                        'class' => 'form-control',
-                        'placeholder' => 'ex:  Dupont',
-                    ],
-            ])
-            ->add('lastName',
-            TextType::class,
-            [
-                'label' => 'Votre prénom',
-                'required' => true,
-                'attr' =>
-                    [
-                        'class' => 'form-control',
-                        'placeholder' => 'ex: Sophie ',
-                    ],
-            ])
-            ->add('idRegister',
-            TextType::class,
-            [
-                'label' => 'N° Adhérent',
-                'required' => true,
-                'attr' =>
-                    [
-                        'class' => 'form-control',
-                        'placeholder' => '',
-                    ],
-            ])
-            ->add('pseudo',
-            TextType::class,
-            [
-                'label' => 'Votre pseudonyme',
-                'required' => true,
-                'attr' =>
-                    [
-                        'class' => 'form-control',
-                        'placeholder' => '',
-                    ],
-            ])            
-            ->add('email',
-                EmailType::class,
-                [
-                    'label' => 'Votre e-mail',
-                    'required' => true,
-                    'attr' =>
-                        [
-                            'class' => 'form-control',
-                            'placeholder' => 'ex: sophie@dupont.com',
-                        ],
-                ])
+        $user = new User();
 
-            ->add('save', SubmitType::class,
-                [
-                    'label' => 'Envoyez !',
-                    'attr' =>
-                        [
-                            'class' => 'form-sumbit',
-                        ],
-                ])
+        $builder
+            /*->add('firstname')       
+            ->add('lastname')  
+            ->add('idRegister') */              
+            ->add('pseudo')       
+            ->add('email')
         ;
     }
 

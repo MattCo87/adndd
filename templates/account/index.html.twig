@@ -6,8 +6,38 @@
 {% block edit %}{% endblock %}
 
 {% block body %}
-    <h1>Vos informations</h1>
-<div class="app-form-account">
-    {{ form(form) }}
-</div>
+
+    {{ form_start(formUser) }}
+
+    <h1>Bienvenue dans votre espace  {{ app.user.firstname }} !</h1>
+
+    <section class="app-form-account"> 
+        <p>
+            Vous êtes {{ app.user.firstname }} {{ app.user.lastname }} et l'adhérent N° {{ app.user.idRegister }}.
+        </p> 
+    </section>
+    <section class="app-form-account">     
+        <p>
+            Votre pseudonyme est: {{ app.user.pseudo }}.
+        </p>     
+        <p>
+            {{ form_row(formUser.pseudo, {'label': 'Votre nouveau pseudo: '}) }}
+        </p> 
+    </section>
+    <section class="app-form-account">        
+        <p>
+            Votre email est: {{ app.user.email }}.
+        </p> 
+        <p>
+            {{ form_row(formUser.email, {'label': 'Votre nouveau email: ', 'attr': {'placeholder': "ex: sophie@dupont.fr"}}) }}
+        </p> 
+    </section>
+    <section class="app-form-account">        
+        <p>
+            <button type="submit">Envoyez !</button>
+        <p>
+    </section>
+
+    {{ form_end(formUser) }}
+
 {% endblock %}
