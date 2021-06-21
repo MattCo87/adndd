@@ -3,14 +3,16 @@
 {% block title %}Création de table
 {% endblock %}
 
-{% block edit %}{% endblock %}
+{% block edit %}edit{% endblock %}
 
 {% block body %}
 	<div class="overlay"></div>
 
 
 	<div class="myform-container">
-		<h1>NOUVELLE TABLE</h1>
+		<div class="flextitle editTitle">
+			<h1>CRÉATION DE PARTIE</h1>
+		</div>
 		{{ form_start(scenarioform) }}
 		{{ form_errors(scenarioform) }}
 
@@ -31,17 +33,12 @@
 				{{ form_errors(scenarioform.start_at) }}
 			</li>
 			<li>
-				{{ form_label(scenarioform.seats, 'Places', {'label_attr': {'class': 'myform-label'}}) }}
-				{{ form_widget(scenarioform.seats) }}
-				{{ form_errors(scenarioform.seats) }}
-			</li>
-			<li>
 				{{ form_label(scenarioform.private, 'Visibilité', {'label_attr': {'class': 'myform-label'}}) }}
 				{{ form_widget(scenarioform.private) }}
 				{{ form_errors(scenarioform.private) }}
 			</li>
-			<li class="toRight">
-				<button type="submit" class="app-button cta">Créer</button>
+			<li class="btnPos">
+				{{ form_widget(scenarioform.submit, {'label': 'Créer', 'attr': {'class': 'app-button cta editButton'}}) }}
 			</li>
 			{{ form_end(scenarioform) }}
 		</ul>

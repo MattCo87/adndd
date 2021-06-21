@@ -48,6 +48,11 @@ class Scenario
      */
     private $dungeonmaster;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Campaign::class, inversedBy="scenarios")
+     */
+    private $campaign;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -121,6 +126,18 @@ class Scenario
     public function setDungeonmaster(?User $dungeonmaster): self
     {
         $this->dungeonmaster = $dungeonmaster;
+
+        return $this;
+    }
+
+    public function getCampaign(): ?Campaign
+    {
+        return $this->campaign;
+    }
+
+    public function setCampaign(?Campaign $campaign): self
+    {
+        $this->campaign = $campaign;
 
         return $this;
     }

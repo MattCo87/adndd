@@ -9,10 +9,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
-use Symfony\Component\Form\Extension\Core\Type\RangeType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\EmailType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class ScenarioFormType extends AbstractType
 {
@@ -28,7 +25,7 @@ class ScenarioFormType extends AbstractType
                     'attr' =>
                     [
                         'class' => 'form-control',
-                        'placeholder' => 'ex: Elrik',
+                        'placeholder' => 'ex: Elric',
                     ],
                 ]
             )
@@ -50,17 +47,6 @@ class ScenarioFormType extends AbstractType
                 'widget' => 'choice',
             ])
             ->add(
-                'seats',
-                RangeType::class,
-                [
-                    'label' => 'Places',
-                    'attr' => [
-                        'min' => 3,
-                        'max' => 5
-                    ]
-                ],
-            )
-            ->add(
                 'private',
                 ChoiceType::class,
                 [
@@ -75,6 +61,7 @@ class ScenarioFormType extends AbstractType
                     ],
                     'expanded' => true
                 ]
-            );
+            )
+            ->add('submit', SubmitType::class);
     }
 }
