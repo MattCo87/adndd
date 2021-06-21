@@ -15,8 +15,8 @@ class ScenarioController extends AbstractController
     {
         $form = $this->createForm(ScenarioFormType::class);
 
-        return $this->render('scenario/index.html.twig', [
+      return $this->render('scenario/index.html.twig', [
             'scenarioform' => $form->createView(),
-        ]);
+        ]);  
     }
 }
