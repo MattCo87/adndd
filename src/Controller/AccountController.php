@@ -16,6 +16,7 @@ class AccountController extends AbstractController
     /**
      * @Route("/account", name="account")
      */
+    
     public function index(Request $request): Response
     {
         $user = $this->getUser();
