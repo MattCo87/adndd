@@ -1,15 +1,28 @@
 .app-main {
     padding-top: 74px;
 
+    @include respond(desktop) {
+        width: 60rem;
+        margin: auto;
+        box-shadow: 0px 0px 20px 0px rgba(95, 12, 8, 0.7);
+    }
+
+    @include respond(desktop-wide) {
+        width: 80rem;
+        margin: auto;
+        box-shadow: 0px 0px 20px 0px rgba(95, 12, 8, 0.7);
+    }
+
     h1 {
         font-weight: bold;
         padding: 30px 0;
         font-size: 27px;
+        display: flex;
     }
 
     section {
         padding: 1rem 0;
-    }
+   }
 
     @import "../pages/homepage";
     @import "../pages/homepageedit";

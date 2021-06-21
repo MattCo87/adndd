@@ -3,45 +3,67 @@
 {% block title %}Ah! D & Dédé
 {% endblock %}
 
-{% block edit %}
+{% block javascripts %}
+	<script src="https://kit.fontawesome.com/b916232238.js" crossorigin="anonymous"></script>
 {% endblock %}
+
+{% block edit %}{% endblock %}
 
 {% block body %}
 	<div class="overlay"></div>
 
-		<section id="association">
-			<div class="app-grid two">
-				<div class="grid-item grid-itemLeft">
-					<h2 class="assoTitle">ASSOCIATION DE JEU DE RÔLES DE GUÉRET</h2>
+	<section id="association">
+		<div class="app-grid two">
+			<div class="grid-item grid-itemLeft">
+				<h2 class="assoTitle">ASSOCIATION DE JEU DE RÔLES DE GUÉRET</h2>
+			</div>
+			<div class="grid-item grid-itemRight">
+				<a class="app-button cta" href="{{ path('presentation') }}" role="button">
+					EN SAVOIR PLUS
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<section id="jouer">
+
+
+		<section class="carousel">
+	<!--		<div class="carousel-control prev">
+				<i class="fas fa-play fa-flip-horizontal"></i>
+			</div>-->
+			<div class="slides">
+				<div class="slide">
+					<img class="slide-img" src="{{ asset('assets/images/homepage/cover_add.png') }}"/>
 				</div>
-				<div class="grid-item grid-itemRight">
-					<a class="app-button cta" href="{{ path('presentation') }}" role="button">
-						EN SAVOIR PLUS
-					</a>
+				<div class="slide">
+					<img class="slide-img" src="{{ asset('assets/images/homepage/cover_cob.png') }}"/>
+				</div>
+				<div class="slide">
+					<img class="slide-img" src="{{ asset('assets/images/homepage/cover_cth.png') }}"/>
 				</div>
 			</div>
+		<!--	<div class="carousel-control next">
+				<i class="fas fa-play"></i>
+			</div>-->
 		</section>
 
-		<section id="jouer">
-			<div class="app-grid">
-				<div class="grid-item"><img src="{{ asset('assets/images/homepage/cover_add.png') }}" alt="Advanced Donjons & Dragons"/></div>
-				<div class="grid-item"><img src="{{ asset('assets/images/homepage/cover_cob.png') }}" alt="Chroniques Oubliées"/></div>
-				<div class="grid-item"><img src="{{ asset('assets/images/homepage/cover_cth.png') }}" alt="L'Appel de Cthulhu"/></div>
-			</div>
-			<p>5 jeux disponibles actuellement!</p>
-			<a class="app-button cta" href="#" role="button">
-				JOUER EN LIGNE
+		<p>5 jeux disponibles actuellement!</p>
+		<a class="app-button cta" href="#" role="button">
+			JOUER EN LIGNE
+		</a>
+	</section>
+
+	<section id="jeux">
+		<div class="app-grid two">
+			<div class="grid-item"><img src="{{ asset('assets/images/homepage/dices.png') }}" alt="set de dés de jeu de rôle"/></div>
+			<div class="grid-item"><img src="{{ asset('assets/images/homepage/bookpile.png') }}" alt="livres de jeux de rôle"/></div>
+		</div>
+		<h1>
+			<a class="app-button cta ctabanner" href="{{ path('games') }}" role="button">
+				DÉCOUVREZ TOUS NOS JEUX
 			</a>
-		</section>
-		
-		<section id="jeux">
-			<div class="app-grid two">
-				<div class="grid-item"><img src="{{ asset('assets/images/homepage/dices.png') }}" alt="set de dés de jeu de rôle"/></div>
-				<div class="grid-item"><img src="{{ asset('assets/images/homepage/bookpile.png') }}" alt="livres de jeux de rôle"/></div>
-			</div>
-			<a class="app-button cta" href="{{ path('games') }}" role="button">
-				<h1>DÉCOUVREZ TOUS NOS JEUX</h1>
-			</a>
-		</section>
+		</h1>
+	</section>
 
 {% endblock %}
