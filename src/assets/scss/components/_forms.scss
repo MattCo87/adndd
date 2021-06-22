@@ -67,7 +67,8 @@
         .flextitle {
             display: flex;
             justify-content: center;
-
+            text-transform: uppercase;
+            
             &.editTitle {
                 color: black;
                 padding: 6vw 0;
