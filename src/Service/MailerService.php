@@ -5,6 +5,7 @@ namespace App\Service;
 use App\Service\GlobalService;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
+use Symfony\Component\Mime\Message;
 
 class MailerService
 {
@@ -17,19 +18,33 @@ class MailerService
         $this->globals = $globals;
     }
 
-    public function send()
+    public function send($mailData, $recipient)
     {
-        $email = (new Email())
-            ->from($this->globals->getAppEmail())
-            ->to('nvauche@gmail.com')
-            //->cc('cc@example.com')
-            //->bcc('bcc@example.com')
-            //->replyTo('fabien@example.com')
-            //->priority(Email::PRIORITY_HIGH)
-            ->subject('Time for Symfony Mailer!')
-            ->text('Sending emails is fun again!')
-            ->html('<p>See Twig integration for better HTML integration!</p>');
+        if($recipient === 'user'){
+            $email = (new Email())
+                ->from($this->globals->getAppEmail())
+                ->to($mailData['email'])
+                //->cc('cc@example.com')
+                //->bcc('bcc@example.com')
+                //->replyTo('fabien@example.com')
+                //->priority(Email::PRIORITY_HIGH)
+                ->subject('Nouveau message : ' . $mailData['subject'])
+                ->text($mailData['message'])
+                ->html('<p>Bonjour, toi qui ne vis pas dans un grotte !</p><p>Voici ton message mon ami :</p><p>' . $mailData['message'] . '</p><hr /><p>À tout de suite en ligne !</p>');
 
+        }else {
+            $email = (new Email())
+                ->from($this->globals->getAppEmail())
+                ->to($this->globals->getAppEmail())
+                //->cc('cc@example.com')
+                //->bcc('bcc@example.com')
+                ->replyTo($mailData['email'])
+                //->priority(Email::PRIORITY_HIGH)
+                ->subject('Nouveau message : ' . $mailData['subject'])
+                ->text($mailData['message'])
+                ->html("<p>Bonjour, toi qui es Admin !</p><p>Voici le message d'un ami :</p><p>" . $mailData['message'] . "</p><hr /><p>Ave !</p>");
+
+        }
         try {
             $this->mailer->send($email);
         } catch (\Exception $e) {

@@ -1,0 +1,84 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ah! D & Dédé
+{% endblock %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
+{% endblock %}
+
+{% block javascripts %}
+	<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin="" defer></script>
+	<script type="text/javascript" src="{{ asset('assets/js/app.js') }}" defer></script>
+
+{% endblock %}
+
+{% block edit %}{% endblock %}
+
+{% block body %}
+
+	<div class="myform-container">
+		<div class="flextitle">
+			<h1>CONTACTEZ-NOUS</h1>
+		</div>
+
+		{{ form_start(contactform) }}
+		{{ form_errors(contactform) }}
+
+		<ul class="flex-outer">
+			<li>
+				{{ form_label(contactform.name, 'Votre nom', {'label_attr': {'class': 'myform-label'}}) }}
+				{{ form_widget(contactform.name, {'attr': {'class': 'myform-textinput'}}) }}
+				{{ form_errors(contactform.name) }}
+			</li>
+			<li>
+				{{ form_label(contactform.email, 'Votre e-mail', {'label_attr': {'class': 'myform-label'}}) }}
+				{{ form_widget(contactform.email, {'attr': {'class': 'myform-textinput'}}) }}
+				{{ form_errors(contactform.email) }}
+			</li>
+			<li>
+				{{ form_label(contactform.subject, 'Sujet', {'label_attr': {'class': 'myform-label'}}) }}
+				{{ form_widget(contactform.subject, {'attr': {'class': 'myform-textinput'}}) }}
+				{{ form_errors(contactform.subject) }}
+			</li>
+			<li>
+				{{ form_label(contactform.message, 'Votre message', {'label_attr': {'class': 'myform-label'}}) }}
+				{{ form_widget(contactform.message, {'attr': {'class': 'myform-textarea'}}) }}
+				{{ form_errors(contactform.message) }}
+			</li>
+			<li class="btnPos">
+				{{ form_widget(contactform.submit, {'label': 'Envoyer', 'attr': {'class': 'app-button cta'}}) }}
+			</li>
+		</ul>
+
+		<div class="coordonnees">
+			<div class="adresse">
+            <p>
+				Venez nous rendre visite
+            </p>
+				<ul>
+					<li>22 rue de la Sénatorerie</li>
+					<li>23000 Guéret, FRANCE</li>
+				</ul>
+			</div>
+
+			<div class="reseauxsociaux">
+            <p>
+				Contactez-nous
+            </p>
+				<ul>
+					<li>ah-d-and-dede@facebook.com</li>
+					<li>ah-d-and-dede23000</li>
+				</ul>
+			</div>
+		</div>
+
+		{{ form_end(contactform) }}
+
+	</div>
+
+
+	<div id="map"></div>
+
+
+{% endblock %}
