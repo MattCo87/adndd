@@ -2,12 +2,17 @@
 	<nav class="app-navigation">
 		<a href="{{ path('homepage') }}" class="nav-logo"><img src="{{ asset('assets/images/logo.png') }}" alt="Ah! D & Dédé"/></a>
 		<ul class="nav-menu">
+			{% if not app.user %}
+				<li class="nav-item">
+					<a href="{{ path('app_login') }}" class="nav-link">Login</a>
+				</li>
+			{% endif %}
 			{% if app.user %}
 				<li class="nav-item">
 					<a href="{{ path('app_logout') }}" class="nav-link">Logout</a>
 				</li>
 				<li class="nav-item">
-					<a href="{{ path('change-password') }}" class="nav-link">Changer password</a>
+					<a href="{{ path('changepassword') }}" class="nav-link">Changer password</a>
 				</li>
 				<li class="nav-item">
 					<a href="{{ path('account') }}" class="nav-link">Mes Informations</a>
