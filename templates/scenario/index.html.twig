@@ -3,7 +3,8 @@
 {% block title %}Création de table
 {% endblock %}
 
-{% block edit %}edit{% endblock %}
+{% block edit %}edit
+{% endblock %}
 
 {% block body %}
 	<div class="overlay"></div>
@@ -40,7 +41,7 @@
 			<li class="btnPos">
 				{{ form_widget(scenarioform.submit, {'label': 'Créer', 'attr': {'class': 'app-button cta editButton'}}) }}
 			</li>
-			{{ form_end(scenarioform) }}
 		</ul>
+		{{ form_end(scenarioform) }}
 	</div>
 {% endblock %}
