@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Controller;
+
+use App\Entity\Scenario;
 use App\Form\ScenarioFormType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,8 +17,19 @@ class ScenarioController extends AbstractController
     {
         $form = $this->createForm(ScenarioFormType::class);
 
-      return $this->render('scenario/index.html.twig', [
+        return $this->render('scenario/index.html.twig', [
             'scenarioform' => $form->createView(),
-        ]);  
+        ]);
+    }
+
+    /**
+     * @Route("/table-de-jeu", name="game_table")
+     */
+    public function gameTable(int $table_id): Response
+    {
+        $scenario = $this->getDoctrine()->getRepository(Scenario::class)->find($table_id);
+        return $this->render('game_table/index.html.twig', [
+            'scenario' => $scenario,
+        ]);
     }
 }

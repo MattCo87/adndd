@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\ScenarioRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * @ORM\Entity(repositoryClass=ScenarioRepository::class)
@@ -23,6 +24,12 @@ class Scenario
     private $name;
 
     /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $room_name;
+
+    /**
+     * @Gedmo\Timestampable(on="create")
      * @ORM\Column(type="datetime")
      */
     private $created_at;
@@ -66,6 +73,18 @@ class Scenario
     public function setName(string $name): self
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    public function getRoomName(): ?string
+    {
+        return $this->room_name;
+    }
+
+    public function setRoomName(string $room_name): self
+    {
+        $this->room_name = $room_name;
 
         return $this;
     }
