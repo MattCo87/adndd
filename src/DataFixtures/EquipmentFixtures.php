@@ -8,7 +8,7 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 
-class SpecialtyFixtures extends Fixture implements OrderedFixtureInterface
+class EquipmentFixtures extends Fixture implements OrderedFixtureInterface
 {
     public function load(ObjectManager $manager)
     {
@@ -17,7 +17,10 @@ class SpecialtyFixtures extends Fixture implements OrderedFixtureInterface
 
         $manager->persist( $specialty );
 
+        $equipment1 = new Equipment();
+        $equipment1->setName('arme tranchante');
 
+        $manager->persist( $equipment1 );
 
 
 
