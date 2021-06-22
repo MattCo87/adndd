@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Personnage{% endblock %}
+
+{% block edit %}edit{% endblock %}
+
+{% block body %}
+	<div class="overlay"></div>
+
+
+	<div class="myform-container">
+		<div class="flextitle editTitle">
+			<h1>création de personnage</h1>
+		</div>
+		{{ form_start(characterform) }}
+		{{ form_errors(characterform) }}
+
+		<ul class="flex-outer">
+			<li>
+				{{ form_label(characterform.game, 'Jeu', {'label_attr': {'class': 'myform-label'}}) }}
+				{{ form_widget(characterform.game, {'attr': {'class': 'myform-textinput'}}) }}
+				{{ form_errors(characterform.game) }}
+			</li>
+			<li>
+				{{ form_label(characterform.sheet_type, 'Type de fiche', {'label_attr': {'class': 'myform-label'}}) }}
+				{{ form_widget(characterform.sheet_type, {'attr': {'class': 'myform-dropdown'}}) }}
+				{{ form_errors(characterform.sheet_type) }}
+			</li>
+			<li class="btnPos">
+				{{ form_widget(characterform.submit, {'label': 'Créer', 'attr': {'class': 'app-button cta editButton'}}) }}
+			</li>
+			{{ form_end(characterform) }}
+		</ul>
+	</div>
+{% endblock %}
