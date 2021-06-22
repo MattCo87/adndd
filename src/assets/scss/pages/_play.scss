@@ -1,18 +1,157 @@
-.myform-container {
-    padding-top: 2rem;
-    background-color: $colorsecondary;
-    color: white;
+.playWrapper {
+    background-color: $colorbg;
 
-    .flextitle {
-        padding-bottom: 2rem;
+    .myform-container {
+        padding-top: 0;
+        padding-bottom: 1rem;
+        margin-bottom: 0;
+        background-color: $colorsecondary;
+        color: white;
+        box-shadow: 0px 4px 10px 0px rgba(95, 12, 8, 0.7);
+
+        .flextitle {
+            display: flex;
+            justify-content: center;
+        }
+
+        .flex-outer {
+            li {
+                & > label {
+                    max-width: none;
+
+                    &.hidelabel {
+                        display: none;
+                    }
+                }
+
+                .myform-checkbox:checked {
+                    background-color: $coloraccent;
+                } 
+            }
+        }
     }
 
-    .flex-outer {
-        li {
-            & > label {
-                max-width: none;
-                &.hidelabel {
-                    display: none;
+    .flextitle {
+        display: flex;
+        justify-content: center;
+        padding: 2rem 0;
+
+        .app-button {
+            background-color: $coloraccent;
+            color: white;
+            border: none;
+        }
+    }
+
+    .scenarioList {
+        display: block;
+        margin-bottom: 4rem;
+
+        .scenarioCard {
+            box-shadow: 0px 4px 10px 0px rgba(95, 12, 8, 0.7);
+            margin-bottom: 3rem;
+
+            .scenarioHeader {
+                display: flex;
+                align-items: center;
+                background-color: $colorsecondary;
+                color: white;
+
+                .thumb {
+                    display: flex;
+                    flex: 0 0 auto;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 50%;
+                    height: 5.5rem;
+                    width: 5.5rem;
+                    overflow: hidden;
+                    border: 1px solid $colorcta;
+                    margin: 0.5rem;
+
+                    img {
+                        height: 12rem;
+                        max-width: 200%;
+                    }
+                }
+
+                .infos {
+                    padding: 0 1rem;
+                    text-align: center;
+                    width: 100%;
+
+                    .game {
+                        font-size: 1.2rem;
+                        font-weight: 700;
+                        padding: 0.5rem 0;
+                        text-transform: uppercase;
+                    }
+                    .title {
+                        font-size: 1.2rem;
+                        padding: 0.5rem 0;
+                    }
+                }
+            }
+            .scenarioDetails {
+                background-color: $colorcta;
+                color: black;
+                font-size: 1.2rem;
+                padding: .5rem;
+
+                ul {
+                    max-width: 800px;
+                    margin: 0 auto;
+                    list-style-type: none;
+                    padding: 0;
+
+                    li {
+                        display: flex;
+                        flex-wrap: wrap;
+                        align-items: center;
+                        padding: 0.5rem 0;
+
+                        .fieldName {
+                            flex: 1 0 1rem;
+                            max-width: 10rem;
+                            font-weight: 700;
+                            padding-right: .5rem;
+                        }
+                        .fieldValue {
+                            flex: 1 0 8rem;
+                        }
+                    }
+                }
+            }
+            .scenarioFooter {
+                display: grid;
+                align-items: center;
+                background-color: $colormain;
+
+                a {
+                    color: white;
+                    font-weight: 700;
+                    font-size: 22px;
+                    display: block;
+                    text-align: center;
+                    margin: auto;
+                    text-transform: uppercase;
+                    padding: 1.2rem 0;
+
+                    &:link {
+                        text-decoration: none;
+                    }
+
+                    &:visited {
+                        text-decoration: none;
+                    }
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+
+                    &:active {
+                        text-decoration: underline;
+                    }
                 }
             }
         }

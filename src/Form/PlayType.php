@@ -21,7 +21,7 @@ class PlayType extends AbstractType
                     'label' => 'Jeu',
                     'choices' => [
                         'Tous les jeux' => 'all',
-                        'Advanced Donjons & Dragons v2' => 'adnd2',
+                        'Advanced Donjons & Dragons v2 + Les royaumes des Terres de l\'Ouest' => 'adnd2',
                         'Chroniques Oubliées' => 'cob',
                         'Vampire La Mascarade' => 'vamp',
                         'L\'Appel de Cthulhu' => 'cth',

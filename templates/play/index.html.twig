@@ -3,49 +3,174 @@
 {% block title %}Jouer
 {% endblock %}
 
+{% block javascripts %}
+	<script type="text/javascript" src="{{ asset('assets/js/customselect.js') }}" defer></script>
+{% endblock %}
+
 {% block edit %}{% endblock %}
 
 {% block body %}
 
 	<div class="overlay"></div>
 
-	<div class="myform-container">
-		<div class="flextitle">
-			<h2>AFFICHER LES TABLES JOUANT À</h2>
-		</div>
-		{{ form_start(playform) }}
-		{{ form_errors(playform) }}
+	<div class="playWrapper">
 
-		<ul class="flex-outer">
+		<div class="myform-container">
+			<div class="flextitle">
+				<h2>AFFICHER LES TABLES JOUANT À</h2>
+			</div>
+			{{ form_start(playform) }}
 
-			<li>
-				{{ form_label(playform.game, 'Jeu', {'label_attr': {'class': 'myform-label hidelabel'}}) }}
-				{{ form_widget(playform.game, {'attr': {'class': 'myform-dropdown'}}) }}
-				{{ form_errors(playform.game) }}
-			</li>
-			<li>
-				{{ form_widget(playform.statuswait, {'attr': {'class': 'myform-checkbox'}}) }}
-				{{ form_label(playform.statuswait, 'En attente de joueurs', {'label_attr': {'class': 'myform-label'}}) }}
-				{{ form_errors(playform.statuswait) }}
-			</li>
-			<li>
-				{{ form_widget(playform.statusrunning, {'attr': {'class': 'myform-checkbox'}}) }}
-				{{ form_label(playform.statusrunning, 'En cours', {'label_attr': {'class': 'myform-label'}}) }}
-				{{ form_errors(playform.statusrunning) }}
-			</li>
-			<li>
-				{{ form_widget(playform.statusclosed, {'attr': {'class': 'myform-checkbox'}}) }}
-				{{ form_label(playform.statusclosed, 'Parties terminées', {'label_attr': {'class': 'myform-label'}}) }}
-				{{ form_errors(playform.statusclosed) }}
-			</li>
+			<ul class="flex-outer">
+
+				<li>
+					{{ form_label(playform.game, 'Jeu', {'label_attr': {'class': 'myform-label hidelabel'}}) }}
+					<div class="custom-select" style="width:500px;">
+						{{ form_widget(playform.game, {'attr': {'class': 'myform-dropdown'}}) }}
+					</div>
+				</li>
+				<li>
+					{{ form_widget(playform.statuswait, {'attr': {'class': 'myform-checkbox'}}) }}
+					{{ form_label(playform.statuswait, 'En attente de joueurs', {'label_attr': {'class': 'myform-label'}}) }}
+				</li>
+				<li>
+					{{ form_widget(playform.statusrunning, {'attr': {'class': 'myform-checkbox'}}) }}
+					{{ form_label(playform.statusrunning, 'En cours', {'label_attr': {'class': 'myform-label'}}) }}
+				</li>
+				<li>
+					{{ form_widget(playform.statusclosed, {'attr': {'class': 'myform-checkbox'}}) }}
+					{{ form_label(playform.statusclosed, 'Parties terminées', {'label_attr': {'class': 'myform-label'}}) }}
+				</li>
+			</ul>
 			{{ form_end(playform) }}
-		</ul>
+		</div>
+
+		<div class="flextitle">
+			<button type="button" class="app-button cta">OU CRÉER UNE TABLE</button>
+		</div>
+
+		<div class="scenarioList">
+
+			<div class="scenarioCard">
+
+				<div class="scenarioHeader">
+					<div class="thumb">
+						<img src="{{ asset('assets/images/homepage/cover_add.png') }}"/>
+					</div>
+					<div class="infos">
+						<div class="game">Advanced donjons & dragons</div>
+						<div class="title">La lame sacrée</div>
+					</div>
+
+				</div>
+
+				<div class="scenarioDetails">
+					<ul>
+						<li>
+							<p class="fieldName">MJ</p>
+							<p class="fieldValue">Dylan-du-Plessis</p>
+						</li>
+						<li>
+							<p class="fieldName">Nb joueurs</p>
+							<p class="fieldValue">2 (3 disponibles)</p>
+						</li>
+						<li>
+							<p class="fieldName">Statut</p>
+							<p class="fieldValue">en attente</p>
+						</li>
+					</ul>
+				</div>
+
+				<div class="scenarioFooter">
+					<h1>
+						<a href="{{ path('games') }}" role="button">
+							Rejoindre
+						</a>
+					</h1>
+				</div>
+			</div>
+
+			<div class="scenarioCard">
+
+				<div class="scenarioHeader">
+					<div class="thumb">
+						<img src="{{ asset('assets/images/homepage/cover_cth.png') }}"/>
+					</div>
+					<div class="infos">
+						<div class="game">L'appel de Cthulhu et de tout ses copains du monde des ombres</div>
+						<div class="title">L'antre de la bête et son garde-manger de l'infini qui absorbe les curieux touristes du continent de l'invisible</div>
+					</div>
+
+				</div>
+
+				<div class="scenarioDetails">
+					<ul>
+						<li>
+							<p class="fieldName">MJ</p>
+							<p class="fieldValue">LucieLovecraft</p>
+						</li>
+						<li>
+							<p class="fieldName">Nb joueurs</p>
+							<p class="fieldValue">4</p>
+						</li>
+						<li>
+							<p class="fieldName">Statut</p>
+							<p class="fieldValue">en cours</p>
+						</li>
+					</ul>
+				</div>
+
+				<div class="scenarioFooter">
+					<h1>
+						<a href="{{ path('games') }}" role="button">
+							Rejoindre
+						</a>
+					</h1>
+				</div>
+			</div>
+
+			<div class="scenarioCard">
+
+				<div class="scenarioHeader">
+					<div class="thumb">
+						<img src="{{ asset('assets/images/homepage/cover_cob.png') }}"/>
+					</div>
+					<div class="infos">
+						<div class="game">Chroniques oubliées</div>
+						<div class="title">La grotte de l'oubli</div>
+					</div>
+
+				</div>
+
+				<div class="scenarioDetails">
+					<ul>
+						<li>
+							<p class="fieldName">MJ</p>
+							<p class="fieldValue">Reordrim le sage</p>
+						</li>
+						<li>
+							<p class="fieldName">Nb joueurs</p>
+							<p class="fieldValue">5</p>
+						</li>
+						<li>
+							<p class="fieldName">Statut</p>
+							<p class="fieldValue">en cours</p>
+						</li>
+					</ul>
+				</div>
+
+				<div class="scenarioFooter">
+					<h1>
+						<a href="{{ path('games') }}" role="button">
+							Rejoindre
+						</a>
+					</h1>
+				</div>
+			</div>
+
+
+		</div>
+
+
 	</div>
-
-	<div>
-		<button type="button" class="app-button cta">OU CRÉER UNE TABLE</button>
-	</div>
-
-	<div class="">
-
-	{% endblock %}
+{% endblock %}
