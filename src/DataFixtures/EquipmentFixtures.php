@@ -14,9 +14,14 @@ class EquipmentFixtures extends Fixture implements OrderedFixtureInterface
     public function load(ObjectManager $manager)
     {
         $specialty = new Specialty();
-        $specialty->setName('UneSpecialty');
+        $specialty->setName('Armes & Boucliers');
 
         $manager->persist( $specialty );
+
+        $specialty2 = new Specialty();
+        $specialty2->setName('Armure');
+
+        $manager->persist( $specialty2 );
 
         $equipmenttype1 = new Equipmenttype();
         $equipmenttype1->setName('arme tranchante');

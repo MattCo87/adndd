@@ -10,6 +10,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 
 class UpdateEquipmentType extends AbstractType
@@ -26,31 +27,26 @@ class UpdateEquipmentType extends AbstractType
             ->add('armorPoints')
             ->add('skillModifyer')
 
-            ->add('idSpecialty', ChoiceType::class, [
-                    'choices'  => [
-                        'Maybe' => null,
-                        'Yes' => true,
-                        'No' => false,
-                    ],
-                ])
+            ->add('idSpecialty', EntityType::class, [
+                'class' => Specialty::class,
+                'choice_label' => 'name',
+            ])
 
-            ->add('idEquipmenttype', ChoiceType::class, [
-                    'choices'  => [
-                        'Maybe' => null,
-                        'Yes' => true,
-                        'No' => false,
-                    ],
-                ])
+            ->add('idEquipmenttype', EntityType::class, [
+                'class' => Equipmenttype::class,
+                'choice_label' => 'name',
+            ])
  
             ->add('save', SubmitType::class,
             [
-                'label' => 'Envoyez !',
+                'label' => 'Enregistrer',
                 'attr' =>
                     [
                         'class' => 'form-sumbit',
                     ],
             ])
         ;
+        
     }
 
     public function configureOptions(OptionsResolver $resolver)

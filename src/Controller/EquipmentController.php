@@ -36,7 +36,6 @@ class EquipmentController extends AbstractController
         $form = $this->createForm(UpdateEquipmentType::class, $equipment);
 
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($equipment);
