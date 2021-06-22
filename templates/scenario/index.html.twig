@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Création de table
+{% endblock %}
+
+{% block edit %}edit{% endblock %}
+
+{% block body %}
+	<div class="overlay"></div>
+
+
+	<div class="myform-container">
+		<div class="flextitle editTitle">
+			<h1>CRÉATION DE PARTIE</h1>
+		</div>
+		{{ form_start(scenarioform) }}
+		{{ form_errors(scenarioform) }}
+
+		<ul class="flex-outer">
+			<li>
+				{{ form_label(scenarioform.name, 'Nom de la table', {'label_attr': {'class': 'myform-label'}}) }}
+				{{ form_widget(scenarioform.name, {'attr': {'class': 'myform-textinput'}}) }}
+				{{ form_errors(scenarioform.name) }}
+			</li>
+			<li>
+				{{ form_label(scenarioform.game, 'Jeu', {'label_attr': {'class': 'myform-label'}}) }}
+				{{ form_widget(scenarioform.game, {'attr': {'class': 'myform-dropdown'}}) }}
+				{{ form_errors(scenarioform.game) }}
+			</li>
+			<li>
+				{{ form_label(scenarioform.start_at, 'Première session', {'label_attr': {'class': 'myform-label'}}) }}
+				{{ form_widget(scenarioform.start_at, {'attr': {'class': 'myform-select'}}) }}
+				{{ form_errors(scenarioform.start_at) }}
+			</li>
+			<li>
+				{{ form_label(scenarioform.private, 'Visibilité', {'label_attr': {'class': 'myform-label'}}) }}
+				{{ form_widget(scenarioform.private) }}
+				{{ form_errors(scenarioform.private) }}
+			</li>
+			<li class="btnPos">
+				{{ form_widget(scenarioform.submit, {'label': 'Créer', 'attr': {'class': 'app-button cta editButton'}}) }}
+			</li>
+			{{ form_end(scenarioform) }}
+		</ul>
+	</div>
+{% endblock %}
