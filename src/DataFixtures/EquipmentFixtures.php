@@ -15,15 +15,22 @@ class EquipmentFixtures extends Fixture implements OrderedFixtureInterface
     public function load(ObjectManager $manager)
     {
 
-        // Tribut
-        //$skills = array("Alphabétisation", "Art", "Artillerie", "Artisanat", "Bagarre", "Camouflage", "Discrétion", "Escalade", "Marchandage", "Natation", "Navigation", "Observation", "Pistage");
-        //$skillvalue = array("50,10,20,30,40,50,10,10,20,30,50,40,20");
-        
+        // Compétences        
         $skills = [
             ["Alphabétisation", 50],
             ["Art", 10],
             ["Artillerie", 20],
-            ["Artisanat", 30],
+            ["Artisanat", 50],
+            ["Artillerie", 40],
+            ["Bagarre", 30],
+            ["Camouflage", 20],
+            ["Discrétion", 10],
+            ["Escalade", 20],
+            ["Marchandage", 50],
+            ["Natation", 20],
+            ["Navigation", 30],
+            ["Observation", 10],
+            ["Pistage", 40],
         ];
 
         foreach ($skills as list($a, $b))

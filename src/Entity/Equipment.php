@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\EquipmentRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -66,6 +68,16 @@ class Equipment
      * @ORM\ManyToOne(targetEntity=Equipmenttype::class, inversedBy="equipment" ,cascade={"persist"})
      */
     private $idEquipmenttype;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Skill::class, inversedBy="equipment")
+     */
+    private $skill;
+
+    public function __construct()
+    {
+        $this->skill = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -188,6 +200,30 @@ class Equipment
     public function setIdEquipmenttype(?Equipmenttype $idEquipmenttype): self
     {
         $this->idEquipmenttype = $idEquipmenttype;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Skill[]
+     */
+    public function getSkill(): Collection
+    {
+        return $this->skill;
+    }
+
+    public function addSkill(Skill $skill): self
+    {
+        if (!$this->skill->contains($skill)) {
+            $this->skill[] = $skill;
+        }
+
+        return $this;
+    }
+
+    public function removeSkill(Skill $skill): self
+    {
+        $this->skill->removeElement($skill);
 
         return $this;
     }

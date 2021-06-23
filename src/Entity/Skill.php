@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\SkillRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -26,6 +28,16 @@ class Skill
      * @ORM\Column(type="integer", nullable=true)
      */
     private $base;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Equipment::class, mappedBy="skill")
+     */
+    private $equipment;
+
+    public function __construct()
+    {
+        $this->equipment = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -52,6 +64,33 @@ class Skill
     public function setBase(?int $base): self
     {
         $this->base = $base;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Equipment[]
+     */
+    public function getEquipment(): Collection
+    {
+        return $this->equipment;
+    }
+
+    public function addEquipment(Equipment $equipment): self
+    {
+        if (!$this->equipment->contains($equipment)) {
+            $this->equipment[] = $equipment;
+            $equipment->addSkill($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEquipment(Equipment $equipment): self
+    {
+        if ($this->equipment->removeElement($equipment)) {
+            $equipment->removeSkill($this);
+        }
 
         return $this;
     }
