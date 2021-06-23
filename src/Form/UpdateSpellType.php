@@ -10,6 +10,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class UpdateSpellType extends AbstractType
 {
@@ -17,7 +18,9 @@ class UpdateSpellType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('effect', TextareaType::class)
+            ->add('effect', TextareaType::class, [
+                'label' => 'Effet',
+            ])
             ->add('reach')
             ->add('zone')
             ->add('idSpelltype', EntityType::class, [
