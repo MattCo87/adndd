@@ -61,9 +61,15 @@ class Game
      */
     private $gamerules;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Scenario::class, mappedBy="game_id")
+     */
+    private $scenarios;
+
     public function __construct()
     {
         $this->gamerules = new ArrayCollection();
+        $this->scenarios = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -179,6 +185,36 @@ class Game
             // set the owning side to null (unless already changed)
             if ($gamerule->getGame() === $this) {
                 $gamerule->setGame(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Scenario[]
+     */
+    public function getScenarios(): Collection
+    {
+        return $this->scenarios;
+    }
+
+    public function addScenario(Scenario $scenario): self
+    {
+        if (!$this->scenarios->contains($scenario)) {
+            $this->scenarios[] = $scenario;
+            $scenario->setGameId($this);
+        }
+
+        return $this;
+    }
+
+    public function removeScenario(Scenario $scenario): self
+    {
+        if ($this->scenarios->removeElement($scenario)) {
+            // set the owning side to null (unless already changed)
+            if ($scenario->getGameId() === $this) {
+                $scenario->setGameId(null);
             }
         }
 

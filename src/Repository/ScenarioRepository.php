@@ -11,6 +11,7 @@ use Doctrine\Persistence\ManagerRegistry;
  * @method Scenario|null findOneBy(array $criteria, array $orderBy = null)
  * @method Scenario[]    findAll()
  * @method Scenario[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Scenario[]    FindScenarios(date $value)
  */
 class ScenarioRepository extends ServiceEntityRepository
 {
@@ -19,22 +20,25 @@ class ScenarioRepository extends ServiceEntityRepository
         parent::__construct($registry, Scenario::class);
     }
 
-    // /**
-    //  * @return Scenario[] Returns an array of Scenario objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    
+
+    // 
+    //   @return Scenario[] Returns an array of Scenario objects
+    //  
+    
+    public function findScenarios($value)
     {
         return $this->createQueryBuilder('s')
-            ->andWhere('s.exampleField = :val')
+            ->Where('s.start_at > :val')
+            ->andWhere('s.private = 0')
             ->setParameter('val', $value)
-            ->orderBy('s.id', 'ASC')
+            ->orderBy('s.start_at', 'DESC')
             ->setMaxResults(10)
             ->getQuery()
             ->getResult()
         ;
     }
-    */
+}   
 
     /*
     public function findOneBySomeField($value): ?Scenario
@@ -47,4 +51,4 @@ class ScenarioRepository extends ServiceEntityRepository
         ;
     }
     */
-}
+

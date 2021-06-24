@@ -60,6 +60,11 @@ class Scenario
      */
     private $campaign;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Game::class, inversedBy="scenarios")
+     */
+    private $game_id;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -157,6 +162,18 @@ class Scenario
     public function setCampaign(?Campaign $campaign): self
     {
         $this->campaign = $campaign;
+
+        return $this;
+    }
+
+    public function getGameId(): ?Game
+    {
+        return $this->game_id;
+    }
+
+    public function setGameId(?Game $game_id): self
+    {
+        $this->game_id = $game_id;
 
         return $this;
     }

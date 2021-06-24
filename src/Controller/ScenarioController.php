@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Form\PlayType;
 use App\Entity\Scenario;
 use App\Form\ScenarioFormType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -19,6 +20,24 @@ class ScenarioController extends AbstractController
 
         return $this->render('scenario/index.html.twig', [
             'scenarioform' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/jouer", name="play")
+     */
+    public function jouer(): Response
+    {
+        $currentdate = new \DateTime('now');
+        $form = $this->createForm(PlayType::class);
+        /*$scenarios = $this->getDoctrine()->getRepository(Scenario::class)->findBy(
+            [ 'private' => false],
+            ['start_at' => 'ASC']
+        );*/
+        $scenarios = $this->getDoctrine()->getRepository(Scenario::class)->find($currentdate);
+        return $this->render('play/index.html.twig', [
+            'playform' => $form->createView(),
+            'scenarios' => $scenarios,
         ]);
     }
 

@@ -52,6 +52,27 @@ class UserFixtures
         ->setIsActive(true);
         $manager->persist( $julien ); 
 
+        $tom= new User();
+        $tom->setIdRegister('48398432')
+        ->setFirstName('Tom')
+        ->setLastName('Lourdelle')
+        ->setPseudo('Dami1')
+        ->setEmail('lourdelletom@gmail.com')
+        ->setPassword($this->encoder->encodePassword($tom, 'tom'))
+        ->setRoles(['ROLE_USER'])
+        ->setIsActive(true);
+        $manager->persist( $tom);
+
+        $dom = new User();
+        $dom->setIdRegister('1523545446789')
+        ->setFirstName('Dominique')
+        ->setLastName('Paumier')
+        ->setPseudo('Dom')
+        ->setEmail('domGFX@mail.com')
+        ->setPassword($this->encoder->encodePassword($dom, 'dom'))
+        ->setRoles(['ROLE_USER'])
+        ->setIsActive(true);
+        $manager->persist( $dom ); 
 
         $manager->flush();
 

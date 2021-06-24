@@ -50,6 +50,47 @@
 		</div>
 
 		<div class="scenarioList">
+			{% for scenario in scenarios %}
+				<div class="scenarioCard">
+
+					<div class="scenarioHeader">
+						<div class="thumb">
+							<img src="{{ asset('assets/images/homepage/cover_add.png') }}"/>
+						</div>
+						<div class="infos">
+							<div class="game">Advanced donjons & dragons</div>
+							<div class="title">{{scenario.name}}</div>
+						</div>
+
+					</div>
+
+					<div class="scenarioDetails">
+						<ul>
+							<li>
+								<p class="fieldName">MJ</p>
+								<p class="fieldValue">a faire</p>
+							</li>
+							<li>
+								<p class="fieldName">Nb joueurs</p>
+								<p class="fieldValue">liaison caractere
+							</p>
+							</li>
+							<li>
+								<p class="fieldName">Statut</p>
+								<p class="fieldValue">{{scenario.status}}</p>
+							</li>
+						</ul>
+					</div>
+
+					<div class="scenarioFooter">
+						<h1>
+							<a href="{{ path('games') }}" role="button">
+								Rejoindre
+							</a>
+						</h1>
+					</div>
+				</div>
+			{% endfor %}
 
 			<div class="scenarioCard">
 
@@ -90,83 +131,7 @@
 				</div>
 			</div>
 
-			<div class="scenarioCard">
-
-				<div class="scenarioHeader">
-					<div class="thumb">
-						<img src="{{ asset('assets/images/homepage/cover_cth.png') }}"/>
-					</div>
-					<div class="infos">
-						<div class="game">L'appel de Cthulhu et de tout ses copains du monde des ombres</div>
-						<div class="title">L'antre de la bête et son garde-manger de l'infini qui absorbe les curieux touristes du continent de l'invisible</div>
-					</div>
-
-				</div>
-
-				<div class="scenarioDetails">
-					<ul>
-						<li>
-							<p class="fieldName">MJ</p>
-							<p class="fieldValue">LucieLovecraft</p>
-						</li>
-						<li>
-							<p class="fieldName">Nb joueurs</p>
-							<p class="fieldValue">4</p>
-						</li>
-						<li>
-							<p class="fieldName">Statut</p>
-							<p class="fieldValue">en cours</p>
-						</li>
-					</ul>
-				</div>
-
-				<div class="scenarioFooter">
-					<h1>
-						<a href="{{ path('games') }}" role="button">
-							Rejoindre
-						</a>
-					</h1>
-				</div>
-			</div>
-
-			<div class="scenarioCard">
-
-				<div class="scenarioHeader">
-					<div class="thumb">
-						<img src="{{ asset('assets/images/homepage/cover_cob.png') }}"/>
-					</div>
-					<div class="infos">
-						<div class="game">Chroniques oubliées</div>
-						<div class="title">La grotte de l'oubli</div>
-					</div>
-
-				</div>
-
-				<div class="scenarioDetails">
-					<ul>
-						<li>
-							<p class="fieldName">MJ</p>
-							<p class="fieldValue">Reordrim le sage</p>
-						</li>
-						<li>
-							<p class="fieldName">Nb joueurs</p>
-							<p class="fieldValue">5</p>
-						</li>
-						<li>
-							<p class="fieldName">Statut</p>
-							<p class="fieldValue">en cours</p>
-						</li>
-					</ul>
-				</div>
-
-				<div class="scenarioFooter">
-					<h1>
-						<a href="{{ path('games') }}" role="button">
-							Rejoindre
-						</a>
-					</h1>
-				</div>
-			</div>
+			
 
 
 		</div>
