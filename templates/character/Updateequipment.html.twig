@@ -6,10 +6,71 @@
 {% block edit %}{% endblock %}
 
 {% block body %}
+	<div class="overlay"></div>
 
-    <h2>Ajouter un équipement de personnage</h2>
+	<div class="myform-container">
+		<div class="flextitle editTitle">
+            <h1>AJOUTER UN EQUIPEMENT DE PERSONNAGE</h1>
+		</div>
+		{{ form_start(formEquipment) }}
+		{{ form_errors(formEquipment) }}
 
-    {{ form(formEquipment) }}
-
+		<ul class="flex-outer">
+			<li>
+				{{ form_label(formEquipment.name, "Nom", {'label_attr': {'class': 'myform-label'}}) }}
+				{{ form_widget(formEquipment.name, {'attr': {'class': 'myform-textinput'}}) }}
+				{{ form_errors(formEquipment.name) }}
+			</li>
+			<li>
+				{{ form_label(formEquipment.base, "Base", {'label_attr': {'class': 'myform-label'}}) }}
+				{{ form_widget(formEquipment.base, {'attr': {'class': 'myform-textinput'}}) }}
+				{{ form_errors(formEquipment.base) }}
+			</li>
+			<li>
+				{{ form_label(formEquipment.damage, "Damage", {'label_attr': {'class': 'myform-label'}}) }}
+				{{ form_widget(formEquipment.damage, {'attr': {'class': 'myform-textinput'}}) }}
+				{{ form_errors(formEquipment.damage) }}
+			</li>
+			<li>
+				{{ form_label(formEquipment.hands, "Hands", {'label_attr': {'class': 'myform-label'}}) }}
+				{{ form_widget(formEquipment.hands, {'attr': {'class': 'myform-textinput'}}) }}
+				{{ form_errors(formEquipment.hands) }}
+			</li>
+			<li>
+				{{ form_label(formEquipment.ranged, "Range", {'label_attr': {'class': 'myform-label'}}) }}
+				{{ form_widget(formEquipment.ranged, {'attr': {'class': 'myform-textinput'}}) }}
+				{{ form_errors(formEquipment.ranged) }}
+			</li>
+			<li>
+				{{ form_label(formEquipment.health, "Health", {'label_attr': {'class': 'myform-label'}}) }}
+				{{ form_widget(formEquipment.health, {'attr': {'class': 'myform-textinput'}}) }}
+				{{ form_errors(formEquipment.health) }}
+			</li>
+			<li>
+				{{ form_label(formEquipment.armorPoints, "Armor points", {'label_attr': {'class': 'myform-label'}}) }}
+				{{ form_widget(formEquipment.armorPoints, {'attr': {'class': 'myform-textinput'}}) }}
+				{{ form_errors(formEquipment.armorPoints) }}
+			</li>
+			<li>
+				{{ form_label(formEquipment.skillModifyer, "Skill modifyer", {'label_attr': {'class': 'myform-label'}}) }}
+				{{ form_widget(formEquipment.skillModifyer, {'attr': {'class': 'myform-textinput'}}) }}
+				{{ form_errors(formEquipment.skillModifyer) }}
+			</li>
+			<li>
+				{{ form_label(formEquipment.idSpecialty, "Specialty", {'label_attr': {'class': 'myform-label'}}) }}
+				{{ form_widget(formEquipment.idSpecialty, {'attr': {'class': 'myform-textinput'}}) }}
+				{{ form_errors(formEquipment.idSpecialty) }}
+			</li>
+			<li>
+				{{ form_label(formEquipment.idEquipmenttype, "Type equipment", {'label_attr': {'class': 'myform-label'}}) }}
+				{{ form_widget(formEquipment.idEquipmenttype, {'attr': {'class': 'myform-textinput'}}) }}
+				{{ form_errors(formEquipment.idEquipmenttype) }}
+			</li>
+			<li class="btnPos">
+				{{ form_widget(formEquipment.save, {'label': 'Créer', 'attr': {'class': 'app-button cta editButton'}}) }}
+			</li>
+			{{ form_end(formEquipment) }}
+		</ul>
+	</div>
 
 {% endblock %}

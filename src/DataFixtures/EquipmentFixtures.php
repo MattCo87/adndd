@@ -44,12 +44,16 @@ class EquipmentFixtures extends Fixture implements OrderedFixtureInterface
 
         // Les spécialités
         $specialty = new Specialty();
-        $specialty->setName('Armes & Boucliers');
+        $specialty->setName('Armes');
         $manager->persist( $specialty );
 
         $specialty2 = new Specialty();
         $specialty2->setName('Armure');
         $manager->persist( $specialty2 );
+
+        $specialty3 = new Specialty();
+        $specialty3->setName('Boucliers');
+        $manager->persist( $specialty3 );
 
         // Les types d'équipements
 

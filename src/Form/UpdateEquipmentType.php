@@ -31,6 +31,7 @@ class UpdateEquipmentType extends AbstractType
                 'class' => Specialty::class,
                 'choice_label' => 'name',
                 'label' => 'Specialty',
+                
             ])
 
             ->add('idEquipmenttype', EntityType::class, [
@@ -39,14 +40,7 @@ class UpdateEquipmentType extends AbstractType
                 'label' => 'Type equipment',
             ])
  
-            ->add('save', SubmitType::class,
-            [
-                'label' => 'Enregistrer',
-                'attr' =>
-                    [
-                        'class' => 'form-sumbit',
-                    ],
-            ])
+            ->add('save', SubmitType::class)
         ;
         
     }
