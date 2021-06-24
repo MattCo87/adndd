@@ -19,7 +19,7 @@ class UpdateSpellType extends AbstractType
         $builder
             ->add('name')
             ->add('effect', TextareaType::class, [
-                'label' => 'Effet',
+                'label' => 'Effect',
             ])
             ->add('reach')
             ->add('zone')
