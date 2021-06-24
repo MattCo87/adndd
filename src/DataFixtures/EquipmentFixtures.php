@@ -38,13 +38,11 @@ class EquipmentFixtures extends Fixture implements OrderedFixtureInterface
             $skill = new Skill();
             $skill->setName($a);
             $skill->setBase($b);            
-            //$skill->setName($value);
-            //$skill->setBase($skillvalue);
             $manager->persist( $skill );
         }
         unset($a, $b);
 
-
+        // Les spécialités
         $specialty = new Specialty();
         $specialty->setName('Armes & Boucliers');
         $manager->persist( $specialty );
@@ -53,56 +51,55 @@ class EquipmentFixtures extends Fixture implements OrderedFixtureInterface
         $specialty2->setName('Armure');
         $manager->persist( $specialty2 );
 
-        $equipmenttype1 = new Equipmenttype();
-        $equipmenttype1->setName('Arme tranchante');
-        $manager->persist( $equipmenttype1 );
+        // Les types d'équipements
 
-        $equipmenttype2 = new Equipmenttype();
-        $equipmenttype2->setName("Arme d'estoc");
-        $manager->persist( $equipmenttype2 );
+        $equipmenttypes = array('Arme tranchante', 
+                                "Arme d'estoc", 
+                                "Arme de taille et d'estoc", 
+                                'Arme de jet', 
+                                'Arme de corps à corps', 
+                                "Arme d'impact", 
+                                "Arme de Fortune"
+                            );
+        $i = 0;        
+        foreach ($equipmenttypes as &$value) {
+            $i++;
+            $equipmenttype[$i] = new Equipmenttype();
+            $equipmenttype[$i]->setName($value);
+            $manager->persist( $equipmenttype[$i] );
+        }
+        unset($value);
 
-        $equipmenttype3 = new Equipmenttype();
-        $equipmenttype3->setName("Arme de taille et d'estoc");
-        $manager->persist( $equipmenttype3 );
-
-        $equipmenttype4 = new Equipmenttype();
-        $equipmenttype4->setName('Arme de jet');
-        $manager->persist( $equipmenttype4 );
-
-        $equipmenttype5 = new Equipmenttype();
-        $equipmenttype5->setName('Arme de corps à corps');
-        $manager->persist( $equipmenttype5 );
-
-        $equipmenttype6 = new Equipmenttype();
-        $equipmenttype6->setName("Arme d'impact");
-        $manager->persist( $equipmenttype6 );
 
         // Equipment
-        $equipment1 = new Equipment();
-        $equipment1->setName('Hâche')
-        ->setBase('50')
-        ->setDamage('30')
-        ->setHands('10')
-        ->setHealth('25')
-        ->setRanged('15')
-        ->setArmorPoints('20')
-        ->setSkillModifyer('5')
-        ->setIdSpecialty($specialty)
-        ->setIdEquipmenttype($equipmenttype5);
-        $manager->persist( $equipment1 );
 
-        $equipment2 = new Equipment();
-        $equipment2->setName('Fronde')
-        ->setBase('25')
-        ->setDamage('15')
-        ->setHands('30')
-        ->setHealth('50')
-        ->setRanged('30')
-        ->setArmorPoints('5')
-        ->setSkillModifyer('10')
-        ->setIdSpecialty($specialty)
-        ->setIdEquipmenttype($equipmenttype4);
-        $manager->persist( $equipment2 );
+        $equipments = [
+            ["Bagarre", 25, "1D3 + MD", 1, 50, 10, 20, 5, $specialty, $equipmenttype[5]],
+            ["Assomoir", 25, "1D8 + 3 + MD", 2, 15, 10, 40, 2, $specialty, $equipmenttype[6]],
+            ["Arc de Chasse", 10, "2D6 + 1 + 1/2 MD", 1, 20, 10, 10, 3, $specialty, $equipmenttype[4]],
+        ];
+
+        foreach ($equipments as list($a, $b, $c, $d, $e, $f, $g, $h, $i, $j))
+        {
+            $equipment = new Equipment();
+            $equipment->setName($a)
+            ->setBase($b)
+            ->setDamage($c)
+            ->setHands($d)
+            ->setHealth($e)
+            ->setRanged($f)
+            ->setArmorPoints($g)
+            ->setSkillModifyer($h)
+            ->setIdSpecialty($i)
+            ->setIdEquipmenttype($j);          
+            $manager->persist( $equipment );
+        }
+        unset($a, $b, $c, $d, $e, $f, $g, $h, $i, $j);
+
+
+        // Compétences / Equipement
+
+
 
         $manager->flush();
     }
