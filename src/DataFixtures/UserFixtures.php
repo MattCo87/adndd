@@ -30,6 +30,8 @@ class UserFixtures
         ->setIsActive(true);
         $manager->persist( $user );
         $manager->flush();
+
+        $this->addReference('admin-user', $user);
     }
 
     public function getOrder()
