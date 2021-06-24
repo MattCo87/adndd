@@ -19,7 +19,7 @@ class ChangepasswordController extends AbstractController
 {
     /**
      * @Route("/changepassword", name="changepassword")
-    */
+     */
 
     public function index(Request $request, UserPasswordEncoderInterface $encoder): Response
     {
@@ -30,23 +30,25 @@ class ChangepasswordController extends AbstractController
 
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid())
-        {
-            $plainPassword = $request->request->get('changepassword')['plainPassword']['second'];
-            $encoded = $encoder->encodePassword($user, $plainPassword);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $actualPassword = $request->request->get('changepassword')['password'];
+            if ($encoder->isPasswordValid($user, $actualPassword)) {
+                $plainPassword = $request->request->get('changepassword')['plainPassword']['second'];
+                $encoded = $encoder->encodePassword($user, $plainPassword);
 
-            $user->setPassword($encoded);
+                $user->setPassword($encoded);
 
-            $entityManager->persist($user);
-            $entityManager->flush();
+                $entityManager->persist($user);
+                $entityManager->flush();
 
-            $this->addFlash('notice', 'Votre mot de passe à bien été changé !');
+                $this->addFlash('success', 'Votre mot de passe à bien été changé !');
 
-            return $this->redirectToRoute('app_logout');
+                return $this->redirectToRoute('homepage');
+            } else {
+                $this->addFlash('danger', 'Le mot de passe actuel est invalide');
+            }
         }
 
-        return $this->render('account/changepassword.html.twig', [
-            'formChangepassword' => $form->createView()
-        ]);
+        return $this->render('account/changepassword.html.twig', ['formChangepassword' => $form->createView()]);
     }
 }
