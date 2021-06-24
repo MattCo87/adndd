@@ -17,8 +17,8 @@ security:
         main:
             anonymous: ~
             form_login:
-                login_path: login
-                check_path: login
+                login_path: app_login
+                check_path: app_login
             guard:
                 authenticators:
                     - App\Security\UserAuthenticator
@@ -37,3 +37,4 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
         # - { path: '^/joueur', roles: ROLE_USER }
+        - { path: '^/table-de-jeu', roles: ROLE_USER }
