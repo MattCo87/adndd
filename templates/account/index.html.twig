@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ah! D & Dédé
+{% endblock %}
+
+{% block edit %}{% endblock %}
+
+{% block body %}
+
+    {{ form_start(formUser) }}
+
+    <h1>Bienvenue dans votre espace  {{ app.user.firstname }} !</h1>
+
+    <section class="app-form-account"> 
+        <p>
+            Vous êtes {{ app.user.firstname }} {{ app.user.lastname }} et l'adhérent N° {{ app.user.idRegister }}
+        </p> 
+    </section>
+    <section class="app-form-account">     
+        <p>
+            Votre pseudonyme est: {{ app.user.pseudo }}
+        </p>     
+        <p>
+            {{ form_row(formUser.pseudo, {'label': 'Votre nouveau pseudo: '}) }}
+        </p> 
+    </section>
+    <section class="app-form-account">        
+        <p>
+            Votre email est: {{ app.user.email }}
+        </p> 
+        <p>
+            {{ form_row(formUser.email, {'label': 'Votre nouveau email: ', 'attr': {'placeholder': "ex: sophie@dupont.fr"}}) }}
+        </p> 
+    </section>
+
+    {{ form_end(formUser) }}
+
+{% endblock %}
