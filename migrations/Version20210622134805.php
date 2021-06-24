@@ -45,7 +45,6 @@ final class Version20210622134805 extends AbstractMigration
         $this->addSql('ALTER TABLE scenario ADD CONSTRAINT FK_3E45C8D8499F6A47 FOREIGN KEY (dungeonmaster_id) REFERENCES user (id)');
         $this->addSql('ALTER TABLE scenario ADD CONSTRAINT FK_3E45C8D8F639F774 FOREIGN KEY (campaign_id) REFERENCES campaign (id)');
         $this->addSql('ALTER TABLE scenario ADD campaign_id INT DEFAULT NULL');
-        $this->addSql('ALTER TABLE scenario ADD CONSTRAINT FK_3E45C8D8F639F774 FOREIGN KEY (campaign_id) REFERENCES campaign (id)');
         $this->addSql('CREATE INDEX IDX_3E45C8D8F639F774 ON scenario (campaign_id)');
     }
 

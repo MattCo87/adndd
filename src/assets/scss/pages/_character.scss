@@ -1,4 +1,4 @@
-.characterWrapper {
+.characterWrapper{
     .myform-container {
         box-sizing: border-box;
         background-color: white;
@@ -71,7 +71,7 @@
                 padding: .25rem;
 
                 &:not(:last-child) {
-                    margin-bottom: 0rem;
+                    margin-bottom: 0.5rem;
                 }
 
                 & > label {

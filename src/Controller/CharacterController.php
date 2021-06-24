@@ -17,9 +17,21 @@ class CharacterController extends AbstractController
 
         $form = $this->createForm(CharacterType::class);
 
-        return $this->render('character/index.html.twig', [
-            'characterform' => $form->createView(),
-        ]
-    );
+        return $this->render(
+            'character/index.html.twig',
+            [
+                'characterform' => $form->createView(),
+            ]
+        );
+    }
+
+    /**
+     * @Route("/feuille-personnage-edit", name="characteredit")
+     */
+    public function edit(): Response
+    {
+        return $this->render(
+            'character/edit.html.twig'
+        );
     }
 }

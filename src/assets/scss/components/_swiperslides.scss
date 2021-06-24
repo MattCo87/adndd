@@ -1,0 +1,106 @@
+:root {
+    --dark: #262626;
+    --offDark: #bfbfbf;
+    --slate: lightslategrey;
+}
+
+.swiper-container {
+    &.carousel__tabs {
+
+        .swiper-wrapper {
+            @media screen and (min-width: 768px) {
+                padding-top: 30px;
+            }
+        }
+
+        .swiper-slide {
+            align-items: center;
+            display: flex;
+            font-size: 40px;
+            justify-content: center;
+
+            &:nth-child(even) {
+                background: var(--offDark);
+                background-position: 50% 50%;
+                background-size: cover;
+            }
+            &:nth-child(odd) {
+                background: var(--slate);
+            }
+        }
+
+        .tabs-pagination {
+            @media screen and (min-width: 768px) {
+                top: 20px;
+                width: auto;
+            }
+        }
+
+        .swiper-pagination-bullet {
+           // background: var(--dark);
+            border-radius: 0;
+            height: 4px;
+            width: 32px;
+            &.swiper-pagination-bullet-active {
+                border-radius: 0;
+                height: 5px;
+            }
+            @media screen and (min-width: 768px) {
+                padding: 0 10px;
+                top: 20px;
+                width: auto;
+                &::before {
+                    white-space: nowrap;
+                    position: relative;
+                    top: -20px;
+                }
+                &:nth-of-type(1)::before {
+                    content: "Profil";
+                }
+                &:nth-of-type(2)::before {
+                    content: "Skills";
+                }
+                &:nth-of-type(3)::before {
+                    content: "Magie";
+                }
+                &:nth-of-type(4)::before {
+                    content: "Armes";
+                }
+                &:nth-of-type(5)::before {
+                    content: "Armures";
+                }
+                &:nth-of-type(6)::before {
+                    content: "Histoire";
+                }                
+                &:nth-of-type(7)::before {
+                    content: "Richesses";
+                }                
+                &:nth-of-type(8)::before {
+                    content: "Compagnons";
+                }
+                &.swiper-pagination-bullet-active {
+                 //   background: var(--slate);
+                }
+            }
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: var(--dark);
+            left: initial;
+            top: 50%;
+            visibility: visible;
+            @media screen and (min-width: 768px) {
+                visibility: hidden;
+            }
+        }
+
+        .swiper-button-prev {
+            left: 10px;
+        }
+
+        .swiper-button-next {
+            right: 10px;
+        }
+    }
+}
