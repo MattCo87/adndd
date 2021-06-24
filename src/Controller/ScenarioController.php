@@ -25,11 +25,13 @@ class ScenarioController extends AbstractController
     /**
      * @Route("/table-de-jeu", name="game_table")
      */
-    public function gameTable(int $table_id): Response
+    public function gameTable(int $table_id=1): Response
     {
         $scenario = $this->getDoctrine()->getRepository(Scenario::class)->find($table_id);
+        $user = $this->getUser();
         return $this->render('game_table/index.html.twig', [
             'scenario' => $scenario,
+            'user' => $user,
         ]);
     }
 }
