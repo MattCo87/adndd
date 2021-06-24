@@ -29,6 +29,30 @@ class UserFixtures
         ->setRoles(['ROLE_ADMIN'])
         ->setIsActive(true);
         $manager->persist( $user );
+
+        $matt = new User();
+        $matt->setIdRegister('1123756785')
+        ->setFirstName('Matt')
+        ->setLastName('Co')
+        ->setPseudo('Lord Aixois')
+        ->setEmail('87700a@gmail.com')
+        ->setPassword($this->encoder->encodePassword($matt, 'matthieu'))
+        ->setRoles(['ROLE_USER'])
+        ->setIsActive(true);
+        $manager->persist( $matt );
+
+        $julien = new User();
+        $julien->setIdRegister('2523446789')
+        ->setFirstName('Julien')
+        ->setLastName('Vasse')
+        ->setPseudo('Icar')
+        ->setEmail('julienicar@hotmail.com')
+        ->setPassword($this->encoder->encodePassword($julien, 'julien'))
+        ->setRoles(['ROLE_USER'])
+        ->setIsActive(true);
+        $manager->persist( $julien ); 
+
+
         $manager->flush();
     }
 
