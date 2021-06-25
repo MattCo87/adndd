@@ -61,9 +61,15 @@ class Game
      */
     private $gamerules;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Character::class, mappedBy="idGame")
+     */
+    private $characters;
+
     public function __construct()
     {
         $this->gamerules = new ArrayCollection();
+        $this->characters = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -179,6 +185,36 @@ class Game
             // set the owning side to null (unless already changed)
             if ($gamerule->getGame() === $this) {
                 $gamerule->setGame(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Character[]
+     */
+    public function getCharacters(): Collection
+    {
+        return $this->characters;
+    }
+
+    public function addCharacter(Character $character): self
+    {
+        if (!$this->characters->contains($character)) {
+            $this->characters[] = $character;
+            $character->setIdGame($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCharacter(Character $character): self
+    {
+        if ($this->characters->removeElement($character)) {
+            // set the owning side to null (unless already changed)
+            if ($character->getIdGame() === $this) {
+                $character->setIdGame(null);
             }
         }
 

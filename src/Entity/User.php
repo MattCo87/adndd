@@ -79,9 +79,15 @@ class User implements UserInterface
      */
     private $scenarios;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Character::class, mappedBy="idUser")
+     */
+    private $characters;
+
     public function __construct()
     {
         $this->scenarios = new ArrayCollection();
+        $this->characters = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -273,6 +279,36 @@ class User implements UserInterface
             // set the owning side to null (unless already changed)
             if ($scenario->getDungeonmaster() === $this) {
                 $scenario->setDungeonmaster(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Character[]
+     */
+    public function getCharacters(): Collection
+    {
+        return $this->characters;
+    }
+
+    public function addCharacter(Character $character): self
+    {
+        if (!$this->characters->contains($character)) {
+            $this->characters[] = $character;
+            $character->setIdUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCharacter(Character $character): self
+    {
+        if ($this->characters->removeElement($character)) {
+            // set the owning side to null (unless already changed)
+            if ($character->getIdUser() === $this) {
+                $character->setIdUser(null);
             }
         }
 
