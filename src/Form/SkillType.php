@@ -18,6 +18,12 @@ class SkillType extends AbstractType
         $builder
             ->add('name')
             ->add('base')
+            ->add('equipment', EntityType::class, [
+                'class' => Equipment::class,
+                'choice_label' => 'name',
+                'label' => 'Equipment',
+                
+            ])
             ->add('save', SubmitType::class)
         ;
     }

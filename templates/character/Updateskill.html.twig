@@ -26,6 +26,11 @@
 				{{ form_widget(formSkill.base, {'attr': {'class': 'myform-textinput'}}) }}
 				{{ form_errors(formSkill.base) }}
 			</li>
+			<li>
+				{{ form_label(formSkill.equipment, "Equipment", {'label_attr': {'class': 'myform-label'}}) }}
+				{{ form_widget(formSkill.equipment, {'attr': {'class': 'myform-textinput'}}) }}
+				{{ form_errors(formSkill.equipment) }}
+			</li>			
 			<li class="btnPos">
 				{{ form_widget(formSkill.save, {'label': 'Créer', 'attr': {'class': 'app-button cta editButton'}}) }}
 			</li>

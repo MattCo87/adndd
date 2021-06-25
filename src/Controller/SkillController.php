@@ -17,13 +17,15 @@ class SkillController extends AbstractController
     /**
      * @Route("/changeskill", name="changeskill")
      */
+    
     public function index(Request $request): Response
     {
         $skill = new Skill();
 
-        $form = $this->createForm(SkillType::class, $skill);
+        $form = $this->createForm(SkillType::class, $skill);   
 
         $form->handleRequest($request);
+
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($skill);
