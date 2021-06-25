@@ -8,53 +8,85 @@
         justify-content: center;
         padding: 0;
         padding-top: 1rem;
-        width: 100%;
         text-transform: uppercase;
         color: $colorsecondary;
         background-color: white;
     }
     .sheet-slide-section {
         background-color: $colorbg;
-        margin: 1rem;
+        margin-bottom: 1rem;
         padding: 1rem;
         padding-top: 0.25rem;
         border: 2px solid #c1994f80;
+        overflow: hidden;
+
+        @include respond(tablet) {
+            margin: 1rem;
+        }
 
         &.bevel {
             box-shadow: inset 0.2em 0.2em 0.2em 0 rgba(255, 255, 255, 0.5),
                 inset -0.2em -0.2em 0.2em 0 rgba(197, 146, 53, 0.5);
         }
 
-        .sheet-slide-section-name {
-            color: $colormain;
-            font-size: 1.5rem;
-            text-align: center;
-
-            h2 {
-                font-weight: 900;
-            }
-        }
-
         .sheet-slide-section-bloc {
             color: $colorultralight;
-            background-color: #6b5036;
-            border-radius: 20px;
             overflow-wrap: break-word;
-            box-shadow: inset 0px 0px 4px 4px rgb(#564236db, 0.86);
+
+            .sheet-slide-section-bloc-name {
+                color: $colormain;
+                font-size: 1.5rem;
+                text-align: center;
+                padding-bottom: 0.25rem;
+
+                h2 {
+                    font-weight: 900;
+                }
+            }
 
             .bloc-content {
                 padding: 1rem;
                 list-style: none;
+                background-color: #6b5036;
+                border-radius: 20px;
+                box-shadow: inset 0px 0px 4px 4px rgb(#564236db, 0.86);
+                overflow: hidden;
+
+                & tr,
+                & td {
+                    padding: 0.5rem 1rem 0.5rem 1rem;
+
+                    // pour contraindre la largeur à l'écran sur mobile en vertical
+                    display: block;
+                    @include respond(mobile-horizontal) {
+                        // ici, remettre le style display:table-cell par défaut ne fonctionne pas!
+                        display: revert; 
+                    }
+                }            
             }
 
             .sheet-avatar {
+                background-color: #6b5036;
+                border-radius: 20px;
+                box-shadow: inset 0px 0px 4px 4px rgb(#564236db, 0.86);
                 max-height: 20rem;
+                width: 10rem;
+                height: 10rem;
+                justify-self: center;
+                overflow: hidden;
+                background-image: url("../../assets/images/character/avatar.png");
+                background-size: 400%;
+                background-origin: border-box;
+                background-repeat: no-repeat;
+                background-position: right 52% bottom 75%;
+
                 & img {
                     height: 1100px;
                     position: relative;
                     width: fit-content;
                     object-fit: cover;
                     top: -200px;
+                    left: 10px;
                 }
             }
         }
