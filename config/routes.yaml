@@ -6,3 +6,11 @@
 #    path: /
 #    controller: App\Controller\SecurityController::login
 
+
+#account:
+#    path: /
+#    controller: App\Controller\AccountController::index
+
+#changepassword:
+#    path: /
+#    controller: App\Controller\ChangepasswordController::index
