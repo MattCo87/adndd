@@ -5,6 +5,7 @@ use App\Entity\Character;
 use App\Entity\Game;
 use App\Entity\Scenario;
 use App\Entity\User;
+use App\Entity\Tribe;
 
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
@@ -21,6 +22,20 @@ class CharacterFixtures
     {
         $character = new Character();
 
+        // Tribut
+        $tribus = array("Humain", "Melnibonéen", "Myrrhynien", "Elfe", "Nain", "Semi-homme", "Gnome", "Demi-orc", "Vampire", "Loup-garou", "Fantôme", "Changelin", "Exalté");
+        foreach ($tribus as &$value)
+        {
+            $tribe = new Tribe();
+            $tribe->setName($value);
+            $manager->persist( $tribe );
+        }
+        unset($value);
+
+
+
+
+        // Personnage
         $character->setName('Perceval')
         ->setAvatar('perceval.png')
         ->setGender('M')

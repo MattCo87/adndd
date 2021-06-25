@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ScenarioRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -52,6 +54,16 @@ class Scenario
      * @ORM\ManyToOne(targetEntity=Campaign::class, inversedBy="scenarios")
      */
     private $campaign;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Character::class, mappedBy="scenario")
+     */
+    private $characters;
+
+    public function __construct()
+    {
+        $this->characters = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -138,6 +150,33 @@ class Scenario
     public function setCampaign(?Campaign $campaign): self
     {
         $this->campaign = $campaign;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Character[]
+     */
+    public function getCharacters(): Collection
+    {
+        return $this->characters;
+    }
+
+    public function addCharacter(Character $character): self
+    {
+        if (!$this->characters->contains($character)) {
+            $this->characters[] = $character;
+            $character->addScenario($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCharacter(Character $character): self
+    {
+        if ($this->characters->removeElement($character)) {
+            $character->removeScenario($this);
+        }
 
         return $this;
     }

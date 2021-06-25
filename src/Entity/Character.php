@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\CharacterRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -112,6 +114,31 @@ class Character
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $loyalty;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Tribe::class, inversedBy="characters")
+     */
+    private $idTribe;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Game::class, inversedBy="characters")
+     */
+    private $idGame;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="characters")
+     */
+    private $idUser;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Scenario::class, inversedBy="characters")
+     */
+    private $scenario;
+
+    public function __construct()
+    {
+        $this->scenario = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -342,6 +369,66 @@ class Character
     public function setLoyalty(?string $loyalty): self
     {
         $this->loyalty = $loyalty;
+
+        return $this;
+    }
+
+    public function getIdTribe(): ?Tribe
+    {
+        return $this->idTribe;
+    }
+
+    public function setIdTribe(?Tribe $idTribe): self
+    {
+        $this->idTribe = $idTribe;
+
+        return $this;
+    }
+
+    public function getIdGame(): ?Game
+    {
+        return $this->idGame;
+    }
+
+    public function setIdGame(?Game $idGame): self
+    {
+        $this->idGame = $idGame;
+
+        return $this;
+    }
+
+    public function getIdUser(): ?User
+    {
+        return $this->idUser;
+    }
+
+    public function setIdUser(?User $idUser): self
+    {
+        $this->idUser = $idUser;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Scenario[]
+     */
+    public function getScenario(): Collection
+    {
+        return $this->scenario;
+    }
+
+    public function addScenario(Scenario $scenario): self
+    {
+        if (!$this->scenario->contains($scenario)) {
+            $this->scenario[] = $scenario;
+        }
+
+        return $this;
+    }
+
+    public function removeScenario(Scenario $scenario): self
+    {
+        $this->scenario->removeElement($scenario);
 
         return $this;
     }
