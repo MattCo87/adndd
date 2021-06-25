@@ -49,7 +49,7 @@
                 list-style: none;
                 background-color: #6b5036;
                 border-radius: 20px;
-                box-shadow: inset 0px 0px 4px 4px rgb(#564236db, 0.86);
+                box-shadow: inset 0px 0px 4px 4px rgba(0,0,0, 0.86);
                 overflow: hidden;
 
                 & tr,
@@ -68,7 +68,7 @@
             .sheet-avatar {
                 background-color: #6b5036;
                 border-radius: 20px;
-                box-shadow: inset 0px 0px 4px 4px rgb(#564236db, 0.86);
+                box-shadow: inset 0px 0px 4px 4px rgba(0,0,0, 0.86);
                 max-height: 20rem;
                 width: 10rem;
                 height: 10rem;
