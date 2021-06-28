@@ -34,7 +34,6 @@ class EquipmentController extends AbstractController
         $equipment = new Equipment();
 
         $form = $this->createForm(UpdateEquipmentType::class, $equipment);
-
         $form->handleRequest($request);
         
         if ($form->isSubmitted() && $form->isValid()) {
@@ -46,6 +45,7 @@ class EquipmentController extends AbstractController
 
             return $this->redirectToRoute('equipment');
         }
+        
 
         return $this->render('character/Updateequipment.html.twig', [
             'formEquipment' => $form->createView()

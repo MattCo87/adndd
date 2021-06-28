@@ -123,6 +123,11 @@
                     text-transform: uppercase;
                 }
 
+                & > div {
+                    display: grid;
+                    grid-template-columns: 2rem auto;
+                }
+
                 & .myform-textinput {
                     padding: 0 2rem;
                     width: 10rem;

@@ -11,15 +11,28 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
-class SkillType extends AbstractType
+class SkillEquipmentType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
-            ->add('base')
+            ->add('skill', EntityType::class, [
+                'class' => Skill::class,
+                'choice_label' => 'name',
+                'label' => 'Skill',
+            
+            ])
+            ->add('equipment', EntityType::class, [
+                'class' => Equipment::class,
+                'choice_label' => 'name',
+                'multiple' => true,
+                'expanded' => true,
+                'label' => 'Equipment',
+            
+            ])
             ->add('save', SubmitType::class)
         ;
+
     }
 
     public function configureOptions(OptionsResolver $resolver)
@@ -28,4 +41,5 @@ class SkillType extends AbstractType
             'data_class' => Skill::class,
         ]);
     }
+
 }

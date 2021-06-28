@@ -82,7 +82,7 @@ class EquipmentFixtures extends Fixture implements OrderedFixtureInterface
 
         $equipments = [
             ["Bagarre", 25, "1D3 + MD", 1, 50, 10, 20, 5, $specialty[11], $equipmenttype[7]],
-            ["Assomoir", 25, "1D8 + 3 + MD", 2, 15, 10, 40, 2, $specialty[2], $equipmenttype[8]],
+            ["Assommoir", 25, "1D8 + 3 + MD", 2, 15, 10, 40, 2, $specialty[2], $equipmenttype[8]],
             ["Arc de Chasse", 10, "2D6 + 1 + 1/2 MD", 1, 20, 10, 10, 3, $specialty[4], $equipmenttype[18]],
             ["Lance-roquette", 25, "1D3 + MD", 1, 50, 10, 20, 5, $specialty[6], $equipmenttype[13]],
             ["Catapulte", 25, "1D3 + MD", 1, 50, 10, 20, 5, $specialty[6], $equipmenttype[13]],
