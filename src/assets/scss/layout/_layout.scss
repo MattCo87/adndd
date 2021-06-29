@@ -4,11 +4,14 @@ html {
     scroll-behavior: smooth;
 
     body {
-        font-family: "Open Sans", sans-serif;
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
+       font-family: "Open Sans", sans-serif;
         font-size: 21px;
         color: #000;
         background-color: $colorultralight;
-
+ 
         @import "header";
 
         @import "navigation";

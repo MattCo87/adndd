@@ -1,0 +1,81 @@
+// cette page stylise la fiche de personnage globale
+// c'est ici qu'on retrouve le carnet, le menu qui permet de feuilleter la "fiche"
+// décomposée en plusieurs catégorie (slides)
+// qui elles, sont stylées dans _slides.scss et _grids.scss
+
+.sheetWrapper {
+    box-shadow: 0px 0px 20px 0px rgba(95, 12, 8, 0.7);
+    margin: 0;
+
+    @include respond(desktop) {
+        margin: 2rem 0;
+    }
+
+    @include respond(desktop-wide) {
+        margin: 2rem 0;
+    }
+
+    .swiper-container {
+        p {
+            width: 90%;
+        }
+
+        &.carousel__tabs {
+            .swiper-wrapper {
+                background-color: $colormain;
+
+                @include respond(tablet) {
+                    padding: 2.5rem 0 2rem 0;
+                }
+            }
+            .swiper-slide {
+                font-size: 1.2rem;
+                line-height: 1.4;
+
+                &:nth-child(even) {
+                    background-color: white;
+                }
+                &:nth-child(odd) {
+                    background-color: white;
+                }
+            }
+
+            .swiper-pagination {
+                .tabs-pagination {
+                }
+
+                .swiper-pagination-bullet {
+                    opacity: 1;
+                    border: transparent solid 1px;
+                    color: #f1b760;
+                    font-size: 1rem;
+                    width: 24px; // iPhone5 mini - 8 slides
+
+
+                    @media (min-width: 340px) {
+                        width: 32px;
+                    }
+
+                    @include respond(tablet) {
+                        top: 0.5rem;
+                        position: relative;
+                        background-color: transparent;
+                        width: auto;
+                    }
+
+                    &.swiper-pagination-bullet-active {
+                        opacity: 1;
+                        color: #0bfd70;
+                        background: #17d265;
+
+                    }
+                }
+
+                .swiper-button-hidden {
+                }
+                .swiper-button-next {
+                }
+            }
+        }
+    }
+}
