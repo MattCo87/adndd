@@ -32,15 +32,15 @@ class Skill
     private $base;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Equipment::class, mappedBy="skill")
+     * @ORM\ManyToMany(targetEntity=Equipment::class, mappedBy="skills", cascade={"persist"})
      */
-    private $equipment;
+    private $equipments;
 
     public function __construct()
     {
-        $this->equipment = new ArrayCollection();
+        $this->equipments = new ArrayCollection();
     }
-
+  
     public function getId(): ?int
     {
         return $this->id;
@@ -70,30 +70,34 @@ class Skill
         return $this;
     }
 
-    /**
-     * @return Collection|Equipment[]
-     */
-    public function getEquipment(): Collection
-    {
-        return $this->equipment;
+    public function __toString() {
+        return $this->name;
     }
 
-    public function addEquipment(Equipment $equipment): self
-    {
-        if (!$this->equipment->contains($equipment)) {
-            $this->equipment[] = $equipment;
-            $equipment->addSkill($this);
-        }
+/**
+ * @return Collection|Equipment[]
+ */
+public function getEquipments(): Collection
+{
+    return $this->equipments;
+}
 
-        return $this;
+public function addEquipment(Equipment $equipment): self
+{
+    if (!$this->equipments->contains($equipment)) {
+        $this->equipments[] = $equipment;
+        $equipment->addSkill($this);
     }
 
-    public function removeEquipment(Equipment $equipment): self
-    {
-        if ($this->equipment->removeElement($equipment)) {
-            $equipment->removeSkill($this);
-        }
+    return $this;
+}
 
-        return $this;
+public function removeEquipment(Equipment $equipment): self
+{
+    if ($this->equipments->removeElement($equipment)) {
+        $equipment->removeSkill($this);
     }
+
+    return $this;
+}
 }

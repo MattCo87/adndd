@@ -33,25 +33,4 @@
 		{{ form_end(formSkill) }}
 	</div>
 
-	
-	<div class="myform-container">
-		{{ form_start(formSkillEquipment) }}
-
-		<ul class="flex-outer">
-			<li>
-				{{ form_label(formSkillEquipment.skill, "Skill", {'label_attr': {'class': 'myform-label'}}) }}
-				{{ form_widget(formSkillEquipment.skill, {'attr': {'class': 'myform-textinput'}}) }}
-				{{ form_errors(formSkillEquipment.skill) }}
-			</li>
-			<li>
-				{{ form_label(formSkillEquipment.equipment, "Equipment", {'label_attr': {'class': 'myform-label'}}) }}
-				{{ form_widget(formSkillEquipment.equipment, {'attr': {'class': 'myform-checkboxlist'}}) }}
-				{{ form_errors(formSkillEquipment.equipment) }}
-			</li>		
-			<li class="btnPos">
-				{{ form_widget(formSkillEquipment.save, {'label': 'Créer', 'attr': {'class': 'app-button cta editButton'}}) }}
-			</li>
-		</ul>
-		{{ form_end(formSkillEquipment) }}
-	</div>
 {% endblock %}

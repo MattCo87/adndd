@@ -13,7 +13,7 @@
             min-width: 100px;
             filter: drop-shadow(2px 2px 2px $colorultradark);
         }
-     }
+    }
 
     &.two {
         grid-template-columns: repeat(2, 1fr);
@@ -26,22 +26,22 @@
             margin-right: auto;
             padding-left: 1rem;
 
-            @include respond(tablet-horizontal){
+            @include respond(tablet-horizontal) {
                 padding-left: 3rem;
                 padding-top: 1rem;
             }
 
-            @include respond(tablet){
+            @include respond(tablet) {
                 padding-left: 3rem;
                 padding-top: 1rem;
             }
 
-            @include respond(desktop){
+            @include respond(desktop) {
                 padding-left: 3rem;
                 padding-top: 1rem;
             }
 
-            @include respond(desktop-wide){
+            @include respond(desktop-wide) {
                 padding-left: 4rem;
                 padding-top: 1rem;
             }
@@ -57,22 +57,22 @@
             margin-left: auto;
             padding-right: 1rem;
 
-            @include respond(tablet-horizontal){
+            @include respond(tablet-horizontal) {
                 padding-right: 3rem;
                 padding-bottom: 1rem;
             }
 
-           @include respond(tablet){
+            @include respond(tablet) {
                 padding-right: 3rem;
                 padding-bottom: 1rem;
             }
 
-            @include respond(desktop){
+            @include respond(desktop) {
                 padding-right: 3rem;
                 padding-bottom: 1rem;
             }
 
-            @include respond(desktop-wide){
+            @include respond(desktop-wide) {
                 padding-right: 4rem;
                 padding-bottom: 1rem;
             }
@@ -82,4 +82,241 @@
             }
         }
     }
+}
+
+// Grilles des feuilles de personnages
+
+// ~~~~~ grid page du livre  (empile les sections (fond jaune pâle) verticalement) ~~~~~
+.sheet-slide-grid-wrapper {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-auto-rows: auto;
+    grid-template-areas:
+        "stack-A"
+        "stack-B"
+        "stack-C";
+    align-items: start;
+
+    #profil-infos {
+        grid-area: stack-C;
+    }
+
+    #profil-pic {
+        grid-area: stack-B;
+    }
+}
+
+// ~~~~~ grid d'un bloc (fond marron) de section ~~~~~
+.bloc-grid {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-auto-rows: auto;
+    grid-template-areas:
+        "a"
+        "b"
+        "c"
+        "d";
+    grid-gap: 10px;
+    align-items: start;
+
+    &.three {
+        grid-template-columns: 100%;
+        grid-template-areas:
+            "a"
+            "b"
+            "c"
+            "d"
+            "e"
+            "f"
+            "g";
+        @include respond(tablet-horizontal) {
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-areas:
+                "a b c"
+                "e f g";
+        }
+    }
+
+    @include respond(tablet) {
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: auto;
+        grid-template-areas:
+            "a b"
+            "c d";
+    }
+}
+
+// ~~~~~ grid d'une section (page Profil) ~~~~~
+.sheet-section-grid-profil {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-auto-rows: auto;
+    grid-template-areas:
+        "a"
+        "b"
+        "c"
+        "d";
+    align-items: start;
+
+    @include respond(tablet) {
+        grid-template-columns: minmax(0, 1fr) 350px;
+        grid-auto-rows: minmax(0, auto);
+        grid-template-areas:
+            "a b"
+            "c d";
+        grid-gap: 10px;
+    }
+
+    @include respond(tablet-horizontal) {
+        grid-template-columns: minmax(0, 1fr) 40rem;
+    }
+}
+
+// ~~~~~ positionnement des items section 1 (page Profil) ~~~~~
+.profil-1-item1 {
+    grid-area: a / span 2;
+}
+.profil-1-item2 {
+    grid-area: b;
+}
+.profil-1-item3 {
+    grid-area: c;
+}
+.profil-1-item4 {
+    grid-area: d;
+}
+
+// ~~~~~ positionnement des items section 2 (page Profil) ~~~~~
+.profil-2-item2 {
+    grid-area: b;
+}
+
+.profil-2-item1 {
+    grid-area: a;
+    display: grid;
+    justify-self: center;
+    width: 24rem;
+    overflow: hidden;
+}
+
+// ~~~~~ grid d'une section (page Skills) ~~~~~
+.sheet-section-grid-skills {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-auto-rows: auto;
+    grid-template-areas:
+        "a"
+        "b"
+        "c"
+        "d";
+    grid-gap: 10px;
+    align-items: start;
+
+    @include respond(tablet) {
+        grid-template-columns: 20rem minmax(0, 1fr);
+        grid-auto-rows: minmax(0, auto);
+        grid-template-areas:
+            "a b"
+            "c d";
+    }
+
+    @include respond(tablet-horizontal) {
+        grid-template-columns: 20rem minmax(0, 1fr);
+    }
+}
+
+// ~~~~~ positionnement des items section 2 (page Skills) ~~~~~
+.skills-2-item1 {
+    grid-area: a;
+}
+
+.skills-2-item2 {
+    grid-area: b;
+    width: 14rem;
+    justify-self: center;
+
+    @include respond(tablet-horizontal) {
+        width: 30rem;
+    }
+}
+
+// ~~~~~ positionnement de l'item section 2 (page Magic) ~~~~~
+#magic-magicpoints {
+    @include respond(mobile-horizontal) {
+        width: 20rem;
+        margin: auto;
+    }
+}
+
+// ~~~~~ positionnement de l'item section 1 (page Weapons) ~~~~~
+#weapons-contact {
+    @include respond(mobile-horizontal) {
+        width: 34rem;
+        margin: auto;
+    }
+
+   @include respond(tablet) {
+        width: 40rem;
+        margin: auto;
+    }
+}
+
+// ~~~~~ positionnement de l'item section 2 (page Weapons) ~~~~~
+#weapons-throw {
+    @include respond(mobile-horizontal) {
+        width: 34rem;
+        margin: auto;
+    }
+   @include respond(tablet) {
+        width: 40rem;
+        margin: auto;
+    }
+}
+
+// ~~~~~ positionnement de l'item (page Armors) ~~~~~
+#armors {
+    @include respond(mobile-horizontal) {
+        width: 34rem;
+        margin: auto;
+    }
+   @include respond(tablet) {
+        width: 40rem;
+        margin: auto;
+    }
+}
+
+
+// ~~~~~ grid d'une section (page Background) ~~~~~
+.sheet-section-grid-background {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-auto-rows: auto;
+    grid-template-areas:
+        "a"
+        "b"
+        "c"
+        "d";
+    align-items: start;
+
+    @include respond(tablet) {
+        grid-template-columns: 24rem auto;
+        grid-auto-rows: minmax(0, auto);
+        grid-template-areas:
+            "a b"
+            "a b";
+        grid-gap: 10px;
+    }
+
+    @include respond(tablet-horizontal) {
+        grid-template-columns: 24rem auto;
+    }
+}
+
+// ~~~~~ positionnement des items section 2 (page Background) ~~~~~
+.background-2-item2 {
+    grid-area: b;
+    justify-self: center;
+}
+.background-2-item1 {
+    grid-area: a;
 }
