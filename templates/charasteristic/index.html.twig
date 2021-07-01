@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ah! D & Dédé
+{% endblock %}
+
+{% block edit %}{% endblock %}
+
+{% block body %}
+	<div class="overlay"></div>
+
+	<div class="myform-container">
+		<div class="flextitle editTitle">
+            <h1>ajouter une caractéristique</h1>
+		</div>
+		{{ form_start(formCharacteristic) }}
+		{{ form_errors(formCharacteristic) }}
+
+		<ul class="flex-outer">
+			<li>
+				{{ form_label(formCharacteristic.name, "Nom", {'label_attr': {'class': 'myform-label'}}) }}
+				{{ form_widget(formCharacteristic.name, {'attr': {'class': 'myform-textinput'}}) }}
+				{{ form_errors(formCharacteristic.name) }}
+			</li>
+			<li>
+				{{ form_label(formCharacteristic.shortName, "Diminutif", {'label_attr': {'class': 'myform-label'}}) }}
+				{{ form_widget(formCharacteristic.shortName, {'attr': {'class': 'myform-textinput'}}) }}
+				{{ form_errors(formCharacteristic.shortName) }}
+			</li>
+			<li>
+				{{ form_label(formCharacteristic.base, "Base", {'label_attr': {'class': 'myform-label'}}) }}
+				{{ form_widget(formCharacteristic.base, {'attr': {'class': 'myform-textinput'}}) }}
+				{{ form_errors(formCharacteristic.base) }}
+			</li>		
+			<li class="btnPos">
+				{{ form_widget(formCharacteristic.save, {'label': 'Créer', 'attr': {'class': 'app-button cta editButton'}}) }}
+			</li>
+		</ul>
+		{{ form_end(formCharacteristic) }}
+	</div>
+
+{% endblock %}
