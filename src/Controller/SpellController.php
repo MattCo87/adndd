@@ -26,7 +26,7 @@ class SpellController extends AbstractController
     }
 
     /**
-     * @Route("/changespell", name="changespell")
+    * @Route("/changespell", name="changespell")
     */
     public function index(Request $request): Response
     {
