@@ -3,31 +3,26 @@
 {% block title %}Ah! D & Dédé
 {% endblock %}
 
-{% block edit %}{% endblock %}
+{% block edit %}edit{% endblock %}
 
 {% block body %}
 	<div class="overlay"></div>
 	
 	<div class="myform-container">
+		<div class="flextitle editTitle">
+			<h1>Ajout de compétence à un équipement</h1>
+		</div>
+
 		{{ form_start(EquipmentSkill) }}
 
 		<ul class="flex-outer">
         	<li>
 				{{ form_label(EquipmentSkill.name, "Equipment", {'label_attr': {'class': 'myform-label'}}) }} 
                 {{ form_widget(EquipmentSkill.name) }}
-
-
 			</li>	 
  			<li>
 				{{ form_label(EquipmentSkill.skills, "Skill", {'label_attr': {'class': 'myform-label'}}) }}
                 {{ form_widget(EquipmentSkill.skills) }}
-      {#}          {% for checkbox in EquipmentSkill.skills %}
-                <div class="myform-checkboxitem">
-                    {{ form_widget(checkbox) }}
-                    {{ form_label(checkbox) }}
-                </div>
-                {% endfor %} 
-#}
 			</li>	 
 			<li class="btnPos">
 				{{ form_widget(EquipmentSkill.save, {'label': 'Créer', 'attr': {'class': 'app-button cta editButton'}}) }}

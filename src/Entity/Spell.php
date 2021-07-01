@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\SpellRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -41,6 +43,16 @@ class Spell
      * @ORM\ManyToOne(targetEntity=Spelltype::class, inversedBy="spells")
      */
     private $idSpelltype;
+
+    /**
+     * @ORM\OneToMany(targetEntity=CharacterSpell::class, mappedBy="idSpell")
+     */
+    private $characterSpells;
+
+    public function __construct()
+    {
+        $this->characterSpells = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -103,6 +115,36 @@ class Spell
     public function setIdSpelltype(?Spelltype $idSpelltype): self
     {
         $this->idSpelltype = $idSpelltype;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|CharacterSpell[]
+     */
+    public function getCharacterSpells(): Collection
+    {
+        return $this->characterSpells;
+    }
+
+    public function addCharacterSpell(CharacterSpell $characterSpell): self
+    {
+        if (!$this->characterSpells->contains($characterSpell)) {
+            $this->characterSpells[] = $characterSpell;
+            $characterSpell->setIdSpell($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCharacterSpell(CharacterSpell $characterSpell): self
+    {
+        if ($this->characterSpells->removeElement($characterSpell)) {
+            // set the owning side to null (unless already changed)
+            if ($characterSpell->getIdSpell() === $this) {
+                $characterSpell->setIdSpell(null);
+            }
+        }
 
         return $this;
     }

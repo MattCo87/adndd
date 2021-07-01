@@ -135,9 +135,15 @@ class Character
      */
     private $scenario;
 
+    /**
+     * @ORM\OneToMany(targetEntity=CharacterSpell::class, mappedBy="idCharacter")
+     */
+    private $characterSpells;
+
     public function __construct()
     {
         $this->scenario = new ArrayCollection();
+        $this->characterSpells = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -429,6 +435,36 @@ class Character
     public function removeScenario(Scenario $scenario): self
     {
         $this->scenario->removeElement($scenario);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|CharacterSpell[]
+     */
+    public function getCharacterSpells(): Collection
+    {
+        return $this->characterSpells;
+    }
+
+    public function addCharacterSpell(CharacterSpell $characterSpell): self
+    {
+        if (!$this->characterSpells->contains($characterSpell)) {
+            $this->characterSpells[] = $characterSpell;
+            $characterSpell->setIdCharacter($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCharacterSpell(CharacterSpell $characterSpell): self
+    {
+        if ($this->characterSpells->removeElement($characterSpell)) {
+            // set the owning side to null (unless already changed)
+            if ($characterSpell->getIdCharacter() === $this) {
+                $characterSpell->setIdCharacter(null);
+            }
+        }
 
         return $this;
     }
