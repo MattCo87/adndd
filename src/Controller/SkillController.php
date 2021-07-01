@@ -18,7 +18,7 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 class SkillController extends AbstractController
 {
     /**
-     * @Route("/changeskill", name="changeskill")
+     * @Route("/ajouter-competence", name="addskill")
      */
     
     public function index(Request $request): Response
@@ -36,7 +36,7 @@ class SkillController extends AbstractController
             $entityManager->flush();
             $this->addFlash('success', 'Vos informations ont été enregistrées !');
 
-            return $this->redirectToRoute('changeskill');
+            return $this->redirectToRoute('addskill');
         }
         
 

@@ -135,9 +135,15 @@ class Character
      */
     private $scenario;
 
+    /**
+     * @ORM\OneToMany(targetEntity=CharacterSkill::class, mappedBy="idCharacter")
+     */
+    private $characterSkills;
+
     public function __construct()
     {
         $this->scenario = new ArrayCollection();
+        $this->characterSkills = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -429,6 +435,36 @@ class Character
     public function removeScenario(Scenario $scenario): self
     {
         $this->scenario->removeElement($scenario);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|CharacterSkill[]
+     */
+    public function getCharacterSkills(): Collection
+    {
+        return $this->characterSkills;
+    }
+
+    public function addCharacterSkill(CharacterSkill $characterSkill): self
+    {
+        if (!$this->characterSkills->contains($characterSkill)) {
+            $this->characterSkills[] = $characterSkill;
+            $characterSkill->setIdCharacter($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCharacterSkill(CharacterSkill $characterSkill): self
+    {
+        if ($this->characterSkills->removeElement($characterSkill)) {
+            // set the owning side to null (unless already changed)
+            if ($characterSkill->getIdCharacter() === $this) {
+                $characterSkill->setIdCharacter(null);
+            }
+        }
 
         return $this;
     }

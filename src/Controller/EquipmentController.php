@@ -52,32 +52,4 @@ class EquipmentController extends AbstractController
             'formEquipment' => $form->createView()
         ]);
     }
-
-    /**
-     * @Route("/addskill", name="addskill")
-     */
-
-    public function addskill(Request $request): Response
-    {
-        $equipment = new Equipment();
-
-        $form = $this->createForm(SkillEquipmentType::class, $equipment);
-        $form->handleRequest($request);
-        
-        if ($form->isSubmitted() && $form->isValid()) {
-            dd($form->getData());
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($equipment);
-            $entityManager->flush();
-
-            $this->addFlash('success', 'Vos informations ont été enregistrées !');
-
-            return $this->redirectToRoute('equipment');
-        }
-        
-
-        return $this->render('character/addskill.html.twig', [
-            'formSkillEquipment' => $form->createView()
-        ]);
-    }
 }
