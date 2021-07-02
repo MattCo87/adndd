@@ -1,38 +1,66 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Ah! D & Dédé
+{% block title %}Espace personnel
 {% endblock %}
 
 {% block edit %}{% endblock %}
 
+{% block mainshadow %}noshadow
+{% endblock %}
+
 {% block body %}
+	<div class="overlay"></div>
+	<div class="myform-container">
+		<section class="profil">
 
-    {{ form_start(formUser) }}
+			{{ form_start(formUser) }}
+			<div class="flextitle">
+				<h1>Bienvenue dans votre espace
+					{{ app.user.firstname }}
+					!</h1>
+			</div>
 
-    <h1>Bienvenue dans votre espace  {{ app.user.firstname }} !</h1>
+			<ul class="flex-outer">
+				<li>
+					<div class="li-item">
+						Vous êtes
+						{{ app.user.firstname }}
+						{{ app.user.lastname }}
+						et l'adhérent N°
+						{{ app.user.idRegister }}
+					</div>
+				</li>
 
-    <section class="app-form-account"> 
-        <p>
-            Vous êtes {{ app.user.firstname }} {{ app.user.lastname }} et l'adhérent N° {{ app.user.idRegister }}
-        </p> 
-    </section>
-    <section class="app-form-account">     
-        <p>
-            Votre pseudonyme est: {{ app.user.pseudo }}
-        </p>     
-        <p>
-            {{ form_row(formUser.pseudo, {'label': 'Votre nouveau pseudo: '}) }}
-        </p> 
-    </section>
-    <section class="app-form-account">        
-        <p>
-            Votre email est: {{ app.user.email }}
-        </p> 
-        <p>
-            {{ form_row(formUser.email, {'label': 'Votre nouveau email: ', 'attr': {'placeholder': "ex: sophie@dupont.fr"}}) }}
-        </p> 
-    </section>
+				<li>
+					<div class="li-item">
+						Votre pseudonyme est:
+						{{ app.user.pseudo }}
+					</div>
+				</li>
+				<li>
+					<div class="li-item">
+						{{ form_row(formUser.pseudo, {'label': 'Votre nouveau pseudo: '}) }}
+					</div>
+				</li>
 
-    {{ form_end(formUser) }}
+				<li>
+					<div class="li-item">
+						Votre email est:
+						{{ app.user.email }}
+					</div>
+				</li>
+				<li>
+					<div class="li-item">
+						{{ form_row(formUser.email, {'label': 'Votre nouvel email: ', 'attr': {'placeholder': "ex: sophie@dupont.fr"}}) }}
+					</div>
+				</li>
+				<li class="btnPos">
+					{{ form_label(formUser.save, {'label': 'Envoyez !'}) }}
+					{{ form_widget(formUser.save, {'attr': {'class': 'app-button cta'}}) }}
+				</li>
+			</ul>
 
+			{{ form_end(formUser) }}
+		</section>
+	</div>
 {% endblock %}

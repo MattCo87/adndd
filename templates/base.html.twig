@@ -26,7 +26,8 @@
     <body class="{% block body_class %}{% endblock %}">
         {% include 'layouts/_header.html.twig' with {edit: block('edit')} %}
 
-        <main class="app-main">
+        <main class="app-main {% block mainshadow %}{% endblock %}
+">
             {% for label, messages in app.flashes %}
                 {% for message in messages %}
                     <div class="alert alert-{{ label }}">
@@ -34,6 +35,7 @@
                     </div>
                 {% endfor %}
             {% endfor %}
+
 
             {% block body %}{% endblock %}
         </main>

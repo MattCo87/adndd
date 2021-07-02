@@ -1,14 +1,19 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}F.A.Q.{% endblock %}
+{% block title %}F.A.Q.
+{% endblock %}
 
-{% block edit %}
+{% block edit %}{% endblock %}
+
+{% block mainshadow %}noshadow
 {% endblock %}
 
 {% block body %}
 	<div class="overlay"></div>
-	<div class="faq">
-		<h1>FOIRE AUX QUESTIONS</h1>
+	<div class="faq myform-container">
+		<div class="flextitle">
+			<h1>FOIRE AUX QUESTIONS</h1>
+		</div>
 		{% for faq in arFaq %}
 			<div class="qr">
 				<h2>{{ faq.question }}</h2>

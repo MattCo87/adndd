@@ -1,17 +1,25 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Mot de passe perdu{% endblock %}
+{% block title %}Reset mot de passe
+{% endblock %}
 
 {% block edit %}{% endblock %}
 
-{% block body %}
-    <div class="overlay"></div>
-    <section cllass="reset-password">
-        <h1>Mot de passe perdu</h1>
+{% block mainshadow %}noshadow
+{% endblock %}
 
-        {{ form_start(resetForm) }}
-        {{ form_row(resetForm.plainPassword) }}
-            <button class="btn btn-primary">Modifiez votre mot de passe</button>
-        {{ form_end(resetForm) }}
-    </section>
+{% block body %}
+	<div class="overlay"></div>
+	<div class="myform-container">
+
+		<section class="reset-password">
+			<div class="flextitle">
+				<h1>Mot de passe perdu</h1>
+			</div>
+			{{ form_start(resetForm) }}
+			{{ form_row(resetForm.plainPassword) }}
+			<button class="btn btn-primary">Modifiez votre mot de passe</button>
+			{{ form_end(resetForm) }}
+		</section>
+	</div>
 {% endblock %}

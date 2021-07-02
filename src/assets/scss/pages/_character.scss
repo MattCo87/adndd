@@ -1,4 +1,4 @@
-.characterWrapper{
+.characterWrapper {
     .myform-container {
         box-sizing: border-box;
         background-color: white;
@@ -34,7 +34,6 @@
             line-height: 1.2;
 
             &.editTitle {
-                color: black;
                 padding: 6vw 0;
 
                 @include respond(mobile-horizontal) {
@@ -68,7 +67,7 @@
                 flex-wrap: wrap;
                 align-items: center;
                 justify-content: center;
-                padding: .25rem;
+                padding: 0.25rem;
 
                 &:not(:last-child) {
                     margin-bottom: 0.5rem;
@@ -106,7 +105,11 @@
                 }
 
                 &.radioChoice {
-                    font-size: 1rem;
+                    display: inline-block;
+                    min-width: 100%;
+                    @include respond(tablet) {
+                        min-width: revert;
+                    }
                 }
 
                 &.btnPos {
@@ -118,8 +121,6 @@
                 }
 
                 & .editButton {
-                    background-color: white;
-                    border-color: black;
                     width: 8rem;
                 }
             }

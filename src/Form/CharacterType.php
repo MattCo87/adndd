@@ -3,35 +3,29 @@
 namespace App\Form;
 
 use App\Entity\Character;
+use App\Entity\Game;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class CharacterType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add(
-                'game',
-                ChoiceType::class,
-                [
-                    'label' => 'Jeu',
-                    'choices' => [
-                        'Advanced Donjons & Dragons v2' => 'adnd2',
-                        'Chroniques Oubliées' => 'cob',
-                        'Vampire La Mascarade' => 'vamp',
-                        'L\'Appel de Cthulhu' => 'cth',
-                    ]
+            ->add('game', EntityType::class, [
+                'class' => Game::class,
+                'choice_label' => function ($game) {
+                    return $game->getName();
+                    },
+                'label' => 'Jeu',                   
                 ]
             )
 
-            ->add(
-                'sheet_type',
-                ChoiceType::class,
-                [
+            ->add('sheet_type', ChoiceType::class, [
                     'label' => 'Type de fiche',
                     'choices' => [
                         'prétirée' => 'premade',
@@ -41,7 +35,8 @@ class CharacterType extends AbstractType
                     [
                         'class' => 'form-control',
                     ],
-                    'expanded' => true
+                    'expanded' => true,
+                    'data' => 'premade',
                 ]
             )
 

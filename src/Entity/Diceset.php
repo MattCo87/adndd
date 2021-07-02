@@ -30,7 +30,7 @@ class Diceset
     private $gamesystems;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Dice::class, mappedBy="dicesets")
+     * @ORM\ManyToMany(targetEntity=Dice::class, mappedBy="dicesets", cascade={"persist"})
      */
     private $dices;
 
@@ -112,5 +112,9 @@ class Diceset
         }
 
         return $this;
+    }
+
+    public function __toString() {
+        return $this->name;
     }
 }

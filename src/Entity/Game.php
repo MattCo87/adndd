@@ -57,13 +57,14 @@ class Game
     private $idGamesystem;
 
     /**
-     * @ORM\OneToMany(targetEntity=Gamerules::class, mappedBy="game")
+     * @ORM\OneToMany(targetEntity=Gamerules::class, mappedBy="game", cascade={"persist"})
      */
     private $gamerules;
 
     /**
      * @ORM\OneToMany(targetEntity=Character::class, mappedBy="idGame")
-     */
+     * @ORM\JoinColumn(nullable=true)
+   */
     private $characters;
 
     public function __construct()
