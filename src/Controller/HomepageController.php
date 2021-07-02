@@ -25,4 +25,12 @@ class HomepageController extends AbstractController
         $mailerService->send();
         return $this->render('homepage/index.html.twig');
     }
+
+    /**
+     * @Route("/editer-page-accueil", name="homepage.edit")
+     */
+    public function edit(): Response
+    {
+        return $this->render('homepage/edit.html.twig');
+    }
 }

@@ -1,0 +1,132 @@
+.myform-container {
+    .login {
+        p {
+            a#mdpPerdu {
+                outline: none;
+                text-decoration: none;
+                padding: 2px 1px 0;
+                font-weight: 700;
+
+                &:link {
+                    color: $coloraccent;
+                }
+
+                &:visited {
+                    color: $coloraccent;
+                }
+
+                &:focus {
+                    background: #42add4;
+                    color: #ffffff;
+                }
+
+                &:hover {
+                    border-bottom: 1px solid;
+                    color: #2085aa;
+                }
+
+                &:active {
+                    background: #2085aa;
+                    color: #ffffff;
+                }
+            }
+        }
+    }
+
+    .reset-password {
+        display: grid;
+        gap: 1rem;
+
+        #regenpwdbtn {
+            width: 12rem;
+            font-size: 0.9rem;
+            @media (min-width: 375px) {
+                width: 20rem;
+                font-size: 1rem; // query spéciale iPhone5 > iPhon6+ (cf page Jouer)
+            }
+        }
+    }
+
+    .profil {
+        .flex-outer {
+            li {
+                .li-item{
+                    margin: auto;
+                }
+            }
+        }
+    }
+
+    .changePassword {
+        .flextitle {
+            h1 {
+                text-align: center;
+            }
+        }
+
+        form {
+            .flex-outer {
+                li {
+                    div.ancienPwd {
+                        display: grid;
+                        justify-content: center;
+                    }
+
+                    div#changepassword_plainPassword {
+                        gap: 1rem;
+
+                        input#changepassword_plainPassword_first,
+                        input#changepassword_plainPassword_second {
+                            padding: 0 2rem;
+                            font-size: 1.5rem;
+                            border-radius: 8px;
+                            background-color: white;
+                        }
+                    }
+
+                    #changepassword_plainPassword {
+                        grid-template-columns: 100%;
+                    }
+                }
+            }
+        }
+    }
+
+    .messages {
+        display: grid;
+        justify-content: center;
+        gap: 1rem;
+        padding: 0.5rem;
+        height: 1rem;
+
+        a {
+            outline: none;
+            text-decoration: none;
+            padding: 2px 1px 0;
+            font-weight: 700;
+
+            &:link {
+                color: rgb(2, 131, 66);
+            }
+
+            &:visited {
+                color: rgb(2, 131, 66);
+            }
+
+            &:focus {
+                background: rgb(70, 189, 96);
+                color: #01380f;
+            }
+
+            &:hover {
+                border-bottom: 1px solid;
+                color: rgb(3, 182, 41);
+            }
+
+            &:active {
+                background: rgb(70, 189, 96);
+                color: #01380f;
+            }
+        }
+    }
+}

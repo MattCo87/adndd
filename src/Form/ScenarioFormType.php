@@ -2,7 +2,8 @@
 
 namespace App\Form;
 
-use App\Entity\Scenario;
+use App\Entity\Game;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -29,22 +30,17 @@ class ScenarioFormType extends AbstractType
                     ],
                 ]
             )
-            ->add(
-                'game',
-                ChoiceType::class,
-                [
-                    'label' => 'Jeu',
-                    'choices' => [
-                        'Advanced Donjons & Dragons v2' => 'adnd2',
-                        'Chroniques Oubliées' => 'cob',
-                        'Vampire La Mascarade' => 'vamp',
-                        'L\'Appel de Cthulhu' => 'cth',
-                    ]
-                ]
-            )
+            ->add('game', EntityType::class, [
+                'class' => Game::class,
+                'choice_label' => function ($game) {
+                    return $game->getName();
+                },
+                'label' => 'Sélectionner un jeu',
+            ])
+
             ->add('start_at', DateType::class, [
                 'label' => 'Première session',
-                'widget' => 'choice',
+                'widget' => 'single_text'
             ])
             ->add(
                 'private',

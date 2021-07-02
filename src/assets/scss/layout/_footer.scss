@@ -19,7 +19,8 @@
                 font-weight: 700;
                 padding: 8px 20px;
                 width: calc(100% - 40px);
-
+                line-height: 1.4;
+                
                 ul {
                     display: inherit;
                     align-items: center;
@@ -39,6 +40,8 @@
         .links-legal {
             font-size: 16px;
             text-align: center;
+            line-height: 1.4;
+
             p {
                 padding: -20px;
                 margin: 20px 0px;

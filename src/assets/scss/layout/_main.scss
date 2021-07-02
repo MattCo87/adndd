@@ -1,16 +1,19 @@
 .app-main {
     padding-top: 74px;
+    box-shadow: 0px 0px 20px 0px rgba(95, 12, 8, 0.7);
+
+    &.noshadow {
+        box-shadow: none !important;
+    }
 
     @include respond(desktop) {
         width: 60rem;
         margin: 0 auto;
-        box-shadow: 0px 0px 20px 0px rgba(95, 12, 8, 0.7);
     }
 
     @include respond(desktop-wide) {
         width: 80rem;
         margin: 0 auto;
-        box-shadow: 0px 0px 20px 0px rgba(95, 12, 8, 0.7);
     }
 
     h1 {
@@ -19,18 +22,22 @@
 
     section {
         padding: 1rem 0;
-   }
 
+        &.login, &.changePassword {
+            padding: 0;
+        }
+    }
+
+    @import "../pages/loginpwd";
     @import "../pages/homepage";
     @import "../pages/homepageedit";
     @import "../pages/faq";
     @import "../pages/games";
-    @import "../pages/addgame";
-    @import "../pages/adddiceset";
     @import "../pages/legal_pages";
-    @import "../pages/presentation";
+    @import "../pages/association";
     @import "../pages/play";
     @import "../pages/contact";
     @import "../pages/character";
     @import "../pages/sheet";
+    @import "../pages/cms";
 }

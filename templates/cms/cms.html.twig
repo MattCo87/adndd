@@ -1,0 +1,88 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gestion du contenu du site
+{% endblock %}
+
+{% block edit %}edit{% endblock %}
+
+{% block mainshadow %}noshadow{% endblock %}
+
+{% block body %}
+	<div class="overlay"></div>
+
+	<div class="cmsWrapper">
+		<h1 class="cmsTitle">Gestion du contenu du site</h1>
+
+		<div class="biColumns">
+			<section id="editPages">
+				<h2 class="cmsSectionTitle">Édition des pages</h2>
+				<div class="btnContainer">
+					<a class="app-button cta editButton" href="{{ path('homepage.edit') }}" role="button">
+						Accueil
+					</a>
+				</div>
+				<div class="btnContainer">
+					<a class="app-button cta editButton disabled" href="#" role="button" disabled>
+						Association
+					</a>
+				</div>
+				<div class="btnContainer">
+					<a class="app-button cta editButton disabled" href="#" role="button" disabled>
+						Jeux
+					</a>
+				</div>
+				<div class="btnContainer">
+					<a class="app-button cta editButton disabled" href="#" role="button" disabled>
+						Contact
+					</a>
+				</div>
+				<div class="btnContainer">
+					<a class="app-button cta editButton disabled" href="#" role="button" disabled>
+						F.A.Q.
+					</a>
+				</div>
+
+
+			</section>
+
+			<section id="editGameData">
+				<h2 class="cmsSectionTitle">Édition des jeux</h2>
+				<div class="btnContainer">
+					<a class="app-button cta editButton" href="{{ path('character.create') }}" role="button">
+						Créer un personnage
+					</a>
+				</div>
+				<div class="btnContainer">
+					<a class="app-button cta editButton" href="{{ path('scenario') }}" role="button">
+						Créer une table
+					</a>
+				</div>
+				<div class="btnContainer">
+					<a class="app-button cta editButton" href="{{ path('games.add') }}" role="button">
+						Ajouter un jeu
+					</a>
+				</div>
+				<div class="btnContainer">
+					<a class="app-button cta editButton" href="{{ path('games.addgamerules') }}" role="button">
+						Ajouter une règle
+					</a>
+				</div>
+				<div class="btnContainer">
+					<a class="app-button cta editButton" href="{{ path('games.adddiceset') }}" role="button">
+						Ajouter un jeu de dés
+					</a>
+				</div>
+				<div class="btnContainer">
+					<a class="app-button cta editButton" href="{{ path('changeequipment') }}" role="button">
+						Ajouter un équipement
+					</a>
+				</div>
+
+
+			</section>
+
+		</div>
+
+		<section id="editBDD"></section>
+	</div>
+{% endblock %}

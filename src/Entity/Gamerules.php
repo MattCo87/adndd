@@ -28,7 +28,7 @@ class Gamerules
     private $path;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Game::class, inversedBy="gamerules")
+     * @ORM\ManyToOne(targetEntity=Game::class, inversedBy="gamerules", cascade={"persist"})
      */
     private $game;
 

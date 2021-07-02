@@ -1,25 +1,42 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Mot de passe perdu{% endblock %}
+{% block title %}Mot de passe perdu
+{% endblock %}
 
 {% block edit %}{% endblock %}
 
+{% block mainshadow %}noshadow
+{% endblock %}
+
 {% block body %}
-    <div class="overlay"></div>
+	<div class="overlay"></div>
+	<div class="myform-container">
 
-    <section class="reset-password">
-        {% for flashError in app.flashes('reset_password_error') %}
-            <div class="alert alert-danger" role="alert">{{ flashError }}</div>
-        {% endfor %}
-        <h1>Mot de passe perdu</h1>
+		<section class="reset-password">
 
-        {{ form_start(requestForm) }}
-        {{ form_row(requestForm.email) }}
-        <div>
-            <p>Entrez votre adresse e-mail, et nous vous enverrons un lien pour régénérer votre mot de passe.</p>
-        </div>
+			{% for flashError in app.flashes('reset_password_error') %}
+				<div class="alert alert-danger" role="alert">{{ flashError }}</div>
+			{% endfor %}
+			<div class="flextitle">
+				<h1>Mot de passe perdu</h1>
+			</div>
+			<ul class="flex-outer">
+				<li>
+					{{ form_label(requestForm.email) }}
+					{{ form_widget(requestForm.email , {'attr': {'class': 'myform-textinput'}}) }}
+					{{ form_errors(requestForm.email) }}
+				</li>
+				<li>
+					<div>
+						<p>Entrez votre adresse e-mail, et nous vous enverrons un lien pour régénérer votre mot de passe.</p>
+					</div>
+				</li>
+				<li class="btnPos">
+						<button class="app-button cta" id="regenpwdbtn">Régénérer mon mot de passe</button>
+						{{ form_end(requestForm) }}
+				</li>
+			</ul>
+		</section>
 
-        <button class="btn btn-primary">Régénérer mon mot de passe</button>
-        {{ form_end(requestForm) }}
-    </section>
+	</div>
 {% endblock %}

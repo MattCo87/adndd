@@ -8,7 +8,25 @@
         width: 200px;
         font-size: 1.5rem;
         font-weight: 500;
-        color: #482ff7;
+        border: none;
+
+        &:focus {
+            border: none;
+            background: none;
+            color: none;
+        }
+
+        &:hover {
+            border: none;
+            background: none;
+            color: none;
+        }
+
+        &:active {
+            border: none;
+            background: none;
+            color: none;
+        }
     }
 
     .hamburger {
@@ -98,7 +116,6 @@
             .nav-item {
                 margin: 0 2rem;
                 .nav-link {
-                    font-size: 20px;
                     font-weight: 400;
                     color: $colorultralight;
 

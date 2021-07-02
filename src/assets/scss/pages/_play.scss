@@ -5,15 +5,15 @@
         padding-top: 0;
         padding-bottom: 1rem;
         margin-bottom: 0;
-        background-color: $colorsecondary;
+        background: $colorsecondary;
         color: white;
-        box-shadow: 0px 4px 10px 0px rgba(95, 12, 8, 0.7);
 
         .flextitle {
             display: flex;
             justify-content: center;
             text-align: center;
             line-height: 1.4;
+            font-size: 1.4rem;
         }
 
         .flex-outer {
@@ -39,9 +39,7 @@
         padding: 2rem 0;
 
         .app-button {
-            background-color: $coloraccent;
-            color: white;
-            border: none;
+            width: 14rem;
         }
     }
 
@@ -129,7 +127,7 @@
                 align-items: center;
                 background-color: $colormain;
 
-                a {
+                & a {
                     color: white;
                     font-weight: 700;
                     font-size: 22px;
@@ -141,18 +139,23 @@
 
                     &:link {
                         text-decoration: none;
+                        border:none;
                     }
 
                     &:visited {
                         text-decoration: none;
+                        border:none;
                     }
 
                     &:hover {
-                        text-decoration: underline;
+                        text-decoration: none;
+                        border:none;
+                        background-color: $coloraccent;
                     }
 
                     &:active {
-                        text-decoration: underline;
+                        text-decoration: none;
+                        border:none;
                     }
                 }
             }
