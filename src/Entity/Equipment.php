@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Entity\Skill;
 use App\Repository\EquipmentRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -60,23 +61,24 @@ class Equipment
     private $skillModifyer;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Specialty::class, inversedBy="equipment" ,cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity=Specialty::class, inversedBy="equipment", cascade={"persist"})
      */
     private $idSpecialty;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Equipmenttype::class, inversedBy="equipment" ,cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity=Equipmenttype::class, inversedBy="equipment", cascade={"persist"})
      */
     private $idEquipmenttype;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Skill::class, inversedBy="equipment")
+     * @ORM\ManyToMany(targetEntity=Skill::class, inversedBy="equipments", cascade={"persist"})
+     * @ORM\JoinTable(name="equipment_skill")
      */
-    private $skill;
+    private $skills;
 
     public function __construct()
     {
-        $this->skill = new ArrayCollection();
+        $this->skills = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -204,18 +206,22 @@ class Equipment
         return $this;
     }
 
+    public function __toString() {
+        return $this->name;
+    }
+
     /**
      * @return Collection|Skill[]
      */
-    public function getSkill(): Collection
+    public function getSkills(): Collection
     {
-        return $this->skill;
+        return $this->skills;
     }
 
     public function addSkill(Skill $skill): self
     {
-        if (!$this->skill->contains($skill)) {
-            $this->skill[] = $skill;
+        if (!$this->skills->contains($skill)) {
+            $this->skills[] = $skill;
         }
 
         return $this;
@@ -223,7 +229,7 @@ class Equipment
 
     public function removeSkill(Skill $skill): self
     {
-        $this->skill->removeElement($skill);
+        $this->skills->removeElement($skill);
 
         return $this;
     }

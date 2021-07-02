@@ -6,6 +6,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Equipment;
+<<<<<<< HEAD
+=======
+
+use App\Form\SkillEquipmentType;
+>>>>>>> develop
 use Symfony\Component\Form\Forms;
 use App\Form\UpdateEquipmentType;
 use Symfony\Component\Form\Form;
@@ -33,8 +38,8 @@ class EquipmentController extends AbstractController
         $equipment = new Equipment();
 
         $form = $this->createForm(UpdateEquipmentType::class, $equipment);
-
         $form->handleRequest($request);
+        
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($equipment);
@@ -44,9 +49,38 @@ class EquipmentController extends AbstractController
 
             return $this->redirectToRoute('equipment');
         }
+        
 
         return $this->render('character/Updateequipment.html.twig', [
             'formEquipment' => $form->createView()
+        ]);
+    }
+
+    /**
+     * @Route("/addskill", name="addskill")
+     */
+
+    public function addskill(Request $request): Response
+    {
+        $equipment = new Equipment();
+
+        $form = $this->createForm(SkillEquipmentType::class, $equipment);
+        $form->handleRequest($request);
+        
+        if ($form->isSubmitted() && $form->isValid()) {
+            dd($form->getData());
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($equipment);
+            $entityManager->flush();
+
+            $this->addFlash('success', 'Vos informations ont été enregistrées !');
+
+            return $this->redirectToRoute('equipment');
+        }
+        
+
+        return $this->render('character/addskill.html.twig', [
+            'formSkillEquipment' => $form->createView()
         ]);
     }
 }
