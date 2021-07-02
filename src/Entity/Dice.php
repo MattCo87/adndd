@@ -30,7 +30,7 @@ class Dice
     private $name;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Diceset::class, inversedBy="dices")
+     * @ORM\ManyToMany(targetEntity=Diceset::class, inversedBy="dices", cascade={"persist"})
      */
     private $dicesets;
 
@@ -90,5 +90,9 @@ class Dice
         $this->dicesets->removeElement($diceset);
 
         return $this;
+    }
+
+    public function __toString() {
+        return $this->name;
     }
 }

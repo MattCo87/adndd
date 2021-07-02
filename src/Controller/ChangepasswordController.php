@@ -18,7 +18,7 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 class ChangepasswordController extends AbstractController
 {
     /**
-     * @Route("/changepassword", name="changepassword")
+     * @Route("/changer-mot-de-passe", name="changepassword")
      */
 
     public function index(Request $request, UserPasswordEncoderInterface $encoder): Response

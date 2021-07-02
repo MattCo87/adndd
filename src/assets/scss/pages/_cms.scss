@@ -1,0 +1,77 @@
+.cmsWrapper {
+    display: grid;
+    padding: 2rem;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    .cmsTitle {
+        text-transform: uppercase;
+        color: $colormain;
+        margin: auto;
+        margin-bottom: 2rem;
+    }
+
+    .biColumns {
+        display: grid;
+        text-align: center;
+        gap: 4rem;
+
+        @include respond(tablet){
+            grid-template-columns: 1fr 1fr;
+        }
+        
+        section {
+            display: grid;
+            grid-template-columns: 100%;
+            gap: 2rem;
+            box-sizing: border-box;
+            background-color: white;
+            padding: 0 1rem 1rem 1rem;
+            margin: 0 auto;
+            margin-bottom: 3rem;
+            box-shadow: 0px 0px 20px 0px rgba(95, 12, 8, 0.7);
+            width: 20rem;
+
+            .cmsSectionTitle {
+                padding: 1rem;
+            }
+
+            .btnContainer {
+                display: grid;
+                justify-content: center;
+                align-items: center;
+                height: 50px;
+
+                .editButton {
+                    background-color: white;
+
+                    &:hover {
+                        background-color: $coloraccent;
+                        color: white;
+                    }
+
+                    &:active {
+                        background-color: rgb(97, 188, 216);
+                        color: white;
+                    }
+
+                    &.disabled {
+                        background-color: rgb(192, 192, 192);
+                        color: rgb(134, 134, 134);
+                        cursor: default;
+                        border: 3px solid rgb(192, 192, 192);
+
+                        &:hover {
+                            cursor: default;
+                            background-color: rgb(192, 192, 192);
+                            color: rgb(134, 134, 134);
+                            border: 3px solid rgb(192, 192, 192);
+                            box-shadow: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -2,33 +2,26 @@
 
 namespace App\Form;
 
-use App\Entity\Scenario;
+use App\Entity\Game;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class PlayType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add(
-                'game',
-                ChoiceType::class,
-                [
-                    'label' => 'Jeu',
-                    'choices' => [
-                        'Tous les jeux' => 'all',
-                        'Advanced Donjons & Dragons v2 + Les royaumes des Terres de l\'Ouest' => 'adnd2',
-                        'Chroniques Oubliées' => 'cob',
-                        'Vampire La Mascarade' => 'vamp',
-                        'L\'Appel de Cthulhu' => 'cth',
-                    ]
-                ]
-            )
-            ->add(
+            ->add('game', EntityType::class, [
+                'class' => Game::class,
+                'choice_label' => function ($game) {
+                    return $game->getName();
+                },
+                'label' => 'Sélectionner un jeu',
+            ])
+
+           ->add(
                 'statuswait',
                 CheckboxType::class,
                 [

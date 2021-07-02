@@ -29,26 +29,35 @@
 }
 
 .app-main {
-    @include respond(desktop) {
-        box-shadow: none !important;
-    }
-
     @include respond(desktop-wide) {
-        width: 60rem !important;
-        box-shadow: none !important;
+        width: 60rem;
     }
 
     .myform-container {
         box-sizing: border-box;
-        background-color: white;
+        background: linear-gradient(311deg, rgb(255, 234, 174) 0%, rgb(244, 210, 144) 100%);
+        color: $colorsecondary;
+
         padding: 0 1rem 1rem 1rem;
         margin: 0 auto;
         margin-bottom: 3rem;
         box-shadow: 0px 0px 20px 0px rgba(95, 12, 8, 0.7);
 
+        &.editForm {
+            background: white;
+            color: black;
+        }
+
+        h1 {
+            font-size: 1.4rem;
+        }
+
         @include respond(tablet) {
             margin: 0 auto;
             margin-bottom: 10rem;
+            h1 {
+                font-size: 1.7rem;
+            }
         }
 
         @include respond(tablet-horizontal) {
@@ -64,37 +73,34 @@
             margin-bottom: 10rem;
         }
 
+        input[type="radio"] {
+            vertical-align: 1px;
+        }
+
         .flextitle {
             display: flex;
             justify-content: center;
             text-transform: uppercase;
+            text-align: center;
             
             &.editTitle {
-                color: black;
-                padding: 6vw 0;
+                color: $colorsecondary;
+                padding-bottom: 1rem;
 
                 @include respond(mobile-horizontal) {
-                    padding: 3vw 0;
+                    padding-bottom: 1.5rem;
                 }
 
                 @include respond(tablet) {
-                }
-
-                @include respond(tablet-horizontal) {
-                }
-
-                @include respond(desktop) {
-                    padding: 2vw 0;
-                }
-
-                @include respond(desktop-wide) {
-                    padding: 1.5vw 0;
+                    padding-bottom: 2rem;
                 }
             }
         }
 
         .flex-outer {
-            max-width: 40rem;
+            @include respond(desktop) {
+                max-width: 40rem;
+            }
             margin: 0 auto;
             list-style-type: none;
             padding: 0;
@@ -108,6 +114,39 @@
                     margin-bottom: 20px;
                 }
 
+                &.revert {
+                    display: revert;
+
+                    div {
+                        display: grid;
+                        grid-template-columns: 100%;
+                        align-items: center;
+                        justify-content: center;
+
+                        .myform-skills {
+                            display: grid;
+                            justify-self: end;
+                        }
+
+                        & .form-control {
+                            font-size: 1rem;
+                        }
+
+                        &.diceCheckbox {
+                            grid-template-columns: 20% 20%;
+                        }
+
+                        @include respond(tablet) {
+                            grid-template-columns: 30% 60%;
+                        }
+                    }
+
+                    textarea {
+                        min-width: 90%;
+                        min-height: 6rem;
+                    }
+                }
+
                 &.myform-skills {
                     display: grid;
                 }
@@ -115,6 +154,11 @@
                 & > label {
                     flex: 1 0 120px;
                     max-width: 220px;
+                    font-size: 1rem;
+
+                    @media (min-width: 375px) {
+                        font-size: 1.2rem; // query spéciale iPhone5 > iPhon6+ (cf page Jouer)
+                    }
 
                     & + * {
                         flex: 1 0 220px;
@@ -126,11 +170,8 @@
                     font-weight: 300;
                     letter-spacing: 0.09em;
                     text-transform: uppercase;
-                }
-
-                & > div {
-                    display: grid;
-                    grid-template-columns: 2rem auto;
+                    padding-right: 2rem;
+                    font-weight: 500;
                 }
 
                 & .myform-textinput {
@@ -138,11 +179,34 @@
                     width: 10rem;
                     font-size: 1.5rem;
                     border-radius: 8px;
-                    background-color: $colorbg;
+                    background-color: white;
+
+                    &#inputEmail,
+                    &#inputPassword {
+                        background-color: white;
+                        min-width: 10rem;
+                        width: auto;
+                    }
+
+                    &.fixSelect {
+                        width: 100%;
+                    }
+                }
+
+                & .myform-checkboxitem {
+                    font-size: 20px;
+                    overflow-wrap: break-word;
+                    display: inline;
                 }
 
                 & .myform-dropdown {
                     border-radius: 8px;
+                    max-width: 100%;
+                    background-color: $colorbg;
+                }
+
+                & .myform-datepicker {
+                    font-size: 20px;
                 }
 
                 & .myform-checkboxitem {
@@ -157,6 +221,7 @@
 
                 &.btnPos {
                     justify-content: center;
+                    height: 4rem;
 
                     @include respond(tablet) {
                         justify-content: flex-end;
@@ -167,6 +232,21 @@
                     background-color: white;
                     border-color: black;
                     width: 8rem;
+
+                    &:hover {
+                        color: white;
+                        background-color: $coloraccent;
+                        border-color: white;
+                    }
+                }
+
+                & #scenario_form_private {
+                    // force les choix radiobtn à se mettre sur toute la largeur
+                    // pour éviter une mauvaise cassure sur des résolutions particulières
+                    min-width: 100%;
+                    @include respond(tablet) {
+                        min-width: revert;
+                    }
                 }
             }
         }

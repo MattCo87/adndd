@@ -29,32 +29,21 @@
     background-color: $colorsecondary;
     font-family: "PT Sans", sans-serif;
     font-size: 26px;
-    height: 12rem;
     background: linear-gradient(rgba(59, 16, 2, 0.75), rgba(212, 99, 5, 0.25)), url("../images/homepage/jdr_table.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
-
-    @include respond(mobile-horizontal) {
-        height: 40vh;
-    }
-
-    @include respond(tablet) {
-        height: 40vh;
-    }
+    height: 14rem;
 
     @include respond(desktop) {
-        height: 60vh;
-    }
-
-    @include respond(desktop-wide) {
-        height: 40vh;
+        height: 20rem;
     }
 
     .assoTitle {
-        max-width: 19rem;
-        font-size: 26px;
+        max-width: 15rem;
+        font-size: 30px;
+
         @include respond(tablet) {
             font-size: 40px;
             max-width: 40rem;
@@ -64,10 +53,28 @@
     .app-button {
         width: fit-content;
         height: fit-content;
+
         &:hover {
             background-color: $coloraccent;
             border-color: $coloraccent;
             color: $colorultralight;
+            border: 2px solid;
+            border-radius: 8px;
+            box-shadow: 0px 0px 4px 2px rgba(43, 23, 2, 0.5);
+        }
+
+        &:focus {
+            background: #5ab3b9;
+            color: white;
+            border-color: white;
+            box-shadow: 0px 0px 4px 2px rgba(43, 23, 2, 0.5);
+        }
+
+        &:active {
+            background: #317479;
+            color: white;
+            border-color: white;
+            box-shadow: 0px 0px 4px 2px rgba(43, 23, 2, 0.5);
         }
     }
 }
@@ -80,6 +87,20 @@
     padding: 0 0;
     padding-bottom: 1.5rem;
 
+    .app-button:focus {
+        background: #5ab3b9;
+        color: white;
+        border-color: white;
+        box-shadow: 0px 0px 4px 2px rgba(43, 23, 2, 0.5);
+    }
+
+    .app-button:active {
+        background: #317479;
+        color: white;
+        border-color: white;
+        box-shadow: 0px 0px 4px 2px rgba(43, 23, 2, 0.5);
+    }
+
     .carousel {
         position: relative;
         overflow-y: hidden;
@@ -87,7 +108,7 @@
         @include respond(tablet) {
             overflow-x: hidden;
         }
- 
+
         @include respond(desktop) {
             overflow-x: hidden;
         }
@@ -143,6 +164,7 @@
             @include respond(tablet-horizontal) {
                 grid-template-columns: 10px repeat(3, calc(100% - 410px * 2)) 10px;
                 width: 70rem;
+                justify-content: center;
             }
 
             @include respond(desktop) {
@@ -190,7 +212,6 @@
                 @include respond(desktop-wide) {
                     height: 40rem;
                 }
-
 
                 .slide-img {
                     position: absolute;
@@ -241,10 +262,7 @@
 
     .app-button {
         border-color: $colormain;
-
-        &:hover {
-            border-color: $coloraccent;
-        }
+        border: 2px solid;
     }
 
     a {
@@ -268,9 +286,10 @@
 
 #jeux {
     background-color: $colorintense;
+    display: grid;
+    gap: 2rem;
 
     .app-button {
-        width: 100vw;
         box-sizing: border-box;
         border-radius: 0;
         height: fit-content;
@@ -281,10 +300,11 @@
 
     .ctabanner {
         font-weight: 700;
-        font-size: 22px;
+        font-size: 20px;
         display: block;
         text-align: center;
         margin: auto;
+        width: 100%;
 
         &:hover {
             background-color: $coloraccent;

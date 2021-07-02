@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Association{% endblock %}
+
+{% block edit %}{% endblock %}
+
+{% block mainshadow %}noshadow{% endblock %}
+
+{% block body %}
+	<div class="overlay"></div>
+	<div class="association myform-container">
+		{{association.content | raw}}
+	</div>
+{% endblock %}

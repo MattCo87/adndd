@@ -140,10 +140,22 @@ class Character
      */
     private $characterSkills;
 
+    /**
+     * @ORM\OneToMany(targetEntity=CharacterCharacteristic::class, mappedBy="idCharacter")
+     */
+    private $characterCharacteristics;
+
+    /**
+     * @ORM\OneToMany(targetEntity=CharacterSpell::class, mappedBy="idCharacter")
+     */
+    private $characterSpells;
+
     public function __construct()
     {
         $this->scenario = new ArrayCollection();
         $this->characterSkills = new ArrayCollection();
+        $this->characterCharacteristics = new ArrayCollection();
+        $this->characterSpells = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -435,6 +447,66 @@ class Character
     public function removeScenario(Scenario $scenario): self
     {
         $this->scenario->removeElement($scenario);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|CharacterCharacteristic[]
+     */
+    public function getCharacterCharacteristics(): Collection
+    {
+        return $this->characterCharacteristics;
+    }
+
+    public function addCharacterCharacteristic(CharacterCharacteristic $characterCharacteristic): self
+    {
+        if (!$this->characterCharacteristics->contains($characterCharacteristic)) {
+            $this->characterCharacteristics[] = $characterCharacteristic;
+            $characterCharacteristic->setIdCharacter($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCharacterCharacteristic(CharacterCharacteristic $characterCharacteristic): self
+    {
+        if ($this->characterCharacteristics->removeElement($characterCharacteristic)) {
+            // set the owning side to null (unless already changed)
+            if ($characterCharacteristic->getIdCharacter() === $this) {
+                $characterCharacteristic->setIdCharacter(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|CharacterSpell[]
+     */
+    public function getCharacterSpells(): Collection
+    {
+        return $this->characterSpells;
+    }
+
+    public function addCharacterSpell(CharacterSpell $characterSpell): self
+    {
+        if (!$this->characterSpells->contains($characterSpell)) {
+            $this->characterSpells[] = $characterSpell;
+            $characterSpell->setIdCharacter($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCharacterSpell(CharacterSpell $characterSpell): self
+    {
+        if ($this->characterSpells->removeElement($characterSpell)) {
+            // set the owning side to null (unless already changed)
+            if ($characterSpell->getIdCharacter() === $this) {
+                $characterSpell->setIdCharacter(null);
+            }
+        }
 
         return $this;
     }

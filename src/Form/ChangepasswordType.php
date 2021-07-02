@@ -29,7 +29,7 @@ class ChangepasswordType extends AbstractType
                 'invalid_message' => 'Les deux mots de passe doivent être identiques',
                 'options' => ['attr' => ['class' => 'password-field']],
                 'required' => true,
-                'first_options'  => ['label' => 'Nouveau mot de passe: '],
+                'first_options'  => ['label' => ':Nouveau mot de passe '],
                 'second_options' => ['label' => 'Confirmer mot de passe: '],
             ))
 
