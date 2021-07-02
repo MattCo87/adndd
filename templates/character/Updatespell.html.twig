@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ah! D & Dédé
+{% endblock %}
+
+{% block edit %}{% endblock %}
+
+{% block body %}
+	<div class="overlay"></div>
+
+	<div class="myform-container">
+		<div class="flextitle editTitle">
+            <h1>AJOUTER UN SORTILEGE DE PERSONNAGE</h1>
+		</div>
+		{{ form_start(formSpell) }}
+		{{ form_errors(formSpell) }}
+
+		<ul class="flex-outer">
+			<li>
+				{{ form_label(formSpell.name, "Nom", {'label_attr': {'class': 'myform-label'}}) }}
+				{{ form_widget(formSpell.name, {'attr': {'class': 'myform-textinput'}}) }}
+				{{ form_errors(formSpell.name) }}
+			</li>
+			<li>
+				{{ form_label(formSpell.effect, "Effect", {'label_attr': {'class': 'myform-label'}}) }}
+				{{ form_widget(formSpell.effect, {'attr': {'class': 'myform-textinput'}}) }}
+				{{ form_errors(formSpell.effect) }}
+			</li>
+			<li>
+				{{ form_label(formSpell.reach, "Reach", {'label_attr': {'class': 'myform-label'}}) }}
+				{{ form_widget(formSpell.reach, {'attr': {'class': 'myform-textinput'}}) }}
+				{{ form_errors(formSpell.reach) }}
+			</li>
+			<li>
+				{{ form_label(formSpell.zone, "Zone", {'label_attr': {'class': 'myform-label'}}) }}
+				{{ form_widget(formSpell.zone, {'attr': {'class': 'myform-textinput'}}) }}
+				{{ form_errors(formSpell.zone) }}
+			</li>
+			<li>
+				{{ form_label(formSpell.idSpelltype, "Type spell", {'label_attr': {'class': 'myform-label'}}) }}
+				{{ form_widget(formSpell.idSpelltype, {'attr': {'class': 'myform-textinput'}}) }}
+				{{ form_errors(formSpell.idSpelltype) }}
+			</li>
+            <li class="btnPos">
+				{{ form_widget(formSpell.save, {'label': 'Créer', 'attr': {'class': 'app-button cta editButton'}}) }}
+			</li>
+			{{ form_end(formSpell) }}
+		</ul>
+	</div>
+
+
+{% endblock %}

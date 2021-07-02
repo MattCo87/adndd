@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ah! D & Dédé
+{% endblock %}
+
+{% block edit %}edit{% endblock %}
+
+{% block body %}
+	<div class="overlay"></div>
+	
+	<div class="myform-container">
+    	<div class="flextitle editTitle">
+			<h1>Ajout de sortilège à un personnage</h1>
+		</div>
+		{{ form_start(EquipmentSpell) }}
+
+		<ul class="flex-outer">
+        	<li>
+				{{ form_label(EquipmentSpell.idCharacter, "Personnage", {'label_attr': {'class': 'myform-label'}}) }} 
+                {{ form_widget(EquipmentSpell.idCharacter) }}
+			</li>	 
+ 			<li>
+				{{ form_label(EquipmentSpell.idSpell, "Sortilège", {'label_attr': {'class': 'myform-label'}}) }}
+                {{ form_widget(EquipmentSpell.idSpell) }}
+			</li>	 
+ 			<li>
+				{{ form_label(EquipmentSpell.level, "Niveau", {'label_attr': {'class': 'myform-label'}}) }}
+                {{ form_widget(EquipmentSpell.level) }}
+			</li>	             
+			<li class="btnPos">
+				{{ form_widget(EquipmentSpell.save, {'label': 'Créer', 'attr': {'class': 'app-button cta editButton'}}) }}
+			</li>
+
+		</ul>
+		{{ form_end(EquipmentSpell) }}
+	</div>
+{% endblock %}
