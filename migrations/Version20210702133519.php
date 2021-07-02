@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20210701111313 extends AbstractMigration
+final class Version20210702133519 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -24,7 +24,10 @@ final class Version20210701111313 extends AbstractMigration
         $this->addSql('CREATE TABLE category (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(255) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE `character` (id INT AUTO_INCREMENT NOT NULL, id_tribe_id INT DEFAULT NULL, id_game_id INT DEFAULT NULL, id_user_id INT DEFAULT NULL, avatar VARCHAR(255) NOT NULL, name VARCHAR(255) NOT NULL, gender VARCHAR(255) NOT NULL, guiding_hand VARCHAR(255) DEFAULT NULL, size VARCHAR(255) DEFAULT NULL, weight VARCHAR(255) NOT NULL, description LONGTEXT NOT NULL, age INT DEFAULT NULL, distinctive LONGTEXT DEFAULT NULL, occupation VARCHAR(255) DEFAULT NULL, story LONGTEXT DEFAULT NULL, notes LONGTEXT DEFAULT NULL, is_premade TINYINT(1) NOT NULL, birthplace VARCHAR(255) DEFAULT NULL, names_titles_surname VARCHAR(255) DEFAULT NULL, homeplace VARCHAR(255) DEFAULT NULL, relatives VARCHAR(255) DEFAULT NULL, enemies VARCHAR(255) DEFAULT NULL, loyalty VARCHAR(255) DEFAULT NULL, INDEX IDX_937AB0343FE50C38 (id_tribe_id), INDEX IDX_937AB0343A127075 (id_game_id), INDEX IDX_937AB03479F37AE5 (id_user_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE character_scenario (character_id INT NOT NULL, scenario_id INT NOT NULL, INDEX IDX_664421491136BE75 (character_id), INDEX IDX_66442149E04E49DF (scenario_id), PRIMARY KEY(character_id, scenario_id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE character_characteristic (id INT AUTO_INCREMENT NOT NULL, id_character_id INT NOT NULL, id_characteristic_id INT NOT NULL, valeur INT NOT NULL, INDEX IDX_7BC2D17532F7CB07 (id_character_id), INDEX IDX_7BC2D1752FDEB93C (id_characteristic_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE character_skill (id INT AUTO_INCREMENT NOT NULL, id_character_id INT DEFAULT NULL, id_skill_id INT NOT NULL, valeur INT NOT NULL, INDEX IDX_A0FE031532F7CB07 (id_character_id), INDEX IDX_A0FE031555E2DD7 (id_skill_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE character_spell (id INT AUTO_INCREMENT NOT NULL, id_character_id INT NOT NULL, id_spell_id INT NOT NULL, level INT DEFAULT NULL, INDEX IDX_2EFC2AEF32F7CB07 (id_character_id), INDEX IDX_2EFC2AEF17452598 (id_spell_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE characteristic (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(255) NOT NULL, short_name VARCHAR(255) DEFAULT NULL, base INT DEFAULT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE cms (id INT AUTO_INCREMENT NOT NULL, title VARCHAR(255) NOT NULL, content LONGTEXT DEFAULT NULL, media VARCHAR(255) DEFAULT NULL, type VARCHAR(255) NOT NULL, created_at DATETIME NOT NULL, updated_at DATETIME DEFAULT NULL, is_active TINYINT(1) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE dice (id INT AUTO_INCREMENT NOT NULL, faces INT NOT NULL, name VARCHAR(255) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE dice_diceset (dice_id INT NOT NULL, diceset_id INT NOT NULL, INDEX IDX_400763518604FF94 (dice_id), INDEX IDX_40076351ED959322 (diceset_id), PRIMARY KEY(dice_id, diceset_id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
@@ -32,7 +35,7 @@ final class Version20210701111313 extends AbstractMigration
         $this->addSql('CREATE TABLE equipment (id INT AUTO_INCREMENT NOT NULL, id_specialty_id INT DEFAULT NULL, id_equipmenttype_id INT DEFAULT NULL, name VARCHAR(255) NOT NULL, base INT NOT NULL, damage VARCHAR(255) DEFAULT NULL, hands INT DEFAULT NULL, health INT DEFAULT NULL, ranged INT DEFAULT NULL, armor_points INT DEFAULT NULL, skill_modifyer INT DEFAULT NULL, INDEX IDX_D338D583B9F44664 (id_specialty_id), INDEX IDX_D338D583787B4181 (id_equipmenttype_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE equipment_skill (equipment_id INT NOT NULL, skill_id INT NOT NULL, INDEX IDX_B764C593517FE9FE (equipment_id), INDEX IDX_B764C5935585C142 (skill_id), PRIMARY KEY(equipment_id, skill_id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE equipmenttype (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(255) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
-        $this->addSql('CREATE TABLE faq (id INT AUTO_INCREMENT NOT NULL, question VARCHAR(255) NOT NULL, answer VARCHAR(255) DEFAULT NULL, number INT NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE faq (id INT AUTO_INCREMENT NOT NULL, question VARCHAR(255) NOT NULL, answer LONGTEXT DEFAULT NULL, number INT NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE game (id INT AUTO_INCREMENT NOT NULL, id_category_id INT NOT NULL, id_gamesystem_id INT NOT NULL, name VARCHAR(255) NOT NULL, version VARCHAR(255) NOT NULL, short_description VARCHAR(255) DEFAULT NULL, description LONGTEXT DEFAULT NULL, image VARCHAR(255) DEFAULT NULL, INDEX IDX_232B318CA545015 (id_category_id), INDEX IDX_232B318CEB394486 (id_gamesystem_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE gamerules (id INT AUTO_INCREMENT NOT NULL, game_id INT DEFAULT NULL, name VARCHAR(255) NOT NULL, path VARCHAR(255) DEFAULT NULL, INDEX IDX_3FAA850BE48FD905 (game_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE gamesystem (id INT AUTO_INCREMENT NOT NULL, id_diceset_id INT NOT NULL, name VARCHAR(255) NOT NULL, INDEX IDX_71468498481F13F5 (id_diceset_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
@@ -50,6 +53,10 @@ final class Version20210701111313 extends AbstractMigration
         $this->addSql('ALTER TABLE `character` ADD CONSTRAINT FK_937AB03479F37AE5 FOREIGN KEY (id_user_id) REFERENCES user (id)');
         $this->addSql('ALTER TABLE character_scenario ADD CONSTRAINT FK_664421491136BE75 FOREIGN KEY (character_id) REFERENCES `character` (id) ON DELETE CASCADE');
         $this->addSql('ALTER TABLE character_scenario ADD CONSTRAINT FK_66442149E04E49DF FOREIGN KEY (scenario_id) REFERENCES scenario (id) ON DELETE CASCADE');
+        $this->addSql('ALTER TABLE character_characteristic ADD CONSTRAINT FK_7BC2D17532F7CB07 FOREIGN KEY (id_character_id) REFERENCES `character` (id)');
+        $this->addSql('ALTER TABLE character_characteristic ADD CONSTRAINT FK_7BC2D1752FDEB93C FOREIGN KEY (id_characteristic_id) REFERENCES characteristic (id)');
+        $this->addSql('ALTER TABLE character_skill ADD CONSTRAINT FK_A0FE031532F7CB07 FOREIGN KEY (id_character_id) REFERENCES `character` (id)');
+        $this->addSql('ALTER TABLE character_skill ADD CONSTRAINT FK_A0FE031555E2DD7 FOREIGN KEY (id_skill_id) REFERENCES skill (id)');
         $this->addSql('ALTER TABLE character_spell ADD CONSTRAINT FK_2EFC2AEF32F7CB07 FOREIGN KEY (id_character_id) REFERENCES `character` (id)');
         $this->addSql('ALTER TABLE character_spell ADD CONSTRAINT FK_2EFC2AEF17452598 FOREIGN KEY (id_spell_id) REFERENCES spell (id)');
         $this->addSql('ALTER TABLE dice_diceset ADD CONSTRAINT FK_400763518604FF94 FOREIGN KEY (dice_id) REFERENCES dice (id) ON DELETE CASCADE');
@@ -74,7 +81,10 @@ final class Version20210701111313 extends AbstractMigration
         $this->addSql('ALTER TABLE scenario DROP FOREIGN KEY FK_3E45C8D8F639F774');
         $this->addSql('ALTER TABLE game DROP FOREIGN KEY FK_232B318CA545015');
         $this->addSql('ALTER TABLE character_scenario DROP FOREIGN KEY FK_664421491136BE75');
+        $this->addSql('ALTER TABLE character_characteristic DROP FOREIGN KEY FK_7BC2D17532F7CB07');
+        $this->addSql('ALTER TABLE character_skill DROP FOREIGN KEY FK_A0FE031532F7CB07');
         $this->addSql('ALTER TABLE character_spell DROP FOREIGN KEY FK_2EFC2AEF32F7CB07');
+        $this->addSql('ALTER TABLE character_characteristic DROP FOREIGN KEY FK_7BC2D1752FDEB93C');
         $this->addSql('ALTER TABLE dice_diceset DROP FOREIGN KEY FK_400763518604FF94');
         $this->addSql('ALTER TABLE dice_diceset DROP FOREIGN KEY FK_40076351ED959322');
         $this->addSql('ALTER TABLE gamesystem DROP FOREIGN KEY FK_71468498481F13F5');
@@ -84,6 +94,7 @@ final class Version20210701111313 extends AbstractMigration
         $this->addSql('ALTER TABLE gamerules DROP FOREIGN KEY FK_3FAA850BE48FD905');
         $this->addSql('ALTER TABLE game DROP FOREIGN KEY FK_232B318CEB394486');
         $this->addSql('ALTER TABLE character_scenario DROP FOREIGN KEY FK_66442149E04E49DF');
+        $this->addSql('ALTER TABLE character_skill DROP FOREIGN KEY FK_A0FE031555E2DD7');
         $this->addSql('ALTER TABLE equipment_skill DROP FOREIGN KEY FK_B764C5935585C142');
         $this->addSql('ALTER TABLE equipment DROP FOREIGN KEY FK_D338D583B9F44664');
         $this->addSql('ALTER TABLE character_spell DROP FOREIGN KEY FK_2EFC2AEF17452598');
@@ -96,7 +107,10 @@ final class Version20210701111313 extends AbstractMigration
         $this->addSql('DROP TABLE category');
         $this->addSql('DROP TABLE `character`');
         $this->addSql('DROP TABLE character_scenario');
+        $this->addSql('DROP TABLE character_characteristic');
+        $this->addSql('DROP TABLE character_skill');
         $this->addSql('DROP TABLE character_spell');
+        $this->addSql('DROP TABLE characteristic');
         $this->addSql('DROP TABLE cms');
         $this->addSql('DROP TABLE dice');
         $this->addSql('DROP TABLE dice_diceset');

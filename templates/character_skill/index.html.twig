@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ah! D & Dédé - Ajout de compétence à un personnage
+{% endblock %}
+
+{% block edit %}edit{% endblock %}
+
+{% block body %}
+	<div class="overlay"></div>
+	
+	<div class="myform-container">
+    	<div class="flextitle editTitle">
+			<h1>Ajout de compétence à un personnage</h1>
+		</div>
+		{{ form_start(CharacterSkill) }}
+
+		<ul class="flex-outer">
+        	<li>
+				{{ form_label(CharacterSkill.idCharacter, "Personnage", {'label_attr': {'class': 'myform-label'}}) }} 
+                {{ form_widget(CharacterSkill.idCharacter) }}
+			</li>	 
+ 			<li>
+				{{ form_label(CharacterSkill.idSkill, "Compétence", {'label_attr': {'class': 'myform-label'}}) }}
+                {{ form_widget(CharacterSkill.idSkill) }}
+			</li>	 
+ 			<li>
+				{{ form_label(CharacterSkill.valeur, "Valeur", {'label_attr': {'class': 'myform-label'}}) }}
+                {{ form_widget(CharacterSkill.valeur) }}
+			</li>	             
+			<li class="btnPos">
+				{{ form_widget(CharacterSkill.save, {'label': 'Créer', 'attr': {'class': 'app-button cta editButton'}}) }}
+			</li>
+
+		</ul>
+		{{ form_end(CharacterSkill) }}
+	</div>
+{% endblock %}

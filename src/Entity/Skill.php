@@ -36,9 +36,15 @@ class Skill
      */
     private $equipments;
 
+    /**
+     * @ORM\OneToMany(targetEntity=CharacterSkill::class, mappedBy="idSkill")
+     */
+    private $characterSkills;
+
     public function __construct()
     {
         $this->equipments = new ArrayCollection();
+        $this->characterSkills = new ArrayCollection();
     }
   
     public function getId(): ?int
@@ -96,6 +102,36 @@ public function removeEquipment(Equipment $equipment): self
 {
     if ($this->equipments->removeElement($equipment)) {
         $equipment->removeSkill($this);
+    }
+
+    return $this;
+}
+
+/**
+ * @return Collection|CharacterSkill[]
+ */
+public function getCharacterSkills(): Collection
+{
+    return $this->characterSkills;
+}
+
+public function addCharacterSkill(CharacterSkill $characterSkill): self
+{
+    if (!$this->characterSkills->contains($characterSkill)) {
+        $this->characterSkills[] = $characterSkill;
+        $characterSkill->setIdSkill($this);
+    }
+
+    return $this;
+}
+
+public function removeCharacterSkill(CharacterSkill $characterSkill): self
+{
+    if ($this->characterSkills->removeElement($characterSkill)) {
+        // set the owning side to null (unless already changed)
+        if ($characterSkill->getIdSkill() === $this) {
+            $characterSkill->setIdSkill(null);
+        }
     }
 
     return $this;
