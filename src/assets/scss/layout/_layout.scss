@@ -7,8 +7,7 @@ html {
         display: flex;
         min-height: 100vh;
         flex-direction: column;
-       font-family: "Open Sans", sans-serif;
-        font-size: 21px;
+        font-family: "Open Sans", sans-serif;
         color: #000;
         background-color: $colorultralight;
  
@@ -20,10 +19,6 @@ html {
         
         @import "main";      
       
-        @import "../pages/error403";
-        @import "../pages/error404";
-        @import "../pages/error";
-
         @import "../pages/error403";
         @import "../pages/error404";
         @import "../pages/error";

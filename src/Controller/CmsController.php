@@ -48,14 +48,10 @@ class CmsController extends AbstractController
     }
 
     /**
-     * @Route("/presentation", name="presentation")
+     * @Route("/gestion-du-contenu", name="cms.links")
      */
-    public function presentation(): Response
+    public function cmsLinks(): Response
     {
-        $presentation = $this->getDoctrine()->getRepository(CMS::class)->findOneBy(['type' => 'about']);
-
-        return $this->render('presentation/index.html.twig', [
-            'presentation' => $presentation,
-        ]);
+        return $this->render('cms/cms.html.twig');
     }
 }

@@ -1,20 +1,31 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Mot de passe perdu{% endblock %}
+{% block title %}Alerte mot de passe perdu
+{% endblock %}
 
 {% block edit %}{% endblock %}
 
+{% block mainshadow %}noshadow
+{% endblock %}
+
 {% block body %}
-    <div class="overlay"></div>
-    <section class="reset-password">
-        <h1>Mot de passe perdu</h1>
-        <p>
-            Si un compte correspondant à vorte adresse e-mail existe, vous allez recevoir un message contenant un lien.<br />
-            Cliquez sur ce lien pour accéder à la page de régénération de votre mot de passe.<br />
-            Ce lien expirera dans {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.
-        </p>
-        <p>
-            Si vous n'avez pas reçu le message, vérifiez vos spams ou <a href="{{ path('app_forgot_password_request') }}">réessayez</a>.
-        </p>
-    </section>
+	<div class="overlay"></div>
+	<div class="myform-container">
+
+		<section class="reset-password">
+			<div class="flextitle">
+				<h1>Mot de passe perdu</h1>
+			</div>
+			<p>
+				Si un compte correspondant à vorte adresse e-mail existe, vous allez recevoir un message contenant un lien.<br/>
+				Cliquez sur ce lien pour accéder à la page de régénération de votre mot de passe.<br/>
+				Ce lien expirera dans
+				{{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.
+			</p>
+			<p>
+				Si vous n'avez pas reçu le message, vérifiez vos spams ou
+				<a href="{{ path('app_forgot_password_request') }}">réessayez</a>.
+			</p>
+		</section>
+	</div>
 {% endblock %}

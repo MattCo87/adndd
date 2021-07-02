@@ -136,6 +136,11 @@ class Character
     private $scenario;
 
     /**
+     * @ORM\OneToMany(targetEntity=CharacterCharacteristic::class, mappedBy="idCharacter")
+     */
+    private $characterCharacteristics;
+
+    /**
      * @ORM\OneToMany(targetEntity=CharacterSpell::class, mappedBy="idCharacter")
      */
     private $characterSpells;
@@ -143,6 +148,7 @@ class Character
     public function __construct()
     {
         $this->scenario = new ArrayCollection();
+        $this->characterCharacteristics = new ArrayCollection();
         $this->characterSpells = new ArrayCollection();
     }
 
@@ -435,6 +441,36 @@ class Character
     public function removeScenario(Scenario $scenario): self
     {
         $this->scenario->removeElement($scenario);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|CharacterCharacteristic[]
+     */
+    public function getCharacterCharacteristics(): Collection
+    {
+        return $this->characterCharacteristics;
+    }
+
+    public function addCharacterCharacteristic(CharacterCharacteristic $characterCharacteristic): self
+    {
+        if (!$this->characterCharacteristics->contains($characterCharacteristic)) {
+            $this->characterCharacteristics[] = $characterCharacteristic;
+            $characterCharacteristic->setIdCharacter($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCharacterCharacteristic(CharacterCharacteristic $characterCharacteristic): self
+    {
+        if ($this->characterCharacteristics->removeElement($characterCharacteristic)) {
+            // set the owning side to null (unless already changed)
+            if ($characterCharacteristic->getIdCharacter() === $this) {
+                $characterCharacteristic->setIdCharacter(null);
+            }
+        }
 
         return $this;
     }

@@ -14,7 +14,7 @@ use Symfony\Component\HttpFoundation\Request;
 class AccountController extends AbstractController
 {
     /**
-     * @Route("/account", name="account")
+     * @Route("/profil", name="account")
      */
     
     public function index(Request $request): Response

@@ -1,24 +1,42 @@
 .legal_mentions {
-    background-color: #ffeaae;
-    color: #873608;
     text-align: left;
-    width: 100vw;
+
+    &  a {
+        color: rgb(2, 168, 60);
+
+        &:hover {
+            color: rgb(11, 117, 91);
+        }
+
+        &:visited {
+            color: rgb(52, 95, 67);
+        }
+    }
 
     h1 {
+        font-size: 1.4rem;
         text-align: center;
     }
     h2 {
         font-weight: 600;
-        font-size: 25px;
+        font-size: 1.2rem;
         padding: 10px 4vw;
     }
     h3 {
         padding: 10px 4vw;
         font-weight: 550;
-        font-size: 23px;
+        font-size: 1.1rem;
     }
     p {
         padding: 10px 4vw;
-        font-size: 21px;
+        font-size: 1rem;
+    }
+
+    ul {
+        font-size: 0.9rem;
+        padding: 1rem;
+        @include respond(mobile-horizontal) {
+            padding-left: 8rem;
+        }
     }
 }

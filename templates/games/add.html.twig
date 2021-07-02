@@ -1,62 +1,59 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Ah! D & Dédé
+{% block title %}Ajouter un jeu
 {% endblock %}
 
-{% block edit %}{% endblock %}
+{% block edit %}edit
+{% endblock %}
+
+{% block mainshadow %}noshadow{% endblock %}
 
 {% block body %}
 	<div class="overlay"></div>
-	<div class="container">
-		<h1>NOUVEAU JEU</h1>
-		<div class="form">
-			<form action="addgame.php">
-				<div class="row">
-					<div class="col-25">
-						<label for="gamecover">Illustration</label>
-					</div>
-					<div class="col-75">
-						<input type="file" id="gamecover" name="gamecover">
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-25">
-						<label for="gname">Nom du jeu</label>
-					</div>
-					<div class="col-75">
-						<input type="text" id="gname" name="gamename" placeholder="Nom du jeu..">
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-25">
-						<label for="gdesc">Description du jeu</label>
-					</div>
-					<div class="col-75">
-						<textarea id="gamedesc" name="gamedesc" placeholder="Description du jeu.." style="height:200px"></textarea>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-25">
-						<label for="genre">Genre</label>
-					</div>
-					<div class="col-75">
-						<select id="genre" name="genre">
-							<option value="heroicfantasy">Médiéval Fantastique</option>
-							<option value="sci-fi">Science-fiction</option>
-							<option value="fantasy">Fantastique</option>
-							<option value="horror">Horreur</option>
-							<option value="modern">Moderne</option>
-							<option value="superhero">Super-héros</option>
-							<option value="anime-cartoon">Anime/cartoon</option>
-							<option value="western">Western</option>
-							<option value="other-generic">Autre / Générique</option>
-						</select>
-					</div>
-				</div>
-				<div class="row">
-					<input class="app-button cta" type="submit" value="Envoyer">
-				</div>
-			</form>
+
+	<div class="myform-container editForm">
+		<div class="flextitle editTitle">
+			<h1>Ajouter un jeu</h1>
 		</div>
+		{{ form_start(addGameForm) }}
+
+		<ul class="flex-outer">
+			<li class="revert">
+				{{ form_row(addGameForm.image) }}
+			</li>
+			<li class="revert">
+				{{ form_row(addGameForm.name) }}
+			</li>
+			<li class="revert">
+				{{ form_row(addGameForm.version) }}
+			</li>
+			<li class="revert">
+				{{ form_row(addGameForm.short_description) }}
+			</li>
+			<li class="revert">
+				{{ form_row(addGameForm.description) }}
+			</li>
+			<li class="revert">
+				<div>
+					{{ form_label(addGameForm.idCategory, 'Catégorie', {'label_attr': {'class': 'myform-label'}}) }}
+					{{ form_widget(addGameForm.idCategory, {'attr': {'class': 'myform-dropdown fixSelect'}}) }}
+				</div>
+			</li>
+
+			<li class="revert">
+				<div>
+					{{ form_label(addGameForm.idGamesystem, 'Système de jeu', {'label_attr': {'class': 'myform-label'}}) }}
+					{{ form_widget(addGameForm.idGamesystem, {'attr': {'class': 'myform-dropdown fixSelect'}}) }}
+				</div>
+			</li>
+			<li class="revert">
+				{{ form_row(addGameForm.gamerules) }}
+			</li>
+			<li class="btnPos">
+				{{ form_widget(addGameForm.submit, {'label': 'Ajouter', 'attr': {'class': 'app-button cta editButton'}}) }}
+			</li>
+		</ul>
+		{{ form_end(addGameForm) }}
 	</div>
+
 {% endblock %}

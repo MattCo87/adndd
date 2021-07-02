@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Ah! D & Dédé
+{% block title %}Accueil
 {% endblock %}
 
 {% block javascripts %}
@@ -9,16 +9,19 @@
 
 {% block edit %}{% endblock %}
 
-{% block body %}
-	<div class="overlay"></div>
+{% block mainshadow %}{% endblock %}
 
+{% block body %}
+
+
+	<div class="overlay"></div>
 	<section id="association">
 		<div class="app-grid two">
 			<div class="grid-item grid-itemLeft">
 				<h2 class="assoTitle">ASSOCIATION DE JEU DE RÔLES DE GUÉRET</h2>
 			</div>
 			<div class="grid-item grid-itemRight">
-				<a class="app-button cta" href="{{ path('presentation') }}" role="button">
+				<a class="app-button cta" href="{{ path('association') }}" role="button">
 					EN SAVOIR PLUS
 				</a>
 			</div>
@@ -28,10 +31,9 @@
 	<section id="jouer">
 
 
+
 		<section class="carousel">
-	<!--		<div class="carousel-control prev">
-				<i class="fas fa-play fa-flip-horizontal"></i>
-			</div>-->
+
 			<div class="slides">
 				<div class="slide">
 					<img class="slide-img" src="{{ asset('assets/images/homepage/cover_add.png') }}"/>
@@ -43,15 +45,13 @@
 					<img class="slide-img" src="{{ asset('assets/images/homepage/cover_cth.png') }}"/>
 				</div>
 			</div>
-		<!--	<div class="carousel-control next">
-				<i class="fas fa-play"></i>
-			</div>-->
 		</section>
 
 		<p>5 jeux disponibles actuellement!</p>
-		<a class="app-button cta" href="#" role="button">
+		<a class="app-button cta" href="{{ path('play') }}" role="button">
 			JOUER EN LIGNE
 		</a>
+		
 	</section>
 
 	<section id="jeux">
@@ -65,5 +65,4 @@
 			</a>
 		</h1>
 	</section>
-
 {% endblock %}

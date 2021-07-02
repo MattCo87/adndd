@@ -6,13 +6,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Equipment;
-
-use App\Form\SkillEquipmentType;
 use Symfony\Component\Form\Forms;
 use App\Form\UpdateEquipmentType;
 use Symfony\Component\Form\Form;
 use Symfony\Component\HttpFoundation\Request;
-
 
 class EquipmentController extends AbstractController
 {

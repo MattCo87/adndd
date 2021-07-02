@@ -23,7 +23,7 @@
     flex-wrap: wrap;
     justify-content: space-evenly;
     padding: 4vh 0 3vh 0;
-    background-color: $colorbg;
+    background: linear-gradient(311deg, rgb(255, 234, 174) 0%, rgb(244, 210, 144) 100%);
 
     @include respond(mobile-horizontal) {
         padding: 5vh 0 3vh 0;
@@ -180,8 +180,13 @@
         }
 
         .gameBanner {
+            display: grid;
+            grid-template-columns: 100%;
+            grid-template-rows: auto 4rem;
+            justify-content: center;            
             background-color: $colormain;
             height: 110px;
+
             .gameCategory {
                 padding: 10px;
                 text-align: center;
@@ -190,20 +195,32 @@
                 color: $colorultralight;
             }
             .gameCTA {
-                display: flex;
-                justify-content: space-around;
-                padding: 10px 0;
-                .app-button {
+                display: grid;
+                grid-template-columns: 50% 50%;
+                align-items: center;
+
+                a.app-button {
                     color: $colorultralight;
                     border: none;
+                    width: 8.5rem;
+                    font-size: 0.9rem;
+                    justify-self: center;
 
-                    @include respond(desktop) {
-                        font-size: 1.2vw;
+                    @media (min-width: 480px) {
+                        font-size: 0.6rem;
+                        width: 6rem;
+                    }
+                    
+                    @media (min-width: 660px) {
+                        font-size: 0.9rem;
+                        width: 8rem;
+                    }
+                    
+                    @media (min-width: 800px) {
+                        font-size: 1rem;
+                        width: 10rem;
                     }
 
-                    @include respond(desktop-wide) {
-                        font-size: 1vw;
-                    }
                 }
             }
         }
