@@ -2,27 +2,33 @@
 
 namespace App\Controller;
 
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+
 use App\Entity\Dice;
 use App\Entity\Diceset;
 use App\Entity\Game;
 use App\Entity\Gamerules;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\File\Exception\FileException;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
-use App\Form\AddDicesetType;
-use App\Form\AddGameType;
-use App\Form\AddGamerulesType;
+
+use App\Form\DicesetAddType;
+use App\Form\GameAddType;
+use App\Form\GamerulesAddType;
 
 class GamesController extends AbstractController
 {
     /**
      * @Route("/les-jeux", name="games")
      */
-    public function index(): Response
+    public function index(Request $request): Response
     {
+        $session = $request->getSession();
+        $session->set('headerMode', '');
+        $session->set('mainMode', '');
+
         return $this->render('games/index.html.twig');
     }
 
@@ -31,8 +37,12 @@ class GamesController extends AbstractController
      */
     public function add(Request $request): Response
     {
+        $session = $request->getSession();
+        $session->set('headerMode', 'edit');
+        $session->set('mainMode', 'noshadow');
+
         $game = new Game();
-        $form = $this->createForm(AddGameType::class, $game);
+        $form = $this->createForm(GameAddType::class, $game);
         $form->handleRequest($request);
 
 
@@ -116,8 +126,12 @@ class GamesController extends AbstractController
      */
     public function addGamerules(Request $request): Response
     {
+        $session = $request->getSession();
+        $session->set('headerMode', 'edit');
+        $session->set('mainMode', 'noshadow');
+
         $gamerules = new Gamerules();
-        $form = $this->createForm(AddGamerulesType::class, $gamerules);
+        $form = $this->createForm(GamerulesAddType::class, $gamerules);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -170,8 +184,12 @@ class GamesController extends AbstractController
      */
     public function addDiceset(Request $request): Response
     {
+        $session = $request->getSession();
+        $session->set('headerMode', 'edit');
+        $session->set('mainMode', 'noshadow');
+
         $diceset = new Diceset();
-        $form = $this->createForm(AddDicesetType::class, $diceset);
+        $form = $this->createForm(DicesetAddType::class, $diceset);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

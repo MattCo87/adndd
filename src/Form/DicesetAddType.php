@@ -11,7 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
-class AddDicesetType extends AbstractType
+class DicesetAddType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {

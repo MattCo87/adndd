@@ -13,7 +13,7 @@ use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
-class AddGameType extends AbstractType
+class GameAddType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -49,7 +49,7 @@ class AddGameType extends AbstractType
             ->add('version')
 
             ->add('short_description', TextType::class, [
-                'label' => 'Description courte'
+                'label' => 'Résumé'
             ])
 
             ->add('description')

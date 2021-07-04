@@ -12,7 +12,7 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
-class UpdateSpellType extends AbstractType
+class SpellAddType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {

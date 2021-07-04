@@ -1,17 +1,17 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Ah! D & Dédé
+{% block title %}Ajouter un sort à un personnage
 {% endblock %}
-
-{% block edit %}edit{% endblock %}
 
 {% block body %}
 	<div class="overlay"></div>
 	
-	<div class="myform-container">
+	<div class="myform-container editForm">
+
     	<div class="flextitle editTitle">
-			<h1>Ajout de sortilège à un personnage</h1>
+			<h1>Ajouter un sort à un personnage</h1>
 		</div>
+
 		{{ form_start(EquipmentSpell) }}
 
 		<ul class="flex-outer">
@@ -20,7 +20,7 @@
                 {{ form_widget(EquipmentSpell.idCharacter) }}
 			</li>	 
  			<li>
-				{{ form_label(EquipmentSpell.idSpell, "Sortilège", {'label_attr': {'class': 'myform-label'}}) }}
+				{{ form_label(EquipmentSpell.idSpell, "Sort", {'label_attr': {'class': 'myform-label'}}) }}
                 {{ form_widget(EquipmentSpell.idSpell) }}
 			</li>	 
  			<li>

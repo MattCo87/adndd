@@ -1,17 +1,17 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Ah! D & Dédé
+{% block title %}Ajouter une caractéristique
 {% endblock %}
-
-{% block edit %}{% endblock %}
 
 {% block body %}
 	<div class="overlay"></div>
 
-	<div class="myform-container">
+	<div class="myform-container editForm">
+
 		<div class="flextitle editTitle">
-            <h1>ajouter une caractéristique</h1>
+            <h1>Ajouter une caractéristique</h1>
 		</div>
+
 		{{ form_start(formCharacteristic) }}
 		{{ form_errors(formCharacteristic) }}
 

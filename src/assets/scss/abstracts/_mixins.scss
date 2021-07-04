@@ -39,3 +39,42 @@
 @include respond(min-width, 1192px) {}
 @include between-breakpoints(0, 1024px) {}
 **/
+
+@mixin respondEX($point, $value: 0) {
+	@if $point == iPhone5-v {
+		  @media (min-width: 320px) and (orientation: portrait) { @content; }
+	  }
+  
+	  @else if $point == iPhone5-h {
+		  @media (min-width: 568px) and (orientation: landscape)  { @content; }
+	  }
+  
+	  @else if $point == iPhone6-v {
+		  @media (min-width: 375px) and (orientation: portrait)  { @content; }
+	  }
+  
+	  @else if $point == iPhone6-h {
+		  @media (min-width: 667px) and (orientation: landscape) { @content; }
+	  }
+	  
+	  @else if $point == iPhoneX-v {
+		  @media (min-width: 375px) and (orientation: portrait)  { @content; }
+	  }
+  
+	  @else if $point == iPhoneX-h {
+		  @media (min-width: 812px) and (orientation: landscape)  { @content; }
+	  }
+
+	  @else if $point == iPad-v {
+		@media (min-width: 768px) and (orientation: portrait)  { @content; }
+	}
+
+	@else if $point == iPad-h {
+		@media (min-width: 1024px) and (orientation: landscape)  { @content; }
+	}	  
+  
+	  @else {
+		  @media ($point: $value) { @content; }
+	  }
+  }
+  

@@ -1,0 +1,294 @@
+@include between-breakpoints(480px, 1020px) {
+    &.tableView {
+        padding-top: 0;
+        & .playWrapper {
+            & .myform-container {
+                [name="jitsi"] {
+                    #controlBars {
+                        position: sticky;
+                        bottom: 0;
+                        display: flex !important;
+                        justify-content: center;
+                        padding: 0.5rem 0 !important;
+                        height: 44px !important;
+
+                        .btnGroup {
+                            width: calc(3 * 46px);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+&.wide {
+    @include respond(desktop) {
+        width: revert !important;
+        margin: revert !important;
+        padding: revert !important;
+    }
+
+    .playWrapper {
+        .myform-container {
+            background: $colorbg;
+            padding: 0;
+
+            & .flextitle {
+                position: absolute;
+                font-size: 0.9rem;
+                width: 16rem;
+                margin-left: 2rem;
+                top: 3rem;
+
+                @media (min-width: 480px) {
+                    font-size: 1rem;
+                    margin-left: 14rem;
+                    top: revert;
+                }
+
+                h2 {
+                    color: $colorbg;
+                    text-shadow: 1px 2px $colorultradark;
+                }
+            }
+
+            & [name="jitsi"] {
+                @include respond(desktop) {
+                    display: grid;
+                    grid-template-columns: 2fr 1fr;
+                    grid-template-areas:
+                        "zoneJitsi"
+                        "zoneControls"
+                        "zoneContent";
+                }
+
+                padding: revert;
+                background: $colorultralight;
+                box-shadow: 0px 0px 20px 0px rgba(95, 12, 8, 0.7);
+
+                #gameArea {
+                    img[id="gameMap"] {
+                        grid-area: zoneJitsi;
+                        object-fit: cover;
+                        display: block;
+                    }
+                }
+
+                #gameSide {
+                    #controlBars {
+                        grid-area: zoneControls;
+                        align-self: end;
+                        @include respond(tablet) {
+                            grid-area: zoneControls;
+                            align-self: baseline;
+                        }
+                        @include respond(tablet-horizontal) {
+                            grid-area: zoneContent;
+                            align-self: baseline;
+                        }
+                        display: grid;
+                        grid-template-columns: 1fr;
+                        align-content: space-between;
+                        padding: 1rem 0;
+                        height: calc(2 * 44px + 1rem);
+                        background: $colormain;
+                        z-index: 555;
+
+                        #playerControls,
+                        #DMControls {
+                            display: grid;
+                            grid-template-columns: fit-content(25%) auto fit-content(25%);
+                            grid-template-rows: 44px;
+                            grid-template-areas: "leftGroup middleGroup rightGroup";
+                            background: $colorcta;
+
+                            .btnGroup {
+                                display: flex;
+                                width: calc(3 * 52px);
+                                @media (min-width: 360px) {
+                                    width: calc(3 * 58px);
+                                }
+
+                                @media (orientation: landscape) {
+                                    width: calc(3 * 47px);
+                                }
+
+                                @media (min-width: 600px) and (orientation: landscape) {
+                                    width: calc(3 * 52px);
+                                }
+
+                                @media (min-width: 700px) and (orientation: landscape) {
+                                    width: calc(3 * 58px);
+                                }
+
+                                &.alignStart {
+                                    grid-area: leftGroup;
+                                }
+
+                                &.alignEnd {
+                                    grid-area: rightGroup;
+                                }
+
+                                button {
+                                    background-color: transparent;
+                                }
+                            }
+                        }
+
+                        #DMControls {
+                            background: $colorintense;
+                        }
+                    }
+
+                    #tableContent {
+                        display: grid;
+                        justify-content: center;
+                        min-height: 27rem;
+                        grid-template-columns: 1fr;
+                        grid-template-rows: 6fr 1fr;
+
+                        @include respondEX(iPhone5-h) {
+                        }
+
+                        @include respondEX(iPhone6-v) {
+                        }
+
+                        @include respondEX(iPhone6-h) {
+                        }
+
+                        @include respondEX(iPhoneX-v) {
+                        }
+
+                        @include respondEX(iPhoneX-h) {
+                        }
+
+                        @include respondEX(iPad-v) {
+                        }
+
+                        @include respondEX(iPad-h) {
+                        }
+
+                        #iframeMask {
+                            overflow: hidden;
+                            position: relative;
+                            width: 100%;
+
+                            @include respondEX(iPhone5-h) {
+                            }
+
+                            @include respondEX(iPhone6-v) {
+                            }
+
+                            @include respondEX(iPhone6-h) {
+                            }
+
+                            @include respondEX(iPhoneX-v) {
+                            }
+
+                            @include respondEX(iPhoneX-h) {
+                            }
+
+                            @include respondEX(iPad-v) {
+                            }
+
+                            @include respondEX(iPad-h) {
+                            }
+
+                            iframe {
+                                position: absolute;
+
+                                top: -13.1rem;
+                                left: -14rem;
+                                width: 48rem;
+                                height: 36rem;
+                                scale: 100%;
+
+                                @include respondEX(iPhone5-h) {
+                                    top: -14rem;
+                                    left: -2rem;
+                                    width: 40rem;
+                                    height: 36rem;
+                                    scale: 92%;
+                                }
+
+                                @include respondEX(iPhone6-v) {
+                                    top: -13.1rem;
+                                    left: -12.4rem;
+                                    width: 48rem;
+                                    height: 36rem;
+                                    scale: 100%;
+                                }
+
+                                @include respondEX(iPhone6-h) {
+                                    top: -14rem;
+                                    left: 0rem;
+                                    width: 42rem;
+                                    height: 36rem;
+                                    scale: 100%;
+                                }
+
+                                @include respondEX(iPhoneX-v) {
+                                    top: -13.1rem;
+                                    left: -12.4rem;
+                                    width: 48rem;
+                                    height: 36rem;
+                                    scale: 100%;
+                                }
+
+                                @include respondEX(iPhoneX-h) {
+                                    top: -14rem;
+                                    left: 0rem;
+                                    width: 50.7rem;
+                                    height: 36rem;
+                                    scale: 100%;
+                                }
+
+                                @include respondEX(iPad-v) {
+                                    top: -13.1rem;
+                                    left: 0rem;
+                                    width: 48rem;
+                                    height: 36rem;
+                                    scale: 100%;
+                                }
+
+                                @include respondEX(iPad-h) {
+                                    top: -14rem;
+                                    left: 0rem;
+                                    width: 64rem;
+                                    height: 36rem;
+                                    scale: 100%;
+                                }
+
+                                @include respond(desktop) {
+                                    top: -14rem;
+                                    left: 0rem;
+                                    width: 27.5rem;
+                                    height: 36rem;
+                                    scale: 100%;
+                                }
+
+                                @include respond(desktop-wide) {
+                                    top: -16rem;
+                                    left: -12rem;
+                                    width: 52rem;
+                                    height: 37.4rem;
+                                    scale: 100%;
+                                }
+                            }
+                        }
+
+                        #googleCredits {
+                            color: $colormain;
+                            padding: 1rem;
+                            font-style: italic;
+                            font-variant: all-small-caps;
+                            align-self: center;
+                            justify-self: center;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

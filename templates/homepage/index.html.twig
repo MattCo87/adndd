@@ -3,19 +3,12 @@
 {% block title %}Accueil
 {% endblock %}
 
-{% block javascripts %}
-	<script src="https://kit.fontawesome.com/b916232238.js" crossorigin="anonymous"></script>
-{% endblock %}
-
-{% block edit %}{% endblock %}
-
-{% block mainshadow %}{% endblock %}
-
 {% block body %}
 
-
 	<div class="overlay"></div>
+
 	<section id="association">
+
 		<div class="app-grid two">
 			<div class="grid-item grid-itemLeft">
 				<h2 class="assoTitle">ASSOCIATION DE JEU DE RÔLES DE GUÉRET</h2>
@@ -26,11 +19,10 @@
 				</a>
 			</div>
 		</div>
+
 	</section>
 
 	<section id="jouer">
-
-
 
 		<section class="carousel">
 
@@ -55,14 +47,17 @@
 	</section>
 
 	<section id="jeux">
+
 		<div class="app-grid two">
 			<div class="grid-item"><img src="{{ asset('assets/images/homepage/dices.png') }}" alt="set de dés de jeu de rôle"/></div>
 			<div class="grid-item"><img src="{{ asset('assets/images/homepage/bookpile.png') }}" alt="livres de jeux de rôle"/></div>
 		</div>
+		
 		<h1>
 			<a class="app-button cta ctabanner" href="{{ path('games') }}" role="button">
 				DÉCOUVREZ TOUS NOS JEUX
 			</a>
 		</h1>
+
 	</section>
 {% endblock %}

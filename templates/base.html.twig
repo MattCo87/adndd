@@ -1,46 +1,52 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-        <title>{% block title %}{% endblock %} - Ah ! D & Dédé - Association de jeux de rôles à Guéret (23)</title>
-        {% block edit %}{% endblock %}
+		<title>
+			{% block title %}{% endblock %}
+			- Ah ! D & Dédé - Association de jeux de rôles à Guéret (23)</title>
+		{% block edit %}{% endblock %}
 
-        <!-- favicons -->
-        <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('apple-touch-icon.png') }}" />
-        <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicon-32x32.png') }}" />
-        <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicon-16x16.png') }}" />
-        <link rel="manifest" href="{{ asset('site.webmanifest') }}" />
-        <link rel="mask-icon" href="{{ asset('safari-pinned-tab.svg') }}" color="#5bbad5" />
-        <meta name="msapplication-TileColor" content="#da532c" />
-        <meta name="theme-color" content="#ffffff" />
+		<!-- favicons -->
+		<link rel="apple-touch-icon" sizes="180x180" href="{{ asset('apple-touch-icon.png') }}"/>
+		<link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicon-32x32.png') }}"/>
+		<link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicon-16x16.png') }}"/>
+		<link rel="manifest" href="{{ asset('site.webmanifest') }}"/>
+		<link rel="mask-icon" href="{{ asset('safari-pinned-tab.svg') }}" color="#5bbad5"/>
+		<meta name="msapplication-TileColor" content="#da532c"/>
+		<meta name="theme-color" content="#ffffff"/>
 
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&display=swap" rel="stylesheet" />
-        {% block stylesheets %}{% endblock %}
-        <link rel="stylesheet" href="{{ asset('assets/css/styles.min.css') }}" />
+		<link rel="preconnect" href="https://fonts.gstatic.com"/>
+		<link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&display=swap" rel="stylesheet"/>
+		<script src="https://kit.fontawesome.com/b916232238.js" crossorigin="anonymous"></script>
+		{% block stylesheets %}{% endblock %}
+		<link rel="stylesheet" href="{{ asset('assets/css/styles.min.css') }}"/>
 
-        <script type="text/javascript" src="{{ asset('assets/js/menu.js') }}" defer></script>
-        {% block javascripts %}{% endblock %}
-    </head>
-    <body class="{% block body_class %}{% endblock %}">
-        {% include 'layouts/_header.html.twig' with {edit: block('edit')} %}
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="{{ asset('assets/js/menu.js') }}" defer></script>
+		<script type="text/javascript" src="{{ asset('assets/js/btnToTop.js') }}" defer></script>
 
-        <main class="app-main {% block mainshadow %}{% endblock %}
-">
-            {% for label, messages in app.flashes %}
-                {% for message in messages %}
-                    <div class="alert alert-{{ label }}">
-                        {{ message }}
-                    </div>
-                {% endfor %}
-            {% endfor %}
+		{% block javascripts %}{% endblock %}
+	</head>
+	<body class="{% block body_class %}{% endblock %}">
+		{{ include ('layouts/_header.html.twig') }}
 
+		<a id="btnToTop"></a>
 
-            {% block body %}{% endblock %}
-        </main>
+		<main class="app-main {{ app.session.get('mainMode') }}">
+			{% for label, messages in app.flashes %}
+				{% for message in messages %}
+					<div class="alert alert-{{ label }}">
+						{{ message }}
+					</div>
+				{% endfor %}
+			{% endfor %}
 
-        {% include 'layouts/_footer.html.twig' %}
-    </body>
+			{% block body %}{% endblock %}
+		</main>
+
+		{% include 'layouts/_footer.html.twig' %}
+	</body>
 </html>

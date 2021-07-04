@@ -2,11 +2,12 @@
 
 namespace App\Controller;
 
-use App\Form\CharacterType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Routing\Annotation\Route;
+
+use App\Form\CharacterType;
 
 class CharacterController extends AbstractController
 {
@@ -15,6 +16,10 @@ class CharacterController extends AbstractController
      */
     public function create(Request $request): Response
     {
+
+        $session = $request->getSession();
+        $session->set('headerMode', 'edit');
+        $session->set('mainMode', 'noshadow');
 
         $form = $this->createForm(CharacterType::class);
         $form->handleRequest($request);
@@ -38,9 +43,13 @@ class CharacterController extends AbstractController
     /**
      * @Route("/feuille-personnage-edit", name="characteredit")
      */
-    public function edit(): Response
+    public function edit(Request $request): Response
     {
-        return $this->render(
+        $session = $request->getSession();
+        $session->set('headerMode', 'edit');
+        $session->set('mainMode', 'noshadow');
+
+       return $this->render(
             'character/edit.html.twig'
         );
     }

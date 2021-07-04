@@ -4,20 +4,24 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+
 use App\Entity\CharacterSpell;
 use App\Form\CharacterSpellType;
-use Symfony\Component\HttpFoundation\Request;
 
 class CharacterSpellController extends AbstractController
 {
     /**
-     * @Route("/addspell", name="addspell")
+     * @Route("/ajouter-sort-personnage", name="spell-character.add")
      */
     public function index(Request $request): Response
     {
+        $session = $request->getSession();
+        $session->set('headerMode', 'edit');
+        $session->set('mainMode', 'noshadow');
 
-        $characterspell = new CharacterSpell();
+       $characterspell = new CharacterSpell();
 
         $form = $this->createForm(CharacterSpellType::class, $characterspell);
 
@@ -46,7 +50,7 @@ class CharacterSpellController extends AbstractController
             */
             $this->addFlash('success', 'Vos informations ont été enregistrées !');  
 
-            return $this->redirectToRoute('addspell');
+            return $this->redirectToRoute('spell-character.add');
         }
 
         return $this->render('character_spell/index.html.twig', [

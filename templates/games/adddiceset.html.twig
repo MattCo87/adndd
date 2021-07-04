@@ -3,18 +3,15 @@
 {% block title %}Ajouter un jeu de dé
 {% endblock %}
 
-{% block edit %}edit
-{% endblock %}
-
-{% block mainshadow %}noshadow{% endblock %}
-
 {% block body %}
 	<div class="overlay"></div>
 
 	<div class="myform-container editForm">
+
 		<div class="flextitle editTitle">
 			<h1>Ajouter un jeu de dés</h1>
 		</div>
+
 		{{ form_start(addDicesetForm) }}
 
 		<ul class="flex-outer">

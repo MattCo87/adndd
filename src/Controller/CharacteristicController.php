@@ -4,24 +4,26 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+
 use App\Entity\Characteristic;
+use App\Entity\CharacterCharacteristic;
 use App\Form\CharacteristicType;
 use App\Form\CharacterCharacteristicType;
-use App\Entity\CharacterCharacteristic;
-
-use Symfony\Component\HttpFoundation\Request;
 
 class CharacteristicController extends AbstractController
 {
     /**
-     * @Route("/ajouter-caracteristique", name="addcharasteristic")
+     * @Route("/ajouter-caracteristique", name="charasteristic.add")
      */
     public function index(Request $request): Response
     {
+        $session = $request->getSession();
+        $session->set('headerMode', 'edit');
+        $session->set('mainMode', 'noshadow');
 
         $characteristic = new Characteristic();
-
 
         $form = $this->createForm(CharacteristicType::class, $characteristic);  
         $form->handleRequest($request);
@@ -33,7 +35,7 @@ class CharacteristicController extends AbstractController
             $entityManager->flush();
             $this->addFlash('success', 'Vos informations ont été enregistrées !');
 
-            return $this->redirectToRoute('addcharasteristic');
+            return $this->redirectToRoute('charasteristic.add');
         }
 
         return $this->render('charasteristic/index.html.twig', [
@@ -42,13 +44,15 @@ class CharacteristicController extends AbstractController
     }
 
     /**
-     * @Route("/ajouter-caracteristique-personnage", name="addcharactercharasteristic")
+     * @Route("/ajouter-caracteristique-personnage", name="characteristic-character.add")
      */
     public function addCharacterCharacteristic(Request $request): Response
     {
+        $session = $request->getSession();
+        $session->set('headerMode', 'edit');
+        $session->set('mainMode', 'noshadow');
 
         $charactercharacteristic = new CharacterCharacteristic();
-
 
         $form = $this->createForm(CharacterCharacteristicType::class, $charactercharacteristic);  
         $form->handleRequest($request);
@@ -60,10 +64,10 @@ class CharacteristicController extends AbstractController
             $entityManager->flush();
             $this->addFlash('success', 'Vos informations ont été enregistrées !');
 
-            return $this->redirectToRoute('addcharactercharasteristic');
+            return $this->redirectToRoute('characteristic-character.add');
         }
 
-        return $this->render('charasteristic/addCharacteristicCharacter.html.twig', [
+        return $this->render('charasteristic/characteristic_character.html.twig', [
             'formCharacteristicCharacter' => $form->createView()
         ]);
     }

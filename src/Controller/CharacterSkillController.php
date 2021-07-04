@@ -4,20 +4,24 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 use App\Entity\CharacterSkill;
 use App\Form\CharacterSkillType;
-use Symfony\Component\HttpFoundation\Request;
 
 class CharacterSkillController extends AbstractController
 {
     /**
-     * @Route("/ajouter-competence-personnage", name="addcharacterskill")
+     * @Route("/ajouter-competence-personnage", name="skill-character.add")
      */
     public function index(Request $request): Response
     {   
-        $characterskill = new CharacterSkill();
+        $session = $request->getSession();
+        $session->set('headerMode', 'edit');
+        $session->set('mainMode', 'noshadow');
+
+       $characterskill = new CharacterSkill();
 
         $form = $this->createForm(CharacterSkillType::class, $characterskill);
 
@@ -31,7 +35,7 @@ class CharacterSkillController extends AbstractController
 
             $this->addFlash('success', 'Vos informations ont été enregistrées !');  
 
-            return $this->redirectToRoute('addcharacterskill');
+            return $this->redirectToRoute('skill-character.add');
         }
 
 

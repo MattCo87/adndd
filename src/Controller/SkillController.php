@@ -3,30 +3,34 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Entity\Equipment;
-use App\Entity\Skill;
-use App\Form\SkillType;
-use App\Form\SkillEquipmentType;
 use Symfony\Component\Form\Forms;
 use Symfony\Component\Form\Form;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
+use App\Entity\Equipment;
+use App\Entity\Skill;
+use App\Form\SkillAddType;
+use App\Form\SkillEquipmentType;
 
 class SkillController extends AbstractController
 {
     /**
-     * @Route("/ajouter-competence", name="addskill")
+     * @Route("/ajouter-une-competence", name="skill.add")
      */
     
     public function index(Request $request): Response
     {
+        $session = $request->getSession();
+        $session->set('headerMode', 'edit');
+        $session->set('mainMode', 'noshadow');
+
         $skill = new Skill();
         $equipment = new Equipment();
 
-        $form = $this->createForm(SkillType::class, $skill);  
+        $form = $this->createForm(SkillAddType::class, $skill);  
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -36,11 +40,10 @@ class SkillController extends AbstractController
             $entityManager->flush();
             $this->addFlash('success', 'Vos informations ont été enregistrées !');
 
-            return $this->redirectToRoute('addskill');
-        }
-        
+            return $this->redirectToRoute('skill.add');
+        }        
 
-        return $this->render('character/Updateskill.html.twig', [
+        return $this->render('character/skill-add.html.twig', [
             'formSkill' => $form->createView(),
         ]);
     }

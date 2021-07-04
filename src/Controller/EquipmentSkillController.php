@@ -4,20 +4,25 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+
 use App\Entity\Equipment;
 use App\Entity\Skill;
 use App\Form\EquipmentSkillType;
-use Symfony\Component\HttpFoundation\Request;
 
 class EquipmentSkillController extends AbstractController
 {
     /**
-     * @Route("addskill", name="addskill")
+     * @Route("/ajouter-competence-equipement", name="skill-equipment.add")
      */
+
     public function index(Request $request): Response
     {
-        
+        $session = $request->getSession();
+        $session->set('headerMode', 'edit');
+        $session->set('mainMode', 'noshadow');
+
         $equipment = new Equipment();
 
         $form = $this->createForm(EquipmentSkillType::class, $equipment);
@@ -41,7 +46,7 @@ class EquipmentSkillController extends AbstractController
             
             $this->addFlash('success', 'Vos informations ont été enregistrées !');  
 
-            return $this->redirectToRoute('addskill');
+            return $this->redirectToRoute('skill-equipment.add');
         }
 
         return $this->render('equipment_skill/index.html.twig', [

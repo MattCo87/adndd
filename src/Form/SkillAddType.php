@@ -11,7 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
-class SkillType extends AbstractType
+class SkillAddType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {

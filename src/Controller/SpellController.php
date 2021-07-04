@@ -4,35 +4,29 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Form\Forms;
+use Symfony\Component\Form\Form;
 
 use App\Entity\Spell;
-
-use Symfony\Component\Form\Forms;
-use App\Form\UpdateSpellType;
-use Symfony\Component\Form\Form;
-use Symfony\Component\HttpFoundation\Request;
+use App\Form\SpellAddType;
 
 class SpellController extends AbstractController
 {
     /**
-     * @Route("/spell", name="spell")
-     */
-    public function index2(): Response
-    {
-        return $this->render('spell/index.html.twig', [
-            'controller_name' => 'SpellController',
-        ]);
-    }
-
-    /**
-    * @Route("/changespell", name="changespell")
+    * @Route("/ajouter-un-sort", name="spell.add")
     */
+
     public function index(Request $request): Response
     {
+        $session = $request->getSession();
+        $session->set('headerMode', 'edit');
+        $session->set('mainMode', 'noshadow');
+
         $spell = new Spell();
 
-        $form = $this->createForm(UpdateSpellType::class, $spell);
+        $form = $this->createForm(SpellAddType::class, $spell);
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
@@ -42,10 +36,10 @@ class SpellController extends AbstractController
 
             $this->addFlash('success', 'Vos informations ont été enregistrées !');
 
-            return $this->redirectToRoute('spell');
+            return $this->redirectToRoute('spell.add');
         }
 
-        return $this->render('character/Updatespell.html.twig', [
+        return $this->render('character/spell-add.html.twig', [
             'formSpell' => $form->createView()
         ]);
     }

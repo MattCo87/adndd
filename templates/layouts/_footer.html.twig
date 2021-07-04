@@ -1,56 +1,51 @@
 <footer class="app-footer">
-    <div class="footerlinks">
-        <div class="sitemap">
-            <div class="links-group">
-                Aide
-                <ul>
-                    <li>
-                        <a href="{{ path('association') }}">Qui sommes-nous?</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('faq') }}">F.A.Q.</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('contact') }}">Nous contacter</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="links-group">
-                Jeux de Rôle
-                <ul>
-                    <li>
-                        <a href="{{ path('play') }}">Jouer en ligne</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('games') }}">Nos jeux</a>
-                    </li>
-                </ul>
-            </div>
 
-            <div class="links-group">
-                Nous suivre
-                <ul>
-                    <li>
-                        <a href="{{ appGlobals.getAppFacebook() }}" target="_blank" rel="noopener noreferrer">{{ appGlobals.getAppFacebook() }}</a>
-                    </li>
-                    <li>
-                        <a href="{{ appGlobals.getAppInstagram() }}" target="_blank" rel="noopener noreferrer">{{ appGlobals.getAppInstagram() }}</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <hr>
-        <div class="links-legal">
-            <p>
-                <a href="{{ path('legal.mentions') }}">Mentions légales</a>
-                -
-                <a href="{{ path('legal.tou') }}">Conditions d'utilisation</a>
-            </p>
-            <p>
-                <a href="{{ path('legal.privacy') }}">Confidentialité et Cookies</a>
-            </p>
-            <br />
-            <p>© {{ 'now' | date('Y') }} {{ appGlobals.getAppName() }}. Tous droits réservés.</p>
-        </div>
-    </div>
+	<div class="footerlinks">
+		<div class="sitemap">
+
+			<div class="links-group">
+				Aide
+				<ul>
+					<li><a href="{{ path('association') }}">Qui sommes-nous?</a></li>
+					<li><a href="{{ path('faq') }}">F.A.Q.</a></li>
+					<li><a href="{{ path('contact') }}">Nous contacter</a></li>
+				</ul>
+			</div>
+
+			<div class="links-group">
+				Jeux de Rôle
+				<ul>
+					<li><a href="{{ path('play') }}">Jouer en ligne</a></li>
+					<li><a href="{{ path('games') }}">Nos jeux</a></li>
+				</ul>
+			</div>
+
+			<div class="links-group">
+				Nous suivre
+				<ul>
+					<li><a href="{{ appGlobals.getAppFacebook() }}" target="_blank" rel="noopener noreferrer">{{ appGlobals.getAppFacebook() }}</a></li>
+					<li><a href="{{ appGlobals.getAppInstagram() }}" target="_blank" rel="noopener noreferrer">{{ appGlobals.getAppInstagram() }}</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<hr>
+
+		<div class="links-legal">
+			<p>
+				<a href="{{ path('legal.mentions') }}">Mentions légales</a>
+				-
+				<a href="{{ path('legal.tou') }}">Conditions d'utilisation</a>
+			</p>
+			<p>
+				<a href="{{ path('legal.privacy') }}">Confidentialité et Cookies</a>
+			</p>
+			<br/>
+			<p>©
+				{{ 'now' | date('Y') }}
+				{{ appGlobals.getAppName() }}. Tous droits réservés.</p>
+		</div>
+
+	</div>
+
 </footer>

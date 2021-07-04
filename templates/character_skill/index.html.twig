@@ -1,17 +1,17 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Ah! D & Dédé - Ajout de compétence à un personnage
+{% block title %}Ajouter une compétence à un personnage
 {% endblock %}
-
-{% block edit %}edit{% endblock %}
 
 {% block body %}
 	<div class="overlay"></div>
 	
-	<div class="myform-container">
+	<div class="myform-container editForm">
+
     	<div class="flextitle editTitle">
-			<h1>Ajout de compétence à un personnage</h1>
+			<h1>Ajouter une compétence à un personnage</h1>
 		</div>
+		
 		{{ form_start(CharacterSkill) }}
 
 		<ul class="flex-outer">

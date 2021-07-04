@@ -1,17 +1,17 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Ajouter une compétence de personnage
+{% block title %}Ajouter une compétence
 {% endblock %}
-
-{% block edit %}edit{% endblock %}
 
 {% block body %}
 	<div class="overlay"></div>
 
-	<div class="myform-container">
+	<div class="myform-container editForm">
+
 		<div class="flextitle editTitle">
-            <h1>ajouter une compétence de personnage</h1>
+            <h1>Ajouter une compétence</h1>
 		</div>
+
 		{{ form_start(formSkill) }}
 		{{ form_errors(formSkill) }}
 
@@ -22,7 +22,7 @@
 				{{ form_errors(formSkill.name) }}
 			</li>
 			<li>
-				{{ form_label(formSkill.base, "Base", {'label_attr': {'class': 'myform-label'}}) }}
+				{{ form_label(formSkill.base, "Valeur de base", {'label_attr': {'class': 'myform-label'}}) }}
 				{{ form_widget(formSkill.base, {'attr': {'class': 'myform-textinput'}}) }}
 				{{ form_errors(formSkill.base) }}
 			</li>		

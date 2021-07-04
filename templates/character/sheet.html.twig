@@ -1,0 +1,43 @@
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+<script type="text/javascript" src="{{ asset('assets/js/customselect.js') }}" defer></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script type="text/javascript" src="{{ asset('assets/js/swiperslides.js') }}" defer></script>
+
+
+<div class="sheetWrapper">
+
+	<div class="swiper-container carousel__tabs">
+		<div class="swiper-wrapper">
+
+			<div class="swiper-slide">
+				{{ include('./character/profile.html.twig') }}
+			</div>
+			<div class="swiper-slide">
+				{{ include('./character/skills.html.twig') }}
+			</div>
+			<div class="swiper-slide">
+				{{ include('./character/magic.html.twig') }}
+			</div>
+			<div class="swiper-slide">
+				{{ include('./character/weapons.html.twig') }}
+			</div>
+			<div class="swiper-slide">
+				{{ include('./character/armors.html.twig') }}
+			</div>
+			<div class="swiper-slide">
+				{{ include('./character/background.html.twig') }}
+			</div>
+			<div class="swiper-slide">
+				{{ include('./character/treasures.html.twig') }}
+			</div>
+			<div class="swiper-slide">
+				{{ include('./character/companions.html.twig') }}
+			</div>
+		</div>
+		<div class="swiper-button-hidden"></div>
+		<div class="swiper-button-next"></div>
+		<div class="swiper-button-prev"></div>
+		<div class="swiper-pagination tabs-pagination"></div>
+	</div>
+
+</div>

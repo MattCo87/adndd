@@ -3,15 +3,15 @@
 {% block title %}Ajouter une caractéristique à un personnage
 {% endblock %}
 
-{% block edit %}{% endblock %}
-
 {% block body %}
 	<div class="overlay"></div>
 
-	<div class="myform-container">
+	<div class="myform-container editForm">
+
 		<div class="flextitle editTitle">
-            <h1>ajouter une caractéristique à un personnage</h1>
+            <h1>Ajouter une caractéristique à un personnage</h1>
 		</div>
+
 		{{ form_start(formCharacteristicCharacter) }}
 		{{ form_errors(formCharacteristicCharacter) }}
 

@@ -1,0 +1,105 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Table de jeu
+{% endblock %}
+
+{% block javascripts %}
+	<script type="text/javascript" src="{{ asset('assets/js/modal.js') }}" defer></script>
+{% endblock %}
+
+{% block body %}
+
+	<div class="overlay"></div>
+
+	<div id="modal-container">
+		<div class="modal-background">
+			<div class="modal">
+				<span class="close">&times;</span>
+				{{ render(controller('App\\Controller\\SheetController:index')) }}
+			</div>
+		</div>
+	</div>
+
+	<div class="playWrapper">
+
+		<div class="myform-container">
+
+			<section name="jitsi">
+				<div id="gameArea">
+					<div class="flextitle">
+						<h2 id="tableNum">Table n° ADNDD-05691</h2>
+					</div>
+					<img src="{{ asset('assets/images/table/advdd_map_big.jpg')}}" alt="carte de donjons et dragons" id="gameMap"/>
+				</div>
+				<div id="gameSide">
+					<div id="controlBars">
+						<div id="playerControls">
+							<div class="btnGroup alignStart">
+								<button name="btnPDF" type="button" class="button" id="">
+									<img src="{{ asset('assets/images/table/btnPDF_ON.png')}}" alt="bouton PDF"/>
+								</button>
+								<button name="btnDices" type="button" class="button" id="">
+									<img src="{{ asset('assets/images/table/btnDices_ON.png')}}" alt="bouton dés"/>
+								</button>
+								<button name="btnCharSheet" type="button" class="button" id="modal-animate">
+									<img src="{{ asset('assets/images/table/btnCharSheet_ON.png')}}" alt="bouton personnage"/>
+								</button>
+							</div>
+
+							<div class="btnGroup alignEnd">
+								<button name="btnMute" type="button" class="button" id="">
+									<img src="{{ asset('assets/images/table/btnMute_ON.png')}}" alt="bouton micro"/>
+								</button>
+								<button name="btnMyCam" type="button" class="button" id="">
+									<img src="{{ asset('assets/images/table/btnMyCam_ON.png')}}" alt="bouton caméra"/>
+								</button>
+								<button name="btnAllCams" type="button" class="button" id="">
+									<img src="{{ asset('assets/images/table/btnAllCams_ON.png')}}" alt="bouton toutes les caméras"/>
+								</button>
+							</div>
+						</div>
+						<div id="DMControls">
+							<div class="btnGroup alignStart">
+								<button name="btnPDF" type="button" class="button" id="">
+									<img src="{{ asset('assets/images/table/btnDMPanel_ON.png')}}" alt="bouton panneau MJ"/>
+								</button>
+								<button name="btnDices" type="button" class="button">
+									<img src="{{ asset('assets/images/table/btnPlayerCheck.png')}}" alt="bouton valider joueur"/>
+								</button>
+								<button name="btnCharSheet" type="button" class="button">
+									<img src="{{ asset('assets/images/table/btnKick.png')}}" alt="bouton expulser joueur"/>
+								</button>
+							</div>
+
+							<div class="btnGroup alignEnd">
+								<button name="btnMute" type="button" class="button">
+									<img src="{{ asset('assets/images/table/btnPause_OFF.png')}}" alt="bouton pause (off)"/>
+								</button>
+								<button name="btnMyCam" type="button" class="button">
+									<img src="{{ asset('assets/images/table/btnStop_OFF.png')}}" alt="bouton stop (off)"/>
+								</button>
+								<button name="btnAllCams" type="button" class="button">
+									<img src="{{ asset('assets/images/table/btnPlay_OFF.png')}}" alt="bouton play (off)"/>
+								</button>
+							</div>
+						</div>
+					</div>
+					<div id="tableContent">
+						<div
+							id="iframeMask">
+							<!-- Google ne permet pas d'être inclus dans une iframe, cette url particulière en revanche bypass cette restriction -->
+							<iframe scrolling="no" src="https://google.com/search?igu=1&q=roll+dice"></iframe>
+						</div>
+						<span id="googleCredits">
+							Lancer de dés by Google ("roll dice")
+						</span>
+					</div>
+
+				</div>
+			</section>
+
+		</div>
+
+	</div>
+
+{% endblock %}

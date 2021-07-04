@@ -3,17 +3,14 @@
 {% block title %}Gestion du contenu du site
 {% endblock %}
 
-{% block edit %}edit{% endblock %}
-
-{% block mainshadow %}noshadow{% endblock %}
-
 {% block body %}
 	<div class="overlay"></div>
 
 	<div class="cmsWrapper">
 		<h1 class="cmsTitle">Gestion du contenu du site</h1>
 
-		<div class="biColumns">
+		<div class="triColumns">
+
 			<section id="editPages">
 				<h2 class="cmsSectionTitle">Édition des pages</h2>
 				<div class="btnContainer">
@@ -41,17 +38,10 @@
 						F.A.Q.
 					</a>
 				</div>
-
-
 			</section>
 
 			<section id="editGameData">
 				<h2 class="cmsSectionTitle">Édition des jeux</h2>
-				<div class="btnContainer">
-					<a class="app-button cta editButton" href="{{ path('character.create') }}" role="button">
-						Créer un personnage
-					</a>
-				</div>
 				<div class="btnContainer">
 					<a class="app-button cta editButton" href="{{ path('scenario') }}" role="button">
 						Créer une table
@@ -72,12 +62,55 @@
 						Ajouter un jeu de dés
 					</a>
 				</div>
+			</section>
+
+			<section id="editCharacterData">
+				<h2 class="cmsSectionTitle">Édition des personnages</h2>
 				<div class="btnContainer">
-					<a class="app-button cta editButton" href="{{ path('changeequipment') }}" role="button">
+					<a class="app-button cta editButton" href="{{ path('character.create') }}" role="button">
+						Créer un personnage
+					</a>
+				</div>
+				<div class="btnContainer">
+					<a class="app-button cta editButton" href="{{ path('equipment.add') }}" role="button">
 						Ajouter un équipement
 					</a>
 				</div>
-
+				<div class="btnContainer">
+					<a class="app-button cta editButton" href="{{ path('charasteristic.add') }}" role="button">
+						Ajouter une caractéristique
+					</a>
+				</div>
+				<div class="btnContainer">
+					<a class="app-button cta editButton" href="{{ path('skill.add') }}" role="button">
+						Ajouter une compétence
+					</a>
+				</div>
+				<div class="btnContainer">
+					<a class="app-button cta editButton" href="{{ path('spell.add') }}" role="button">
+						Ajouter un sort
+					</a>
+				</div>
+				<div class="btnContainer">
+					<a class="app-button cta editButton" href="{{ path('equipment.add') }}" role="button">
+						Ajouter un équipement
+					</a>
+				</div>
+				<div class="btnContainer">
+					<a class="app-button cta editButton" href="{{ path('characteristic-character.add') }}" role="button">
+						Ajouter une caractéristique à un personnage
+					</a>
+				</div>
+				<div class="btnContainer">
+					<a class="app-button cta editButton" href="{{ path('skill-character.add') }}" role="button">
+						Ajouter une compétence à un personnage
+					</a>
+				</div>
+				<div class="btnContainer">
+					<a class="app-button cta editButton" href="{{ path('spell-character.add') }}" role="button">
+						Ajouter un sort à un personnage
+					</a>
+				</div>
 
 			</section>
 

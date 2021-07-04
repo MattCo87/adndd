@@ -1,17 +1,17 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Ah! D & Dédé
+{% block title %}Ajouter un sort
 {% endblock %}
-
-{% block edit %}{% endblock %}
 
 {% block body %}
 	<div class="overlay"></div>
 
-	<div class="myform-container">
+	<div class="myform-container editForm">
+
 		<div class="flextitle editTitle">
-            <h1>AJOUTER UN SORTILEGE DE PERSONNAGE</h1>
+            <h1>Ajouter un sort</h1>
 		</div>
+
 		{{ form_start(formSpell) }}
 		{{ form_errors(formSpell) }}
 
@@ -22,12 +22,12 @@
 				{{ form_errors(formSpell.name) }}
 			</li>
 			<li>
-				{{ form_label(formSpell.effect, "Effect", {'label_attr': {'class': 'myform-label'}}) }}
+				{{ form_label(formSpell.effect, "Effet", {'label_attr': {'class': 'myform-label'}}) }}
 				{{ form_widget(formSpell.effect, {'attr': {'class': 'myform-textinput'}}) }}
 				{{ form_errors(formSpell.effect) }}
 			</li>
 			<li>
-				{{ form_label(formSpell.reach, "Reach", {'label_attr': {'class': 'myform-label'}}) }}
+				{{ form_label(formSpell.reach, "Portée", {'label_attr': {'class': 'myform-label'}}) }}
 				{{ form_widget(formSpell.reach, {'attr': {'class': 'myform-textinput'}}) }}
 				{{ form_errors(formSpell.reach) }}
 			</li>
@@ -37,7 +37,7 @@
 				{{ form_errors(formSpell.zone) }}
 			</li>
 			<li>
-				{{ form_label(formSpell.idSpelltype, "Type spell", {'label_attr': {'class': 'myform-label'}}) }}
+				{{ form_label(formSpell.idSpelltype, "Type de sort", {'label_attr': {'class': 'myform-label'}}) }}
 				{{ form_widget(formSpell.idSpelltype, {'attr': {'class': 'myform-textinput'}}) }}
 				{{ form_errors(formSpell.idSpelltype) }}
 			</li>
