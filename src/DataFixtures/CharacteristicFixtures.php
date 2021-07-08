@@ -15,6 +15,12 @@ class CharacteristicFixtures extends Fixture implements OrderedFixtureInterface
         // Les caractéristiques
        
         $characteristics = [
+            ["Modificateur aux dégâts", "DMG", 0],
+            ["Jet d'Idée", "JIDE", 0],
+            ["Jet de Chance", "JLUCK", 0],
+            ["Jet de Charisme", "JCHAR", 0],
+            ["Jet de Dexterité", "JDEX", 0],
+
             ["Force", "FOR", 1],
             ["Constitution", "CON", 10],
             ["Taille", "TAI", 69],
@@ -22,9 +28,6 @@ class CharacteristicFixtures extends Fixture implements OrderedFixtureInterface
             ["Pouvoir", "POU", 50],
             ["Apparence", "APP", 20],
             ["Dexterité", "DEX", 50],
-            ["Idée", "IDE", 30],
-            ["Chance", "LUCK", 50],
-            ["Charisme", "CHAR", 40],
             ["Agilité", "AGI", 50],
             ["Endurance", "END", 50],
             ["Concentration", "FOCUS", 35],
