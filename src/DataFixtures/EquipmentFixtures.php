@@ -37,7 +37,7 @@ class EquipmentFixtures extends Fixture implements OrderedFixtureInterface
         ->setDistinctive('Paumettes proéminentes; Yeux sombres et creux, Tatouages tribaux')
         ->setStory('Il fut embarqué sur un bâteau le long des côtes des Terres désolées et humides. Il a fuit les meurtriers de sa famille. Quand il sera prêt, il retournera dans sa contrée pour assouvir sa vengeance.')
         ->setIsPremade(true)
-        ->setLoyalty('loi')
+        ->setLoyalty('Chaos 0 - Balance 0 - Loi 3')
         ->setHomeplace('Sur un bâteau')
         ->setBirthplace('Terres désolées et humides')
         ->setPurse('80');
@@ -61,7 +61,7 @@ class EquipmentFixtures extends Fixture implements OrderedFixtureInterface
         ->setDistinctive('')
         ->setStory('')
         ->setIsPremade(true)
-        ->setLoyalty('loi')
+        ->setLoyalty('Chaos 0 - Balance 0 - Loi 3')
         ->setHomeplace('')
         ->setBirthplace('')
         ->setPurse('570');
@@ -85,7 +85,7 @@ class EquipmentFixtures extends Fixture implements OrderedFixtureInterface
         ->setDistinctive('')
         ->setStory('')
         ->setIsPremade(true)
-        ->setLoyalty('loi')
+        ->setLoyalty('Chaos 3 - Balance 0 - Loi 0')
         ->setHomeplace('')
         ->setBirthplace('')
         ->setPurse('220');
@@ -94,6 +94,77 @@ class EquipmentFixtures extends Fixture implements OrderedFixtureInterface
 /************************************************************************************************* */
 /************************************************************************************************* */
 
+/************************************************************************************************* */
+/****************************               RATHEK             ************************** */
+
+$Rathek = new Character();
+$Rathek->setName('Rathek')
+->setAvatar('rathek.png')
+->setGender('M')
+->setGuidingHand('Droitier')
+->setSize('')
+->setWeight('')
+->setDescription('')
+->setAge('25')
+->setDistinctive('')
+->setStory('')
+->setIsPremade(true)
+->setLoyalty('Chaos 0 - Balance 3 - Loi 0')
+->setHomeplace('')
+->setBirthplace('')
+->setPurse('2100');
+$manager->persist( $Rathek );
+
+/************************************************************************************************* */
+/************************************************************************************************* */
+
+/************************************************************************************************* */
+/****************************               VREEN             ************************** */
+
+$Vreen = new Character();
+$Vreen->setName('Vreen')
+->setAvatar('vreen.png')
+->setGender('F')
+->setGuidingHand('Droitier')
+->setSize('')
+->setWeight('')
+->setDescription('')
+->setAge('19')
+->setDistinctive('')
+->setStory('')
+->setIsPremade(true)
+->setLoyalty('Chaos 0 - Balance 3 - Loi 0')
+->setHomeplace('')
+->setBirthplace('')
+->setPurse('660');
+$manager->persist( $Vreen );
+
+/************************************************************************************************* */
+/************************************************************************************************* */
+
+/************************************************************************************************* */
+/****************************               KEVI             ************************** */
+
+$Kevi = new Character();
+$Kevi->setName('Kevi')
+->setAvatar('kevi.png')
+->setGender('F')
+->setGuidingHand('Droitier')
+->setSize('')
+->setWeight('')
+->setDescription('')
+->setAge('20')
+->setDistinctive('')
+->setStory('')
+->setIsPremade(true)
+->setLoyalty('Chaos 3 - Balance 0 - Loi 0')
+->setHomeplace('')
+->setBirthplace('')
+->setPurse('160');
+$manager->persist( $Kevi );
+
+/************************************************************************************************* */
+/************************************************************************************************* */
 
         // Les caractéristiques du jeu Elric
        
@@ -126,10 +197,16 @@ class EquipmentFixtures extends Fixture implements OrderedFixtureInterface
         }
         unset($a, $b, $c, $i);
 
-        $tabgamers = array($Carkan, $Tabita, $Bort);
+/************************************************************************************************* */
+/****************************               INITIALISATION DES PRETIRES ELRIC             ************************** */
+
+        $tabgamers = array($Carkan, $Tabita, $Bort, $Rathek, $Vreen, $Kevi);
         $tabcarkan = array("0", "0", "0", "0", "0", "15", "12", "14", "17", "16", "12", "11", "13");
         $tabtabita = array("0", "0", "0", "0", "0", "13", "16", "13", "15", "14", "18", "11", "15");
         $tabbort = array("0", "0", "0", "0", "0", "13", "14", "15", "14", "17", "13", "13", "15");
+        $tabrathek = array("0", "0", "0", "0", "0", "15", "15", "13", "16", "13", "15", "13", "14");
+        $tabvreen = array("0", "0", "0", "0", "0", "13", "14", "15", "15", "13", "15", "13", "15");
+        $tabkevi = array("0", "0", "0", "0", "0", "16", "12", "14", "13", "16", "15", "17", "13");
 
         $i = 0;
         foreach ($tabgamers as $key)
@@ -152,6 +229,15 @@ class EquipmentFixtures extends Fixture implements OrderedFixtureInterface
                     case 2:
                         $charactercharacteristic->setValeur($tabbort[$j]); 
                         break;
+                    case 3:
+                        $charactercharacteristic->setValeur($tabrathek[$j]); 
+                        break;
+                    case 4:
+                        $charactercharacteristic->setValeur($tabvreen[$j]); 
+                        break;
+                    case 5:
+                        $charactercharacteristic->setValeur($tabkevi[$j]); 
+                        break;
                 }            
                 
                 $j++;    
@@ -161,75 +247,7 @@ class EquipmentFixtures extends Fixture implements OrderedFixtureInterface
 
         }
 
-/************************************************************************************************* */
-
-
-        // Les Compétences de Carkan        
-        $skills = [
-            ["Artisanat", 1],
-            ["Déguisement", 1],
-            ["Évitement", 1],
-            ["Perception", 1],
-            ["Écoute", 1],
-            ["Monde naturel", 1],
-            ["Navigation", 1],
-            ["Autres langages (courant)", 1],
-            ["Langue maternelle", 1],
-            ["Premiers soins", 1],
-            ["Crochetage", 1],
-            ["Réparation et bricolage", 1],
-            ["Chevaucher", 1],
-            ["Naviguer", 1],
-            ["Écriture", 1],
-            ["Pistage", 1],
-            ["Piègeage", 1],
-        ];
-
-        $i = 0;
-        foreach ($skills as list($a, $b))
-        {
-            $skill = new Skill();
-            $skill->setName($a);
-            $skill->setBase($b); 
-            $tabskill[$i] = $skill;  
-            $i++;    
-            $manager->persist( $skill );
-        }
-        unset($a, $b, $i);
-
-        // Compétences + Valeur pour Carkan le jeune
-        $i = 0;
-        $skillvalue = array("45", "35", "24", "35", "50", "45", "30", "10", "85", "50", "15", "48", "75", "35", "20", "74", "25");
-        foreach ($tabskill as $value)
-        {
-            $characterskill = new CharacterSkill();
-            $characterskill->setIdCharacter($Carkan);
-            $characterskill->setIdSkill($value);       
-            $characterskill->setValeur($skillvalue[$i]);  
-            $i++;   
-            $manager->persist( $characterskill );   
-        }  
-        unset($i);
-
-
-/************************************************************************************************* */
-/************************************************************************************************************** */
-/************************************************************************************************** */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        // Les caractéristiques
+        // Les autres caractéristiques de Chaosium
        
         $characteristics = [           
             ["Agilité", "AGI", 50],
@@ -255,6 +273,161 @@ class EquipmentFixtures extends Fixture implements OrderedFixtureInterface
             $manager->persist( $characteristic );
         }
         unset($a, $b, $c);
+/************************************************************************************************* */
+/************************************************************************************************* */
+/************************************************************************************************* */
+
+
+        // Les Compétences du jeu Elric        
+        $skills = [
+            ["Esquive", 1],
+            ["Réparation et bricolage", 1],
+            ["Déguisement", 1],
+            ["Perception", 1],
+            ["Langue maternelle (courant)", 1],
+            ["Monde naturel", 1],
+            ["Chevaucher", 1],
+            ["Aperçu", 1],
+            ["Négociation", 1],
+            ["Parler vite", 1],
+            ["Art oratoire", 1],
+            ["Recherche", 1],
+            ["Crochetage", 1],
+            ["Cacher", 1],
+            ["Artisanat", 1],
+            ["Écoute", 1],
+            ["Navigation", 1],
+            ["Premiers soins", 1],
+            ["Naviguer", 1],
+            ["Écriture", 1],
+            ["Grimper", 1],
+            ["Dissimuler objet", 1],
+            ["Autres langages (Melnibonéan)", 1],
+            ["Autres langages (courant)", 1],
+            ["Langue maternelle (Mong)", 1],
+            ["Pistage", 1],
+            ["Piégeage", 1],
+            ["Art (Torture)", 1],
+            ["Saut", 1],
+            ["Déplacement discret", 1],
+            ["Flairer parfum", 1],
+            ["Nager", 1],
+            ["Lancer", 1],
+            ["Art (Courtoisie)", 1],
+            ["Jeune Royaume", 1],
+            ["Potions", 1],
+            ["Art (Conversation)", 1],
+        ];
+
+        $i = 0;
+        foreach ($skills as list($a, $b))
+        {
+            $skill = new Skill();
+            $skill->setName($a);
+            $skill->setBase($b); 
+            $tabskill[$i] = $skill;  
+            $i++;    
+            $manager->persist( $skill );
+        }
+        unset($a, $b, $i);
+
+
+/************************************************************************************************* */
+/****************************               INITIALISATION DES PRETIRES ELRIC             ************************** */
+
+$tabgamers = array($Carkan, $Tabita, $Bort, $Rathek, $Vreen, $Kevi);
+$tabcarkan = array("24", "48", "35", "35", "0", "45", "75", "0", "0", "0", "0", "0", "15", "0", "45", "50", "30", "50", "35", "20", "0", "0", "0", "10", "85", "74", "25", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0");
+$tabtabita = array("86", "72", "0", "0", "75", "0", "101", "55", "0", "0", "0", "0", "0", "0", "0", "45", "30", "0", "35", "0", "60", "0", "0", "0", "0", "0", "0", "35", "45", "50", "35", "45", "45", "0", "0", "0", "0");
+$tabbort = array("56", "52", "95", "35", "90", "45", "0", "35", "65", "95", "35", "40", "25", "40", "75", "0", "0", "0", "0", "0", "0", "75", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0");
+$tabrathek = array("30", "60", "35", "95", "90", "85", "55", "0", "95", "35", "25", "40", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "20", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "25", "25", "0", "0");
+$tabvreen = array("30", "60", "35", "35", "75", "45", "0", "95", "14", "65", "25", "40", "25", "40", "0", "0", "0", "101", "0", "20", "0", "45", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "69", "0");
+$tabkevi = array("30", "60", "95", "35", "85", "0", "55", "35", "35", "35", "25", "101", "0", "60", "0", "0", "0", "0", "0", "0", "89", "0", "20", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "25");
+
+$i = 0;
+foreach ($tabgamers as $key)
+{            
+    $j = 0;
+    foreach ($tabskill as $value)
+    {
+        
+        $characterskill = new CharacterSkill();
+        $characterskill->setIdCharacter($key);
+        $characterskill->setIdSkill($value);
+        $ok =  0;
+
+        switch ($i) {
+            case 0:
+                if( $tabcarkan[$j] != '0'){
+                    $characterskill->setValeur($tabcarkan[$j]); 
+                    $ok = 1;
+                }
+                break;
+            case 1:
+                if( $tabtabita[$j] != '0'){
+                    $characterskill->setValeur($tabtabita[$j]); 
+                    $ok = 1;
+                }
+                break;
+            case 2:
+                if( $tabbort[$j] != '0'){
+                    $characterskill->setValeur($tabbort[$j]); 
+                    $ok = 1;
+                }                
+                break;
+            case 3:
+                if( $tabrathek[$j] != '0'){
+                    $characterskill->setValeur($tabrathek[$j]); 
+                    $ok = 1;
+                }     
+                break;
+            case 4:
+                if( $tabvreen[$j] != '0'){
+                    $characterskill->setValeur($tabvreen[$j]); 
+                    $ok = 1;
+                }    
+                break;
+            case 5:
+                if( $tabkevi[$j] != '0'){
+                    $characterskill->setValeur($tabkevi[$j]); 
+                    $ok = 1;
+                } 
+                break;
+        }            
+    
+        $j++;    
+        if( $ok == 1){
+            $manager->persist( $characterskill );
+        }
+    }
+    $i++;
+
+}
+
+/*        // Compétences + Valeur pour Carkan le jeune
+        $i = 0;
+        $skillvalue = array("45", "35", "24", "35", "50", "45", "30", "10", "85", "50", "15", "48", "75", "35", "20", "74", "25");
+        foreach ($tabskill as $value)
+        {
+            $characterskill = new CharacterSkill();
+            $characterskill->setIdCharacter($Carkan);
+            $characterskill->setIdSkill($value);       
+            $characterskill->setValeur($skillvalue[$i]);  
+            $i++;   
+            $manager->persist( $characterskill );   
+        }  
+        unset($i);
+
+
+/************************************************************************************************* */
+/************************************************************************************************************** */
+/************************************************************************************************** */
+
+
+
+
+
+
+
 
         // Les spécialités
 
@@ -350,31 +523,6 @@ class EquipmentFixtures extends Fixture implements OrderedFixtureInterface
             $manager->persist( $equipment[$z] );
         }
         unset($a, $b, $c);
-
-
-        // Compétences        
-        $skills = [
-            ["Alphabétisation", 50],
-            ["Art", 10],
-            ["Artillerie", 20],
-            ["Bagarre", 30],
-            ["Camouflage", 20],
-            ["Discrétion", 10],
-            ["Escalade", 20],
-            ["Marchandage", 50],
-            ["Natation", 20],
-        ];
-
-        foreach ($skills as list($a, $b))
-        {
-            $skill = new Skill();
-            $skill->setName($a);
-            $skill->setBase($b);       
-
-            $manager->persist( $skill );
-        }
-        unset($a, $b);
-
 
         $manager->flush();
     }
