@@ -1,17 +1,14 @@
 JitsiMeetJS.init();
 
-var connection = new JitsiMeetJS.JitsiConnection(null, null, options);
-connection.addEventListener(JitsiMeetJS.events.connection.CONNECTION_ESTABLISHED, onConnectionSuccess);
-connection.addEventListener(JitsiMeetJS.events.connection.CONNECTION_FAILED, onConnectionFailed);
-connection.addEventListener(JitsiMeetJS.events.connection.CONNECTION_DISCONNECTED, disconnect);
+const domain = 'meet.jit.si';
+const options = {
+    roomName: 'adndd',
+    width: '100%',
+    height: 700,
+    parentNode: meet,
+    configOverwrite: {},
+    interfaceConfigOverwrite: {}
+};
 
-connection.connect();
+const api = new JitsiMeetExternalAPI(domain, options);
 
-
-room = connection.initJitsiConference("adndd", confOptions);
-room.on(JitsiMeetJS.events.conference.TRACK_ADDED, onRemoteTrack);
-room.on(JitsiMeetJS.events.conference.CONFERENCE_JOINED, onConferenceJoined);
-
-JitsiMeetJS.createLocalTracks().then(onLocalTracks);
-
-room.join();

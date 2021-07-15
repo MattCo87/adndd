@@ -35,7 +35,19 @@ class PlayController extends AbstractController
         $session = $request->getSession();
         $session->set('headerMode', 'transparent');
         $session->set('mainMode', 'noshadow wide tableView');
-  
+
         return $this->render('play/table.html.twig');
+    }
+
+    /**
+     * @Route("/jitsi", name="jitsi")
+     */
+    public function jitsi(Request $request): Response
+    {
+        $session = $request->getSession();
+        $session->set('headerMode', 'transparent');
+        $session->set('mainMode', 'noshadow wide tableView');
+  
+        return $this->render('play/jitsi.html.twig');
     }
 }

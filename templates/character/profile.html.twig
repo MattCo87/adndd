@@ -1,10 +1,10 @@
 <div class="sheet-slide sheet-slide-grid-wrapper">
-	
-    <div class="sheet-slide-title">
+
+	<div class="sheet-slide-title">
 		<h1>profil</h1>
 	</div>
-	
-    <div id="profil-infos" class="sheet-slide-section sheet-section-grid-profil bevel">
+
+	<div id="profil-infos" class="sheet-slide-section sheet-section-grid-profil bevel">
 
 		<div class="sheet-slide-section-bloc profil-1-item1">
 
@@ -13,45 +13,126 @@
 			</div>
 
 			<div class="bloc-grid">
+				<div class="bloc-content">
+					{{ form_label(sheetprofileform.force, "FOR", {'label_attr': {'class': 'sheetLabels'}}) }}
+					{{ form_widget(sheetprofileform.force, {'attr': {'class': 'sheetInputs'}}) }}
+					{{ form_errors(sheetprofileform.force) }}
+
+					{{ form_label(sheetprofileform.concentration, "CON", {'label_attr': {'class': 'sheetLabels'}}) }}
+					{{ form_widget(sheetprofileform.concentration, {'attr': {'class': 'sheetInputs'}}) }}
+					{{ form_errors(sheetprofileform.concentration) }}
+
+					{{ form_label(sheetprofileform.taille, "TAI", {'label_attr': {'class': 'sheetLabels'}}) }}
+					{{ form_widget(sheetprofileform.taille, {'attr': {'class': 'sheetInputs'}}) }}
+					{{ form_errors(sheetprofileform.taille) }}
+
+					{{ form_label(sheetprofileform.intelligence, "INT", {'label_attr': {'class': 'sheetLabels'}}) }}
+					{{ form_widget(sheetprofileform.intelligence, {'attr': {'class': 'sheetInputs'}}) }}
+					{{ form_errors(sheetprofileform.intelligence) }}
+
+					{{ form_label(sheetprofileform.pouvoir, "POU", {'label_attr': {'class': 'sheetLabels'}}) }}
+					{{ form_widget(sheetprofileform.pouvoir, {'attr': {'class': 'sheetInputs'}}) }}
+					{{ form_errors(sheetprofileform.pouvoir) }}
+
+					{{ form_label(sheetprofileform.dexterite, "DEX", {'label_attr': {'class': 'sheetLabels'}}) }}
+					{{ form_widget(sheetprofileform.dexterite, {'attr': {'class': 'sheetInputs'}}) }}
+					{{ form_errors(sheetprofileform.dexterite) }}
+
+					{{ form_label(sheetprofileform.apparence, "APP", {'label_attr': {'class': 'sheetLabels'}}) }}
+					{{ form_widget(sheetprofileform.apparence, {'attr': {'class': 'sheetInputs'}}) }}
+					{{ form_errors(sheetprofileform.apparence) }}
+				</div>
+
+				<!--
+												
+																<table class="bloc-content">
+																	<tr>
+																		<td>
+																			FOR
+																		</td>
+																		<td>________
+																		</td>
+																	</tr>
+																	<tr>
+																		<td>
+																			CON
+																		</td>
+																		<td>________
+																		</td>
+																	</tr>
+																	<tr>
+																		<td>
+																			TAI
+																		</td>
+																		<td>________
+																		</td>
+																	</tr>
+																	<tr>
+																		<td>
+																			INT
+																		</td>
+																		<td>________
+																		</td>
+																	</tr>
+																	<tr>
+																		<td>
+																			POU
+																		</td>
+																		<td>________
+																		</td>
+																	</tr>
+																	<tr>
+																		<td>
+																			DEX
+																		</td>
+																		<td>________
+																		</td>
+																	</tr>
+																	<tr>
+																		<td>
+																			APP
+																		</td>
+																		<td>________
+																		</td>
+																	</tr>
+																</table>
+																-->
 				<table class="bloc-content">
-					<tr><td>
-						FOR </td><td>________
-					</td></tr>
-					<tr><td>
-						CON </td><td>________
-					</td></tr>
-					<tr><td>
-						TAI </td><td>________
-					</td></tr>
-					<tr><td>
-						INT </td><td>________
-					</td></tr>
-					<tr><td>
-						POU </td><td>________
-					</td></tr>
-					<tr><td>
-						DEX </td><td>________
-					</td></tr>
-					<tr><td>
-						APP </td><td>________
-					</td></tr>
-				</table>
-				<table class="bloc-content">
-					<tr><td>
-						Modif. aux Dégâts </td><td>________
-					</td></tr>
-					<tr><td>
-						Idée </td><td>________ %
-					</td></tr>
-					<tr><td>
-						Chance </td><td>________ %
-					</td></tr>
-					<tr><td>
-						Dextérité </td><td>________ %
-					</td></tr>
-					<tr><td>
-						Charisme </td><td>________ %
-					</td></tr>
+					<tr>
+						<td>
+							Modif. aux Dégâts
+						</td>
+						<td>________
+						</td>
+					</tr>
+					<tr>
+						<td>
+							Idée
+						</td>
+						<td>________ %
+						</td>
+					</tr>
+					<tr>
+						<td>
+							Chance
+						</td>
+						<td>________ %
+						</td>
+					</tr>
+					<tr>
+						<td>
+							Dextérité
+						</td>
+						<td>________ %
+						</td>
+					</tr>
+					<tr>
+						<td>
+							Charisme
+						</td>
+						<td>________ %
+						</td>
+					</tr>
 				</table>
 			</div>
 
@@ -69,6 +150,7 @@
 
 			<div class="sheet-avatar"></div>
 
+
 		</div>
 
 		<div class="sheet-slide-section-bloc profil-2-item2">
@@ -77,26 +159,39 @@
 				<h2>Identité</h2>
 			</div>
 
-			<ul class="bloc-content">
-				<li>
-					Nom ________
-				</li>
-				<li>
-					Lieu de naissance ________
-				</li>
-				<li>
-					Sexe ________
-				</li>
-				<li>
-					Âge ________
-				</li>
-				<li>
-					Allure, Attitude __________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
-				</li>
-			</ul>
+			{{ form_start(sheetprofileform, { 'attr' : { 'class': 'bloc-content' } }) }}
+			{{ form_errors(sheetprofileform) }}
+
+			{{ form_label(sheetprofileform.name, "Nom", {'label_attr': {'class': 'sheetLabels'}}) }}
+			{{ form_widget(sheetprofileform.name, {'attr': {'class': 'sheetInputs'}}) }}
+			{{ form_errors(sheetprofileform.name) }}
+
+			{{ form_label(sheetprofileform.birthplace, "Lieu de naissance", {'label_attr': {'class': 'sheetLabels'}}) }}
+			{{ form_widget(sheetprofileform.birthplace, {'attr': {'class': 'sheetInputs'}}) }}
+			{{ form_errors(sheetprofileform.birthplace) }}
+
+			{{ form_label(sheetprofileform.gender, "Sexe", {'label_attr': {'class': 'sheetLabels'}}) }}
+			{{ form_widget(sheetprofileform.gender, {'attr': {'class': 'sheetInputs'}}) }}
+			{{ form_errors(sheetprofileform.gender) }}
+
+			{{ form_label(sheetprofileform.age, "Âge", {'label_attr': {'class': 'sheetLabels'}}) }}
+			{{ form_widget(sheetprofileform.age, {'attr': {'class': 'sheetInputs'}}) }}
+			{{ form_errors(sheetprofileform.age) }}
+
+			{{ form_label(sheetprofileform.description, "Allure, attitude", {'label_attr': {'class': 'sheetLabels'}}) }}
+			{{ form_widget(sheetprofileform.description, {'attr': {'class': 'sheetInputs'}}) }}
+			{{ form_errors(sheetprofileform.description) }}
+
+			{{ form_label(sheetprofileform.avatar, "Avatar", {'label_attr': {'class': 'sheetLabels'}}) }}
+			{{ form_widget(sheetprofileform.avatar, {'attr': {'class': 'sheetInputs'}}) }}
+			{{ form_errors(sheetprofileform.avatar) }}
+
+			{#					{{ form_widget(sheetprofileform.submit, {'label': 'Créer', 'attr': {'class': 'app-button cta editButton'}}) }}  #}
+			{{ form_end(sheetprofileform) }}
 
 		</div>
 
+
 	</div>
-    
+
 </div>

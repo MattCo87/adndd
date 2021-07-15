@@ -48,8 +48,51 @@
                 list-style: none;
                 background-color: #6b5036;
                 border-radius: 20px;
-                box-shadow: inset 0px 0px 4px 4px rgba(0,0,0, 0.86);
+                box-shadow: inset 0px 0px 4px 4px rgba(0, 0, 0, 0.86);
                 overflow: hidden;
+                display: grid;
+                grid-template-rows: auto;
+                gap: 10px;
+                grid-template-columns: repeat(2, 1fr);
+                @include respond(mobile-horizontal) {
+                    grid-template-columns: repeat(12, 1fr);
+                }
+
+                & .sheetLabels {
+                    grid-column: 1/3;
+                    grid-row: auto;
+                    @include respond(mobile-horizontal) {
+                        grid-column: 1/5;
+                    }
+                }
+
+                & .sheetInputs {
+                    grid-column: 1/3;
+                    grid-row: auto;
+                    @include respond(mobile-horizontal) {
+                        grid-column: 5/13;
+                    }
+                }
+
+                textarea.sheetInputs {
+                    resize: vertical;
+                }
+
+                input[type="number"] {
+                    max-width: 50px;
+                    justify-self: center;
+                    @include respond(mobile-horizontal) {
+                        justify-self: revert;
+                    }
+                }
+
+                input[type="file"] {
+                    margin-top: 5px;
+                }
+
+                & ul {
+                    list-style: none;
+                }
 
                 & tr,
                 & td {
@@ -59,15 +102,15 @@
                     display: block;
                     @include respond(mobile-horizontal) {
                         // ici, remettre le style display:table-cell par défaut ne fonctionne pas!
-                        display: revert; 
+                        display: revert;
                     }
-                }            
+                }
             }
 
             .sheet-avatar {
                 background-color: #6b5036;
                 border-radius: 20px;
-                box-shadow: inset 0px 0px 4px 4px rgba(0,0,0, 0.86);
+                box-shadow: inset 0px 0px 4px 4px rgba(0, 0, 0, 0.86);
                 max-height: 20rem;
                 width: 10rem;
                 height: 10rem;
