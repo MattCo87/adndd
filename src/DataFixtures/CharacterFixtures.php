@@ -48,7 +48,7 @@ class CharacterFixtures
         ->setOccupation('glander à la taverne')
         ->setStory('À vécu un temps en Provence avant de revenir dans son pays natal gallois afin d\'y pratiquer ses jeux favoris comme le cul hibou')
         ->setNotes('J\'ai oublié mes parchemin à la taverne')
-        ->setIsPremade(true);
+        ->setIsPremade(false);
         $manager->persist( $character );
 
         $character2 = new Character();
@@ -65,7 +65,7 @@ class CharacterFixtures
         ->setOccupation('aime lire')
         ->setStory('Elric est le fils unique de Sadric LXXXVI et de sa femme qui est morte des suites de la naissance d\'Elric. ')
         ->setNotes('Possède une épée plutôt classe')
-        ->setIsPremade(true)
+        ->setIsPremade(false)
         ->setLoyalty('loi')
         ->setHomeplace('Marbella')
         ->setNamesTitlesSurname('Le grand albinos, Empereur, Rico')
@@ -73,10 +73,6 @@ class CharacterFixtures
         ->setRelatives('Sadric LXXXVI, Yyrkoon, Cymoril')
         ->setEnemies('Yyrkoon');
         $manager->persist( $character2 );
-
-        $Carkan = new Character();
-
-
 
         $manager->flush();
     }
