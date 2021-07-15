@@ -4,6 +4,60 @@
 		<h1>profil</h1>
 	</div>
 
+	<div id="profil-pic" class="sheet-slide-section sheet-section-grid-profil bevel">
+
+		<div class="sheet-slide-section-bloc profil-2-item1">
+
+			<div class="sheet-slide-section-bloc-name">
+				<h2>Emblême / Portrait</h2>
+			</div>
+
+			<div class="sheet-avatar"></div>
+
+
+		</div>
+
+		<div class="sheet-slide-section-bloc profil-2-item2">
+
+			<div class="sheet-slide-section-bloc-name">
+				<h2>Identité</h2>
+			</div>
+
+			{{ form_start(sheetprofileform, { 'attr' : { 'class': 'bloc-content' } }) }}
+			{{ form_errors(sheetprofileform) }}
+
+			{{ form_label(sheetprofileform.name, "Nom", {'label_attr': {'class': 'sheetLabels'}}) }}
+			{{ form_widget(sheetprofileform.name, {'attr': {'class': 'sheetInputs'}}) }}
+			{{ form_errors(sheetprofileform.name) }}
+
+			{{ form_label(sheetprofileform.birthplace, "Lieu de naissance", {'label_attr': {'class': 'sheetLabels'}}) }}
+			{{ form_widget(sheetprofileform.birthplace, {'attr': {'class': 'sheetInputs'}}) }}
+			{{ form_errors(sheetprofileform.birthplace) }}
+
+			{{ form_label(sheetprofileform.gender, "Sexe", {'label_attr': {'class': 'sheetLabels'}}) }}
+			{{ form_widget(sheetprofileform.gender, {'attr': {'class': 'sheetInputs'}}) }}
+			{{ form_errors(sheetprofileform.gender) }}
+
+			{{ form_label(sheetprofileform.age, "Âge", {'label_attr': {'class': 'sheetLabels'}}) }}
+			{{ form_widget(sheetprofileform.age, {'attr': {'class': 'sheetInputs'}}) }}
+			{{ form_errors(sheetprofileform.age) }}
+
+			{{ form_label(sheetprofileform.description, "Allure, attitude", {'label_attr': {'class': 'sheetLabels'}}) }}
+			{{ form_widget(sheetprofileform.description, {'attr': {'class': 'sheetInputs'}}) }}
+			{{ form_errors(sheetprofileform.description) }}
+
+			{{ form_label(sheetprofileform.avatar, "Avatar", {'label_attr': {'class': 'sheetLabels'}}) }}
+			{{ form_widget(sheetprofileform.avatar, {'attr': {'class': 'sheetInputs'}}) }}
+			{{ form_errors(sheetprofileform.avatar) }}
+
+			{#					{{ form_widget(sheetprofileform.submit, {'label': 'Créer', 'attr': {'class': 'app-button cta editButton'}}) }}  #}
+
+		</div>
+
+
+	</div>
+
+
 	<div id="profil-infos" class="sheet-slide-section sheet-section-grid-profil bevel">
 
 		<div class="sheet-slide-section-bloc profil-1-item1">
@@ -137,61 +191,9 @@
 			</div>
 
 		</div>
-
-	</div>
-
-	<div id="profil-pic" class="sheet-slide-section sheet-section-grid-profil bevel">
-
-		<div class="sheet-slide-section-bloc profil-2-item1">
-
-			<div class="sheet-slide-section-bloc-name">
-				<h2>Emblême / Portrait</h2>
-			</div>
-
-			<div class="sheet-avatar"></div>
-
-
-		</div>
-
-		<div class="sheet-slide-section-bloc profil-2-item2">
-
-			<div class="sheet-slide-section-bloc-name">
-				<h2>Identité</h2>
-			</div>
-
-			{{ form_start(sheetprofileform, { 'attr' : { 'class': 'bloc-content' } }) }}
-			{{ form_errors(sheetprofileform) }}
-
-			{{ form_label(sheetprofileform.name, "Nom", {'label_attr': {'class': 'sheetLabels'}}) }}
-			{{ form_widget(sheetprofileform.name, {'attr': {'class': 'sheetInputs'}}) }}
-			{{ form_errors(sheetprofileform.name) }}
-
-			{{ form_label(sheetprofileform.birthplace, "Lieu de naissance", {'label_attr': {'class': 'sheetLabels'}}) }}
-			{{ form_widget(sheetprofileform.birthplace, {'attr': {'class': 'sheetInputs'}}) }}
-			{{ form_errors(sheetprofileform.birthplace) }}
-
-			{{ form_label(sheetprofileform.gender, "Sexe", {'label_attr': {'class': 'sheetLabels'}}) }}
-			{{ form_widget(sheetprofileform.gender, {'attr': {'class': 'sheetInputs'}}) }}
-			{{ form_errors(sheetprofileform.gender) }}
-
-			{{ form_label(sheetprofileform.age, "Âge", {'label_attr': {'class': 'sheetLabels'}}) }}
-			{{ form_widget(sheetprofileform.age, {'attr': {'class': 'sheetInputs'}}) }}
-			{{ form_errors(sheetprofileform.age) }}
-
-			{{ form_label(sheetprofileform.description, "Allure, attitude", {'label_attr': {'class': 'sheetLabels'}}) }}
-			{{ form_widget(sheetprofileform.description, {'attr': {'class': 'sheetInputs'}}) }}
-			{{ form_errors(sheetprofileform.description) }}
-
-			{{ form_label(sheetprofileform.avatar, "Avatar", {'label_attr': {'class': 'sheetLabels'}}) }}
-			{{ form_widget(sheetprofileform.avatar, {'attr': {'class': 'sheetInputs'}}) }}
-			{{ form_errors(sheetprofileform.avatar) }}
-
-			{#					{{ form_widget(sheetprofileform.submit, {'label': 'Créer', 'attr': {'class': 'app-button cta editButton'}}) }}  #}
 			{{ form_end(sheetprofileform) }}
 
-		</div>
-
-
 	</div>
+
 
 </div>
