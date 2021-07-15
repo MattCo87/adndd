@@ -53,6 +53,10 @@ class SheetController extends AbstractController
                 $character->setAvatar($newFilename);
             }
 
+            // Try to get characts
+           dd($request->request->getData());
+
+
             // ... persist the $game variable or any other work
             $entityManager->persist($character);
             $entityManager->flush();

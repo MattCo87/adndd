@@ -43,19 +43,15 @@ class SheetProfileType extends AbstractType
                     ])
                 ]
             ])
-
             ->add('name', TextType::class, [
                 'label' => 'Nom'
             ])
-            
             ->add('gender', TextType::class, [
                 'label' => 'Sexe'
             ])
-
             ->add('description', TextareaType::class, [
                 'label' => 'Allure, attitude'
             ])
-
             ->add('age', IntegerType::class, [
                 'label' => 'Âge',
                 'scale' => 2,
@@ -64,44 +60,40 @@ class SheetProfileType extends AbstractType
                     'min' => 1,
                 ),
             ])
-
             ->add('birthplace', TextType::class, [
                 'label' => 'Lieu de naissance'
             ])
-
             ->add('force', TextType::class, [
-                'label' => 'FOR'
+                'label' => 'FOR',
+                'mapped' => false,
             ])
- 
             ->add('concentration', TextType::class, [
-                'label' => 'CON'
+                'label' => 'CON',
+                'mapped' => false,
             ])
- 
             ->add('taille', TextType::class, [
-                'label' => 'TAI'
+                'label' => 'TAI',
+                'mapped' => false,
             ])
- 
             ->add('intelligence', TextType::class, [
-                'label' => 'INT'
+                'label' => 'INT',
+                'mapped' => false,
             ])
- 
             ->add('pouvoir', TextType::class, [
-                'label' => 'POU'
+                'label' => 'POU',
+                'mapped' => false,
             ])
- 
             ->add('dexterite', TextType::class, [
-                'label' => 'DEX'
+                'label' => 'DEX',
+                'mapped' => false,
             ])
- 
             ->add('apparence', TextType::class, [
-                'label' => 'APP'
+                'label' => 'APP',
+                'mapped' => false,
             ])
- 
-
-//            ->add('submit', SubmitType::class, [
-  //              'label' => 'Créer',
-  //          ])
-        ;
+            ->add('submit', SubmitType::class, [
+                'label' => 'Créer',
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

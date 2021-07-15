@@ -169,29 +169,30 @@ $manager->persist( $Kevi );
         // Les caractéristiques du jeu Elric
        
         $elriccharacteristics = [
-            ["Modificateur aux dégâts", "DMG", 0],
-            ["Jet d'Idée", "JIDE", 0],
-            ["Jet de Chance", "JLUCK", 0],
-            ["Jet de Charisme", "JCHAR", 0],
-            ["Jet de Dexterité", "JDEX", 0],
-            ["Force", "FOR", 1],
-            ["Constitution", "CON", 1],
-            ["Taille", "TAI", 1],
-            ["Intelligence", "INT", 1],
-            ["Pouvoir", "POU", 1],
-            ["Dexterité", "DEX", 1],
-            ["Apparence", "APP", 1],
-            ["Point de vie", "HP", 1],
+            ["Modificateur aux dégâts", "DMG", 0, null],
+            ["Jet d'Idée", "JIDE", 0, null],
+            ["Jet de Chance", "JLUCK", 0, null],
+            ["Jet de Charisme", "JCHAR", 0, null],
+            ["Jet de Dexterité", "JDEX", 0, null],
+            ["Force", "FOR", 1, 'characteristic'],
+            ["Constitution", "CON", 1, 'characteristic'],
+            ["Taille", "TAI", 1, 'characteristic'],
+            ["Intelligence", "INT", 1, 'characteristic'],
+            ["Pouvoir", "POU", 1, 'characteristic'],
+            ["Dexterité", "DEX", 1, 'characteristic'],
+            ["Apparence", "APP", 1, 'characteristic'],
+            ["Point de vie", "HP", 1, null],
         ];
 
         $i = 0;
-        foreach ($elriccharacteristics as list($a, $b, $c))
+        foreach ($elriccharacteristics as list($a, $b, $c, $d))
         {
             $characteristic = new Characteristic();
             $characteristic->setName($a);
             $characteristic->setShortName($b); 
-            $characteristic->setBase($c); 
-            $tabcharacteristic[$i] = $characteristic;      
+            $characteristic->setBase($c);
+            $characteristic->setType($d);
+            $tabcharacteristic[$i] = $characteristic;
             $manager->persist( $characteristic );
             $i++;
         }

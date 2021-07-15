@@ -39,6 +39,11 @@ class Characteristic
      */
     private $characterCharacteristics;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $type;
+
     public function __construct()
     {
         $this->characterCharacteristics = new ArrayCollection();
@@ -112,6 +117,18 @@ class Characteristic
                 $characterCharacteristic->setIdCharacteristic(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getType(): ?string
+    {
+        return $this->type;
+    }
+
+    public function setType(?string $type): self
+    {
+        $this->type = $type;
 
         return $this;
     }
