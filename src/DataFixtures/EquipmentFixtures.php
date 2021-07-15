@@ -2,9 +2,12 @@
 namespace App\DataFixtures;
 
 use App\Entity\Specialty;
+use App\Entity\Character;
+use App\Entity\CharacterSkill;
 use App\Entity\Equipmenttype;
 use App\Entity\Equipment;
 use App\Entity\Skill;
+
 
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
@@ -36,6 +39,7 @@ class EquipmentFixtures extends Fixture implements OrderedFixtureInterface
                             'Cowboy',
                             'Agriculteur',
                             'Mousquetaire',
+                            'Marin'
                             );
         $i = 0;        
         foreach ($specialties as &$value) {
@@ -127,6 +131,10 @@ class EquipmentFixtures extends Fixture implements OrderedFixtureInterface
             ["Collier", 25, "1D3 + MD", 1, 50, 10, 20, 5, $specialty[7], $equipmenttype[17]],
             ["Mortier", 25, "1D3 + MD", 1, 50, 10, 20, 5, $specialty[6], $equipmenttype[10]],
             ["Matraque télescopique", 25, "1D3 + MD", 1, 50, 10, 20, 5, $specialty[3], $equipmenttype[8]],
+            ["Broadsword", 106, "1D8 + 1 + 1D4", 1, 20, 2, 1, null, $specialty[19], $equipmenttype[3]],
+            ["Full Shield", 65, "kb + 1D4 + 1D4", 1, 22, 1, 1, null, $specialty[19], $equipmenttype[14]],
+            ["Armor Carkan", 100, "1D8 +2", null, null, null, null, null, $specialty[19], $equipmenttype[12]],
+            ["None", 100, null, null, null, null, null, null, $specialty[19], $equipmenttype[12]],
         ];
 
         $z = 0;  
@@ -151,27 +159,26 @@ class EquipmentFixtures extends Fixture implements OrderedFixtureInterface
 
         // Compétences        
         $skills = [
-            ["Alphabétisation", 50, $equipment[41]],
-            ["Art", 10, $equipment[17]],
-            ["Artillerie", 20, $equipment[6]],
-            ["Artisanat", 50, $equipment[44]],
-            ["Bagarre", 30, $equipment[1]],
-            ["Camouflage", 20, $equipment[41]],
-            ["Discrétion", 10, $equipment[42]],
-            ["Escalade", 20, $equipment[17]],
-            ["Marchandage", 50, $equipment[44]],
-            ["Natation", 20, $equipment[42]],
+            ["Alphabétisation", 50],
+            ["Art", 10],
+            ["Artillerie", 20],
+            ["Bagarre", 30],
+            ["Camouflage", 20],
+            ["Discrétion", 10],
+            ["Escalade", 20],
+            ["Marchandage", 50],
+            ["Natation", 20],
         ];
 
-        foreach ($skills as list($a, $b, $c))
+        foreach ($skills as list($a, $b))
         {
             $skill = new Skill();
             $skill->setName($a);
             $skill->setBase($b);       
-            $skill->addEquipment($c);     
+
             $manager->persist( $skill );
         }
-        unset($a, $b, $c);
+        unset($a, $b);
 
         $manager->flush();
     }

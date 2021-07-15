@@ -74,6 +74,10 @@ class CharacterFixtures
         ->setEnemies('Yyrkoon');
         $manager->persist( $character2 );
 
+        $Carkan = new Character();
+
+
+
         $manager->flush();
     }
 

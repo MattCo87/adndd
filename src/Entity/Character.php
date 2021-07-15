@@ -150,6 +150,11 @@ class Character
      */
     private $characterSpells;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $purse;
+
     public function __construct()
     {
         $this->scenario = new ArrayCollection();
@@ -537,6 +542,18 @@ class Character
                 $characterSkill->setIdCharacter(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getPurse(): ?int
+    {
+        return $this->purse;
+    }
+
+    public function setPurse(?int $purse): self
+    {
+        $this->purse = $purse;
 
         return $this;
     }
